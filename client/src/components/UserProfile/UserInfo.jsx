@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import userData from '../../../../database/userData/json/dummyUser1.json';
+import Avatar, { genConfig } from 'react-nice-avatar';
+
+const config = genConfig('AvatarConfig?')
 
 const UserInfo = () => {
   const [user, setUser] = useState(userData);
@@ -23,8 +26,9 @@ const UserInfo = () => {
   return (
     <UserContainer>
       <InfoView>
-        <Avatar>
-        </Avatar>
+        <UserAv>
+          <Avatar style={{ width: '8rem', height: '8rem' }} {...config} />
+        </UserAv>
         <InfoContainer>
           <Info>
             Name: {user.userName}
@@ -60,9 +64,10 @@ const InfoView = styled.div`
   height: 250px; `
 
 
-const Avatar = styled.div`
+const UserAv = styled.div`
+  display: flex;
+  justify-content: center;
   position: relative;
-  border: 1px solid blue;
   border-radius: 20%;
   width: 25%;
   margin: 2%;
