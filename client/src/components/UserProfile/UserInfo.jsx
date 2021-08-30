@@ -39,8 +39,6 @@ const UserInfo = () => {
     })
   }
 
-  console.log(user);
-
   return (
     <UserContainer>
       <InfoView>
