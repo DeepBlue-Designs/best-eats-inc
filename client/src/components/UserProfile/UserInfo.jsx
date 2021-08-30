@@ -1,17 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import Modal from 'react-modal';
 import styled from 'styled-components';
 import userData from '../../../../database/userData/json/dummyUser1.json';
 import Avatar, { genConfig } from 'react-nice-avatar';
 import { FaEdit } from 'react-icons/fa';
 
 const config = genConfig('AvatarConfig?')
+Modal.setAppElement('#app');
 
 const UserInfo = () => {
   const [user, setUser] = useState(userData);
+  const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // axios.get('/userData')
+    // axios.get('/userdata')
     //   .then((response) => {
     //     setUser(response.data)
     //   })
@@ -20,9 +23,23 @@ const UserInfo = () => {
     //   })
   }, [])
 
-  const editInfo = () => {
-    alert('You can edit user info soon')
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setIsOpen(false);
+
+    // axios.post('/userdata', user)
+    //   .then((res) => console.log('successful user update'))
+    //   .catch((err) => console.log('user update failed', err))
   }
+
+  const handleChange = (event) => {
+    setUser({
+      ...user,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  console.log(user);
 
   return (
     <UserContainer>
@@ -33,16 +50,26 @@ const UserInfo = () => {
         <InfoContainer>
           <div>
             <Info>
-              Name: {user.userName} <br /><br />
+              Username: {user.userName} <br /><br />
               Email: {user.email} <br /><br />
               Shipping Address: {user.address} <br /><br />
-              Health Metrics:
+              Health Metrics: {user.healthMetrics ? user.healthMetrics : null}
             </Info>
           </div>
           <div>
-            <button onClick={editInfo}>
-              <FaEdit />
-            </button>
+            <button onClick={() => setIsOpen(true)}><FaEdit /></button>
+            <Modal
+              isOpen={modalIsOpen}
+              onRequestClose={() => setIsOpen(false)}>
+                <form onSubmit={handleSubmit}>
+                  <input type="text" name="userName" placeholder="User Name" onChange={handleChange}  />
+                  <input type="text" name="email" placeholder="Email" onChange={handleChange} />
+                  <input type="text" name="address" placeholder="Shipping address" onChange={handleChange} />
+                  <input type="text" name="healthMetrics" placeholder="Health Metrics" onChange={handleChange} value={user.healthMetrics ? user.healthMetrics : ''}/>
+                  <input type="submit" value="Submit" />
+                  <button onClick={() => setIsOpen(false)}>Cancel</button>
+                </form>
+            </Modal>
           </div>
         </InfoContainer>
       </InfoView>
