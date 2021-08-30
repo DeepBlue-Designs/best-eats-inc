@@ -1,9 +1,25 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
 import styled from 'styled-components';
 import userData from '../../../../database/userData/json/dummyUser1.json';
 
 const UserInfo = () => {
-  console.log(userData);
+  const [user, setUser] = useState(userData);
+
+  useEffect(() => {
+    // axios.get('/userData')
+    //   .then((response) => {
+    //     setUser(response.data)
+    //   })
+    //   .catch((err) => {
+    //     console.log('setUser did not work', err)
+    //   })
+  }, [])
+
+
+
+
+
   return (
     <UserContainer>
       <InfoView>
@@ -11,11 +27,11 @@ const UserInfo = () => {
         </Avatar>
         <InfoContainer>
           <Info>
-            Name: {userData.userName}
+            Name: {user.userName}
             <br />
-            Email: {userData.email}
+            Email: {user.email}
             <br />
-            Shipping Address: {userData.address}
+            Shipping Address: {user.address}
             <br />
             Health Metrics:
           </Info>
@@ -50,13 +66,11 @@ const Avatar = styled.div`
   border-radius: 20%;
   width: 25%;
   margin: 2%;
-  /* height: 80%;  */
   `
 
 const InfoContainer = styled.span`
   margin: 2%;
   border: 1px solid black; `
-  /* justify-content: space-between;` */
 
 const Info = styled.span`
   font-family: Tahoma;
@@ -65,7 +79,6 @@ const Info = styled.span`
   const ButtonContainer = styled.div`
     margin: 2%;
     position: relative;
-    /* align-items: center; */
     justify-content: center;
     border: 1px solid pink;`
 
