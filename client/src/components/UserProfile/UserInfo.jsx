@@ -20,7 +20,9 @@ const UserInfo = () => {
     //   })
   }, [])
 
-
+  const editInfo = () => {
+    alert('You can edit user info soon')
+  }
 
   return (
     <UserContainer>
@@ -31,17 +33,14 @@ const UserInfo = () => {
         <InfoContainer>
           <div>
             <Info>
-              Name: {user.userName}
-              <br />
-              Email: {user.email}
-              <br />
-              Shipping Address: {user.address}
-              <br />
+              Name: {user.userName} <br /><br />
+              Email: {user.email} <br /><br />
+              Shipping Address: {user.address} <br /><br />
               Health Metrics:
             </Info>
           </div>
           <div>
-            <button>
+            <button onClick={editInfo}>
               <FaEdit />
             </button>
           </div>
@@ -63,9 +62,6 @@ const UserContainer = styled.div`
   height: 500px;
   border: 2px solid green; `
 
-
-
-
 const UserAv = styled.div`
   display: flex;
   justify-content: center;
@@ -80,19 +76,23 @@ border: 1px solid red;
 flex-direction: row;
 height: 250px; `
 
-const InfoContainer = styled.span`
+const InfoContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 2%;
   border: 1px solid black; `
 
-const Info = styled.span`
+const Info = styled.p`
+  margin-top: 4%;
+  border: 1px solid yellow;
   font-family: Tahoma;
-  font-size: 12px; `
+  font-weight: 400;
+  font-size: 16px;
+  `
 
-  const ButtonContainer = styled.div`
-    margin: 2%;
-    position: relative;
-    justify-content: center;
-    border: 1px solid pink;`
+const ButtonContainer = styled.div`
+  margin: 2%;
+  position: relative;
+  justify-content: center;
+  border: 1px solid pink;`
 
