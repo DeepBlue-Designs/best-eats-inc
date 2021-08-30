@@ -12,10 +12,8 @@ const UserProfile = () => {
   const currentView = (event) => {
     const name = event.target.name;
     if (name === 'manage') {
-      setLifeStyle(false);
       setManage(true);
     } else {
-      setLifeStyle(true);
       setManage(false);
     }
   }
@@ -28,7 +26,7 @@ const UserProfile = () => {
         <button onClick={currentView} name="lifestyle">Health and Lifestyle</button>
         <button onClick={currentView} name="manage">Manage Account</button>
       </ButtonContainer>
-      <ManageAccount />
+      {manage ? <ManageAccount /> : null}
     </>
   );
 };
