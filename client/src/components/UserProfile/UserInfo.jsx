@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import userData from '../../../../server/database/userData/json/dummyUser1.json';
+import userData from '../../../../database/userData/json/dummyUser1.json';
 
 const UserInfo = () => {
   console.log(userData);
