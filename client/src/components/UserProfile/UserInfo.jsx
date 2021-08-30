@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import userData from '../../../../database/userData/json/dummyUser1.json';
 
 const UserInfo = () => {
+  console.log(userData);
   return (
     <UserContainer>
       <InfoView>
@@ -9,11 +11,11 @@ const UserInfo = () => {
         </Avatar>
         <InfoContainer>
           <Info>
-            Name:
+            Name: {userData.userName}
             <br />
-            Email:
+            Email: {userData.email}
             <br />
-            Shipping Address:
+            Shipping Address: {userData.address}
             <br />
             Health Metrics:
           </Info>
