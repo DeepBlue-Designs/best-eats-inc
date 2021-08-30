@@ -12,3 +12,10 @@ app.use(express.json());
 app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
+
+/**
+ * some routes go here
+ * app.get('/', (req, res) => {
+ * res.status(200).send('Hello World')
+ * })
+ */
