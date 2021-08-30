@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
+import Header from './HeaderFooter/Header.jsx';
 
-const App = (props) => {
+const App = () => {
   return (
-    <h1>
-      Hello World
-    </h1>
+    <Header />
   );
 };
 
