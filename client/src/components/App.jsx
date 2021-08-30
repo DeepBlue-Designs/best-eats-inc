@@ -1,9 +1,17 @@
-import React from 'react';
+
 import Header from './HeaderFooter/Header.jsx';
+import React, {useState} from 'react';
+import UserProfile from './UserProfile/UserProfile.jsx';
 
 const App = () => {
   return (
-    <Header />
+    <div>
+      <Header />
+      <h1>
+        Hello World
+        <UserProfile />
+      </h1>
+    </div>
   );
 };
 

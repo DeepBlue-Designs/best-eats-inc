@@ -3,8 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Homepage from '../Homepage/Homepage.jsx';
 import MeetTheFarmers from '../MeetTheFarmers/MeetTheFarmers.jsx';
 import LetsGetHealthy from '../LetsGetHealthy/LetsGetHealthy.jsx';
-import Checkout from '../Checkout/Checkout.jsx';
-
 
 const Header = () => {
   return (
@@ -29,9 +27,6 @@ const Header = () => {
         <Link to="/signup">
           <button>SIGN UP</button>
         </Link>
-        <Link to="/checkout">
-          Checkout
-        </Link>
 
         <Switch>
           <Route exact path="/">
@@ -51,9 +46,6 @@ const Header = () => {
           </Route>
           <Route path="/signup">
             {/* <SignUp /> */}
-          </Route>
-          <Route path="/checkout" >
-            <Checkout />
           </Route>
         </Switch>
 

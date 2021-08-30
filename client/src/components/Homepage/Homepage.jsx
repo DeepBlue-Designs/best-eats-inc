@@ -7,15 +7,13 @@ const Homepage = ( {test} ) => {
   return (
     <div>
       <div>Homepage {test}</div>
-        <Link to={{
+        {/* <Link to={{
           pathname:'/checkout',
           state: {
             nhu: 'smart'
           }
-        }} >test link back to checkout</Link>
+        }} >test link back to checkout</Link> */}
     </div>
-
-
   );
 };
 
