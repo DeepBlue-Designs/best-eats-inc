@@ -12,11 +12,13 @@ router.put('/:userID/goal/add', controller.goals.add);
 
 router.put('/:userID/:goalID/goal/remove', controller.goals.remove);
 
-router.put('/:userID/mealplan/add', controller.mealPlan.add)
+router.put('/:userID/mealplan/add', controller.mealPlan.add);
 
-router.put('/:userID/mealplan/remove', controller.mealPlan.remove)
+router.put('/:userID/mealplan/remove', controller.mealPlan.remove);
 
-// router.put('/reviews/:review_id/report', controller);
+router.put('/:userID/:goalID/actionItems/add', controller.actionItems.add);
+
+router.put('/:userID/:goalID/actionItems/check', controller.actionItems.check);
 
 
 module.exports = router;
