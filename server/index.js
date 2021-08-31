@@ -1,5 +1,6 @@
 const express = require('express');
 const compression = require('compression');
+const { getMeals } = require('./Shop');
 const router = require('./routes');
 const db = require('../database/UserProfile/index')
 const path = require('path');
@@ -24,3 +25,5 @@ app.listen(PORT, () => {
  * res.status(200).send('Hello World')
  * })
  */
+
+ app.get('/meals', getMeals);
