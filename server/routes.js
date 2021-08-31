@@ -10,6 +10,8 @@ router.put('/:userID/moods', controller.moods.put);
 
 router.put('/:userID/addGoal', controller.goals.add);
 
+router.put('/:userID/:goalID/deleteGoal', controller.goals.delete);
+
 // router.put('/reviews/:review_id/report', controller);
 
 
