@@ -8,9 +8,11 @@ router.get('/login', controller.login.get);
 
 router.put('/:userID/moods', controller.moods.put);
 
-router.put('/:userID/addGoal', controller.goals.add);
+router.put('/:userID/goal/add', controller.goals.add);
 
-router.put('/:userID/:goalID/deleteGoal', controller.goals.delete);
+router.put('/:userID/:goalID/goal/remove', controller.goals.remove);
+
+router.put('/:userID/mealplan/add', controller.mealPlan.add)
 
 // router.put('/reviews/:review_id/report', controller);
 

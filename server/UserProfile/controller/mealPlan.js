@@ -2,7 +2,7 @@ const User = require('../../../database/UserProfile/model/users');
 
 module.exports = {
   add: (req, res) => {
-    User.findByIdAndUpdate(req.params.userID, {$push :{"goals": req.body}}, (err, data) => {
+    User.findByIdAndUpdate(req.params.userID, { currentMealPlan: req.body }, (err, data) => {
       if (err) {
         res.send(err);
       } else {
