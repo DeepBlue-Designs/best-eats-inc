@@ -1,5 +1,6 @@
 const express = require('express');
 const compression = require('compression');
+const { getMeals } = require('./Shop');
 
 const app = express();
 const PORT = 3000;
@@ -19,3 +20,5 @@ app.listen(PORT, () => {
  * res.status(200).send('Hello World')
  * })
  */
+
+ app.get('/meals', getMeals);
