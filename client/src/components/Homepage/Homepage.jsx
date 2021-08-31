@@ -154,7 +154,7 @@ const Homepage = ( {test} ) => {
         <div><TileImg src='https://www.ornatopia.com/wp-content/uploads/2020/10/images873-5f97103b3c1ba.jpg' /></div>
         <div><TileImg src='https://www.nfsmi.org/wp-content/uploads/2020/12/Best-Nutrition-Certifications-for-Fitness-1024x680.jpg' /></div>
         <div><TileImg src='https://www.nfsmi.org/wp-content/uploads/2019/07/how-to-become-a-nutritionist-1024x680.jpg' /></div>
-      </Carousel>;
+      </Carousel>
     </div>
   );
 };
