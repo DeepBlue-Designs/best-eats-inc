@@ -20,5 +20,7 @@ router.put('/:userID/actionItems/add', controller.actionItems.add);
 
 router.put('/:userID/actionItems/check', controller.actionItems.check);
 
+router.put('/:userID/:actionItemID/actionItems/remove', controller.actionItems.remove);
+
 
 module.exports = router;

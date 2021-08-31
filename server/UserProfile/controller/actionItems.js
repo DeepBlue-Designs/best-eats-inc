@@ -23,7 +23,9 @@ module.exports = {
     });
   },
   remove: (req, res) => {
-    User.findOneAndUpdate({_id: req.params.userID}, {$pull :{"goals": {_id: req.params.goalID} }}, (err, data) => {
+    const goalIndex = req.query.goalIndex;
+    const actionItemID = req.params.actionItemID;
+    User.findOneAndUpdate({_id: req.params.userID}, {$pull :{[`goals.${goalIndex}.actionItems`]: {_id: actionItemID} }}, (err, data) => {
       if (err) {
         res.send(err);
       } else {
