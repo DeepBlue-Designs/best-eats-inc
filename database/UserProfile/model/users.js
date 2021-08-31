@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
   userName: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   },
   password: {
     type: String,
@@ -23,19 +24,29 @@ const UserSchema = new mongoose.Schema({
         type: 'string',
         enum: ['solo', 'duo', 'family']
     },
-    mealsPerWeek: Number,
+    mealsPerWeek: {
+      type: Number
+    },
     mealIDs: [Number]
   },
   moods: [
     {
-      date: Number,
-      feeling: String
+      date: {
+        type: Number
+      },
+      feeling: {
+        type: String
+      }
     }
   ],
   goals: [
     {
-      name: String,
-      completed: Boolean,
+      name: {
+        type: String
+      },
+      completed: {
+        type: Boolean
+      },
       actionItems: [
         {
           name: String,

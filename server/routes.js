@@ -8,7 +8,7 @@ router.get('/login', controller.login.get);
 
 router.put('/:userID/moods', controller.moods.put);
 
-// router.put('/reviews/:review_id/helpful', controller);
+router.put('/:userID/addGoal', controller.goals.add);
 
 // router.put('/reviews/:review_id/report', controller);
 
