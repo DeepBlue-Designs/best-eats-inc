@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import MealPlan from './MealPlan.jsx'
+import DisplaySelections from './DisplaySelections.jsx';
 import MealList from './MealList.jsx';
 import styled from 'styled-components';
 
@@ -24,10 +26,15 @@ const Shop = () => {
 
   return (
     <ShopContainer>
-    <h2>Menu and Pricing</h2>
-    {isLoading
-    ? <p>Loading delicious meals, please be patient...</p>
-    : <MealList meals={meals} />}
+      <h2>Menu and Pricing</h2>
+      <MealPlan />
+      <DisplaySelections />
+      {isLoading
+      ? <p>Loading delicious meals, please be patient...</p>
+      : <MealList
+          meals={meals}
+          loggedIn={false}
+        />}
     </ShopContainer>
   );
 };
