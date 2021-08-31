@@ -2,6 +2,7 @@ const express = require('express');
 const compression = require('compression');
 const router = require('./routes');
 const db = require('../database/UserProfile/index')
+const path = require('path');
 
 const app = express();
 const PORT = 3000;
