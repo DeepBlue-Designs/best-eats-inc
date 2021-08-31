@@ -71,10 +71,6 @@ const UserInfo = () => {
           </div>
         </InfoContainer>
       </InfoView>
-      <ButtonContainer>
-        <button>Health and Lifestyle</button>
-        <button>Manage Account</button>
-      </ButtonContainer>
     </UserContainer>
   );
 }
@@ -84,7 +80,7 @@ export default UserInfo;
 const UserContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 300px;
   border: 2px solid green; `
 
 const UserAv = styled.div`
@@ -115,9 +111,12 @@ const Info = styled.p`
   font-size: 16px;
   `
 
+<<<<<<< HEAD
 const ButtonContainer = styled.div`
   margin: 2%;
   position: relative;
   justify-content: center;
   border: 1px solid pink;`
+=======
+>>>>>>> 4f8fffe7e9cd0d238fd71a2567f63af445e6debb
 
