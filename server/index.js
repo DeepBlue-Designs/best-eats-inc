@@ -19,6 +19,14 @@ app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
 
+// app.get('/*', function(req, res) {
+//   res.sendFile(path.join(__dirname, '../client/public/index.html'), function(err) {
+//     if (err) {
+//       res.status(500).send(err)
+//     }
+//   })
+// })
+
 /**
  * some routes go here
  * app.get('/', (req, res) => {
