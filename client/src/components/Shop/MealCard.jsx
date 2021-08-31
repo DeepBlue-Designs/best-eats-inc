@@ -1,24 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { MdAddCircleOutline, MdRemoveCircleOutline } from 'react-icons/md';
 
 const MealCard = ({ id, title, image, prepTime }) => {
+  const [isSelected, setIsSelected] = useState(false);
+
+  const handleClick = () => {
+    setIsSelected(!isSelected);
+  }
+
   return (
     <MealCardContainer>
       <MealCardContent>
-        <MealImage
-          src={image}
-          alt={`${title} meal photo`}
-        />
-        <h3>{title}</h3>
-        <p>{prepTime} min</p>
+        <StyledImageDiv>
+          <MealImage
+            src={image}
+            alt={`${title} meal photo`}
+          />
+        </StyledImageDiv>
+        <MealDescription>
+          <h4>{title}</h4>
+          <p>{prepTime} min total</p>
+        </MealDescription>
+          <Select
+            onClick={handleClick}
+            isSelected={isSelected}
+          >
+            {isSelected
+            ? (<div>
+                <MdRemoveCircleOutline />
+                <p>Remove Meal</p>
+              </div>
+            )
+            : (<div>
+              <MdAddCircleOutline />
+              <p>Add Meal</p>
+              </div>
+            )}
+          </Select>
       </MealCardContent>
     </MealCardContainer>
   )
 };
 
 const MealCardContainer = styled.div`
-  flex: 1 1 0px;
-  max-width: 100%;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  flex: 1 1 25%;
+  border-radius: 5px;
 `;
 
 const MealCardContent = styled.div`
@@ -27,13 +57,38 @@ const MealCardContent = styled.div`
   background-color: #fff;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
+  height: 100%;
+`;
+
+const StyledImageDiv = styled.div`
+  border-radius: 5px 5px 0 0;
+  overflow: hidden;
+  flex: 2 0 50%;
 `;
 
 const MealImage = styled.img`
+  width: 100%;
   object-fit: cover;
-  height: 300px;
-  border-radius: 5px 5px 0 0;
+`;
+
+const MealDescription = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+  & h4 {
+    font-size: 1em;
+  }
+`;
+
+const Select = styled.div`
+  cursor: pointer;
+  display: flex;
+  background-color: ${props => props.isSelected ? 'rgba(6, 122, 70, 0.8)' : 'fff'};
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  padding: 5px 0;
+  border-radius: 0 0 5px 5px;
 `;
 
 export default MealCard;
