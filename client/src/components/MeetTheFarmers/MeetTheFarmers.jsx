@@ -1,46 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Container= styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-`;
-
-const Break = styled.div`
-  flex-basis: 100%;
-  height: 0;
-`;
-
-const Description = styled.div`
-  width: 800px;
-  text-align: center;
-`;
-
-const Farmer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: 15px;
-`;
-
-const Bio = styled.div`
-  width: 400px;
-  align-content: center;
-  text-align: center;
-  border-radius: 25px;
-  padding: 20px;
-`;
-
-const Photo = styled.img`
-  width: auto;
-  height: 400px;
-  border-radius: 25px;
-
-`;
-
 const MeetTheFarmers = () => {
   return (
     <Container>
@@ -87,3 +47,42 @@ const MeetTheFarmers = () => {
 };
 
 export default MeetTheFarmers;
+
+const Container= styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+`;
+
+const Break = styled.div`
+  flex-basis: 100%;
+  height: 0;
+`;
+
+const Description = styled.div`
+  width: 800px;
+  text-align: center;
+`;
+
+const Farmer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 15px;
+`;
+
+const Bio = styled.div`
+  width: 400px;
+  align-content: center;
+  text-align: center;
+  border-radius: 25px;
+  padding: 20px;
+`;
+
+const Photo = styled.img`
+  width: auto;
+  height: 400px;
+  border-radius: 25px;
+`;
