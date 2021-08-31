@@ -10,7 +10,7 @@ router.put('/:userID/moods', controller.moods.put);
 
 router.put('/:userID/goal/add', controller.goals.add);
 
-router.put('/:userID/:goalID/goal/remove', controller.goals.remove);
+router.put('/:userID/goal/remove', controller.goals.remove);
 
 router.put('/:userID/mealplan/add', controller.mealPlan.add);
 
@@ -20,7 +20,7 @@ router.put('/:userID/actionItems/add', controller.actionItems.add);
 
 router.put('/:userID/actionItems/check', controller.actionItems.check);
 
-router.put('/:userID/:actionItemID/actionItems/remove', controller.actionItems.remove);
+router.put('/:userID/actionItems/remove', controller.actionItems.remove);
 
 
 module.exports = router;
