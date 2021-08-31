@@ -5,3 +5,5 @@ const Shop = () => {
     <>Shop</>
   );
 };
+
+export default Shop;
