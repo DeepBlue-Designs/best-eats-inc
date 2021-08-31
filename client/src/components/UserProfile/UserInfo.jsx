@@ -14,13 +14,14 @@ const UserInfo = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // axios.get('/userdata')
-    //   .then((response) => {
-    //     setUser(response.data)
-    //   })
-    //   .catch((err) => {
-    //     console.log('setUser did not work', err)
-    //   })
+    axios.get('user/login')
+      .then((response) => {
+        console.log('hello', response) //returns empty data
+        // setUser(response.data)
+      })
+      .catch((err) => {
+        console.log('setUser did not work', err)
+      })
   }, [])
 
   const handleSubmit = (event) => {
