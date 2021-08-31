@@ -4,7 +4,7 @@ module.exports = {
   get: (req, res) => {
     User.findOne(req.body, (err, data) => {
       if (err) {
-        res.send(err);
+        res.status(404).send(err);
       } else {
         res.status(200).send(data);
       }
