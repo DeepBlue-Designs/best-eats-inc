@@ -1,15 +1,14 @@
 {
-  "id": 3,
   "userName": "someguy",
   "password": "12345",
   "email": "sg@mail.com",
   "address": "555 Van Ness, San Francisco, CA, 94133",
   "currentMealPlan": {
-    "type": "duo",
+    "plan": "duo",
     "mealsPerWeek": 2,
     "mealIDs": [2, 3]
   },
-  "mood": [
+  "moods": [
     {
       "date": 1627776000000,
       "feeling": "ready"

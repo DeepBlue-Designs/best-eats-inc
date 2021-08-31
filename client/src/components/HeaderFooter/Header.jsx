@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Homepage from '../Homepage/Homepage.jsx';
 import MeetTheFarmers from '../MeetTheFarmers/MeetTheFarmers.jsx';
 import LetsGetHealthy from '../LetsGetHealthy/LetsGetHealthy.jsx';
+import Shop from '../Shop/Shop.jsx';
 
 const Header = () => {
   return (
@@ -33,7 +34,7 @@ const Header = () => {
             <Homepage test={'testing testing'} />
           </Route>
           <Route path="/shop">
-            {/* <Shop /> */}
+            <Shop />
           </Route>
           <Route path="/farmers">
             <MeetTheFarmers />

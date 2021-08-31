@@ -26,12 +26,20 @@ const SignupForm = () => {
     } else if (!validEmail()) {
       alert('Email must be of form local@domain')
     } else {
-      alert('Sign up a user')
+      axios.post('/user/signup', {
+        userName: userName,
+        password: password,
+        email: email,
+        address: address
+      })
+      .then(() => console.log('create user account successully'))
+      .catch(() => console.log('fail to create user account'))
     }
+    event.preventDefault();
   }
 
   return (
-    <form onSubmit={this.handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <h2>Sign Up</h2>
 
       <br />
@@ -43,19 +51,21 @@ const SignupForm = () => {
       />
 
       <br />
-      <label> Email: </label>
-      <input
-          type="text"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-      />
 
-      <br />
       <label> Password: </label>
       <input
           type="text"
           value={password}
           onChange={e => setPassword(e.target.value)}
+      />
+
+      <br />
+
+      <label> Email: </label>
+      <input
+          type="text"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
       />
 
       <br />
@@ -65,20 +75,13 @@ const SignupForm = () => {
           value={address}
           onChange={e => setAddress(e.target.value)}
       />
+      <div>
+        <button>
+          create account
+        </button>
+      </div>
     </form>
   )
 }
 
-
 export default SignupForm;
-
-
-/*
-axios.post('/user/signup', {
-        userName: userName,
-        password: password,
-        email: email,
-        address: address
-      })
-
-*/

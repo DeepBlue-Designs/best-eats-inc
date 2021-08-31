@@ -5,10 +5,14 @@ const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (event) => {
-    // axios.get('/user/login', {
-
-    // })
+  const handleSubmit = () => {
+    axios.post('/user/login', {
+        userName: userName,
+        password: password,
+      })
+      .then(() => console.log('log in successfully'))
+      .catch(() => console.log('fail to log in'))
+    }
     event.preventDefault();
   }
 
@@ -29,6 +33,11 @@ const LoginForm = () => {
           value={password}
           onChange={e => setPassword(e.target.value)}
       />
+      <div>
+        <button>
+          create account
+        </button>
+      </div>
     </form>
   )
 }

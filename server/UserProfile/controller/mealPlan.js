@@ -4,7 +4,7 @@ module.exports = {
   add: (req, res) => {
     User.findByIdAndUpdate(req.params.userID, { currentMealPlan: req.body }, (err, data) => {
       if (err) {
-        res.send(err);
+        res.status(500).send(err);
       } else {
         res.status(200).send(data);
       }
@@ -13,7 +13,7 @@ module.exports = {
   remove: (req, res) => {
     User.findByIdAndUpdate(req.params.userID, { currentMealPlan: {} }, (err, data) => {
       if (err) {
-        res.send(err);
+        res.status(500).send(err);
       } else {
         res.status(200).send(data);
       }
