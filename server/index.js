@@ -12,6 +12,7 @@ app.use(compression());
 
 app.use(express.static('client/public'));
 app.use(express.json());
+// app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 app.use('/user', router);
 
@@ -19,11 +20,4 @@ app.listen(PORT, () => {
   console.log(`Server listening on port: ${PORT}`);
 });
 
-/**
- * some routes go here
- * app.get('/', (req, res) => {
- * res.status(200).send('Hello World')
- * })
- */
-
- app.get('/meals', getMeals);
+app.get('/meals', getMeals);
