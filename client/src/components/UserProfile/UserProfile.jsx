@@ -6,9 +6,7 @@ import ManageAccount from './ManageAccount.jsx';
 
 const UserProfile = () => {
   const [manage, setManage] = useState(false);
-  const [lifeStyle, setLifeStyle] = useState(true);
 
-  //logic for switching views via button click
   const currentView = (event) => {
     const name = event.target.name;
     if (name === 'manage') {
@@ -32,7 +30,6 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
-
 
 const ButtonContainer = styled.div`
   margin: 2%;

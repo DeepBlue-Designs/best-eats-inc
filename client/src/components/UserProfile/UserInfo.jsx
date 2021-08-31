@@ -69,7 +69,6 @@ const UserInfo = () => {
                 </form>
             </Modal>
           </div>
->>>>>>> 07e8b909a918dca32fcc50906fc791a49821dbf1
         </InfoContainer>
       </InfoView>
     </UserContainer>
@@ -84,39 +83,6 @@ const UserContainer = styled.div`
   height: 300px;
   border: 2px solid green; `
 
-<<<<<<< HEAD
-const InfoView = styled.div`
-  display: flex;
-  border: 1px solid red;
-  flex-direction: row;
-  height: 250px; `
-
-
-const Avatar = styled.div`
-  position: relative;
-  border: 1px solid blue;
-  border-radius: 20%;
-  width: 25%;
-  margin: 2%;
-  /* height: 80%;  */
-  `
-
-const InfoContainer = styled.span`
-  margin: 2%;
-  border: 1px solid black; `
-  /* justify-content: space-between;` */
-
-const Info = styled.span`
-  font-family: Tahoma;
-  font-size: 12px; `
-
-  const ButtonContainer = styled.div`
-    margin: 2%;
-    position: relative;
-    /* align-items: center; */
-    justify-content: center;
-    border: 1px solid pink;`
-=======
 const UserAv = styled.div`
   display: flex;
   justify-content: center;
@@ -145,13 +111,4 @@ const Info = styled.p`
   font-size: 16px;
   `
 
-<<<<<<< HEAD
-=======
-const ButtonContainer = styled.div`
-  margin: 2%;
-  position: relative;
-  justify-content: center;
-  border: 1px solid pink;`
->>>>>>> 07e8b909a918dca32fcc50906fc791a49821dbf1
->>>>>>> ad5ca394a67751f32414017b3db722c5c0d440e1
 
