@@ -1,7 +1,7 @@
 const User = require('../../../database/UserProfile/model/users');
 
 module.exports = {
-  get: (req, res) => {
+  post: (req, res) => {
     console.log('body', req.body);
     User
     .findOne()

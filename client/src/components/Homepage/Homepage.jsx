@@ -16,10 +16,14 @@ const TileContainer = styled.div`
 const InfoTile = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 `
 const TileText = styled.text`
   font-family: Courier New;
-  font-size: 15px;
+  height: 30vh;
+  width: 30vw;
+  font-size: 20px;
+  margin: 5vw;
 `
 
 const TileImg = styled.img`
@@ -27,6 +31,7 @@ const TileImg = styled.img`
   width: 30vw;
   margin: 5vw;
   border-radius: 15px;
+  object-fit: cover;
 `
 
 const Homepage = ( {test} ) => {
@@ -35,10 +40,13 @@ const Homepage = ( {test} ) => {
       <div>Homepage {test}</div>
       <MainSplash src='https://puregreensaz.com/wp-content/uploads/2020/06/dan-meyers-IQVFVH0ajag-unsplash-1080x675.jpg'/>
       <TileContainer>
+        <InfoTile>
         <TileImg src='https://www.ecocaters.com/wp-content/uploads/2019/05/FreshLocalProductsFT.jpg' />
         <TileText>
-          Hello testing testing
+          Hello testing testing hihi ok im writing a long thing cuz i need to know how this thing raps
+          and by raps i mean raps not wraps because im launching my own hiphop label soon and need some talent to prop up so we can get the first few albums recordeded
         </TileText>
+        </InfoTile>
           {/* <Link to={{
             pathname:'/checkout',
             state: {
