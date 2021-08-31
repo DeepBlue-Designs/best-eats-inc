@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Shop from '../Shop/Shop.jsx';
 import userData from '../../../../database/userData/json/dummyUser1.json';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { RiEmotionSadLine, RiEmotionHappyFill } from 'react-icons/ri';
 import styled from 'styled-components';
 import axios from 'axios';
@@ -9,7 +9,6 @@ import axios from 'axios';
 const ManageAccount = () => {
   const [user, setUser] = useState(userData)
   const [currentMeal, setMeal] = useState(userData.currentMealPlan);
-  const [route, setRoute] = useState(false);
 
   useEffect(() => {
     // axios.get('/userdata')
@@ -26,10 +25,6 @@ const ManageAccount = () => {
     //   .catch((err) => console.log('Cancel failed', err))
   }
 
-  const modifyPlan = () => {
-    setRoute(true);
-  }
-
   return(
     <ManageContainer>
       Current Meal Plan:
@@ -39,11 +34,11 @@ const ManageAccount = () => {
         </MealCard>
         <ButtonContainer>
           <button onClick={cancelPlan}>Cancel</button>
-          <button onClick={modifyPlan}>Modify</button>
-          {/* {route ?
-            <Switch>
-              <Route path="/shop" component={Shop} />
-            </Switch> : null} */}
+          <Router>
+            <Link to="/shop">
+              <button>Modify</button>
+            </Link>
+          </Router>
         </ButtonContainer>
       </MealPlanContainer>
     </ManageContainer>
