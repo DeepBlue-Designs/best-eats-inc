@@ -11,7 +11,7 @@ module.exports = {
     });
   },
   remove: (req, res) => {
-    User.findByIdAndUpdate(req.params.userID, {$pull :{"goals": {_id: req.params.goalID} }}, (err, data) => {
+    User.findByIdAndUpdate(req.params.userID, { currentMealPlan: {} }, (err, data) => {
       if (err) {
         res.send(err);
       } else {

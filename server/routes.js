@@ -14,6 +14,8 @@ router.put('/:userID/:goalID/goal/remove', controller.goals.remove);
 
 router.put('/:userID/mealplan/add', controller.mealPlan.add)
 
+router.put('/:userID/mealplan/remove', controller.mealPlan.remove)
+
 // router.put('/reviews/:review_id/report', controller);
 
 
