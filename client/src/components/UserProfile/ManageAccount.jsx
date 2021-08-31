@@ -12,22 +12,22 @@ const ManageAccount = () => {
   const [currentMeal, setMeal] = useState(null);
 
   useEffect(() => {
-    axios.get('/login')
-      .then((res) => {
-        if (res.data.currentMealplan) {
-          setMeal(res.data.currentMealPlan)
-        }
-      })
-      .catch((err) => console.log('could not fetch meal plan', err));
+    // axios.get('/login')
+    //   .then((res) => {
+    //     if (res.data.currentMealplan) {
+    //       setMeal(res.data.currentMealPlan)
+    //     }
+    //   })
+    //   .catch((err) => console.log('could not fetch meal plan', err));
   }, [])
 
   const cancelPlan = () => {
     setMeal(null);
 
-    const cancel = {currentMealPlan: null};
-    axios.put(`user/${user.id}/currentmealplan/remove`, cancel)
-      .then((res) => console.log('Cancel successful', res.status))
-      .catch((err) => console.log('Cancel failed', err))
+    // const cancel = {currentMealPlan: null};
+    // axios.put(`user/${user.id}/currentmealplan/remove`, cancel)
+    //   .then((res) => console.log('Cancel successful', res.status))
+    //   .catch((err) => console.log('Cancel failed', err))
   }
 
   return(
