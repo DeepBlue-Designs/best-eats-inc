@@ -14,7 +14,7 @@ module.exports = {
     });
     newUser.save((err, data) => {
       if (err) {
-        res.send(err);
+        res.status(500).send(err);
       } else {
         res.status(200).send(data);
       }
