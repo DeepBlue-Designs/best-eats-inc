@@ -10,6 +10,32 @@ const MainSplash = styled.img`
   object-fit: cover;
   border-radius: 15px;
 `
+
+const MainSplashContainer = styled.div`
+  position: relative;
+  text-align: center;
+  color: white;
+`;
+
+const Slogan = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: black;
+`;
+
+const GetStartedButton = styled.button`
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 5px solid black;
+  height: 30px;
+`;
+
 const TileContainer = styled.div`
   display: flex;
   flex-direction: column
@@ -18,20 +44,20 @@ const TileContainer = styled.div`
 const InfoTile = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: center;
 `
 const TileText = styled.div`
   font-family: Courier New;
   height: 30vh;
   width: 30vw;
   font-size: 20px;
-  margin: 5vw;
+  margin: 3vw;
 `
 
 const TileImg = styled.img`
   height: 30vh;
   width: 30vw;
-  margin: 5vw;
+  margin: 3vw;
   border-radius: 15px;
   object-fit: cover;
 `
@@ -61,13 +87,17 @@ const responsive = {
 const Homepage = ( {test} ) => {
   return (
     <div>
-      <div>Homepage {test}</div>
-      <MainSplash src='https://puregreensaz.com/wp-content/uploads/2020/06/dan-meyers-IQVFVH0ajag-unsplash-1080x675.jpg'/>
+      {/* <div>Homepage {test}</div> */}
+      <MainSplashContainer>
+        <MainSplash src='https://puregreensaz.com/wp-content/uploads/2020/06/dan-meyers-IQVFVH0ajag-unsplash-1080x675.jpg'/>
+        <Slogan>A one stop shop for the best healthy food, and lifestyle advice, delivered right to your door!</Slogan>
+        <GetStartedButton>Get Started</GetStartedButton>
+      </MainSplashContainer>
       <TileContainer>
         <InfoTile>
         <TileImg src='https://www.ecocaters.com/wp-content/uploads/2019/05/FreshLocalProductsFT.jpg' />
         <TileText>
-          Hello testing testing hihi ok im writing a long thing cuz i need to know how this thing raps
+          <h1>LOCALLY SOURCED INGREDIENTS</h1>Hello testing testing hihi ok im writing a long thing cuz i need to know how this thing raps
           and by raps i mean raps `not wraps because im launching my own hiphop label soon and need some talent to prop up so we can get the first few albums recordeded
         </TileText>
         </InfoTile>
@@ -82,7 +112,7 @@ const Homepage = ( {test} ) => {
       <TileContainer>
         <InfoTile>
         <TileText>
-          Hello testing testing hihi ok im writing a long thing cuz i need to know how this thing raps
+          <h1>CHOOSE A MEAL PLAN BASED ON HEALTH GOALS</h1>Hello testing testing hihi ok im writing a long thing cuz i need to know how this thing raps
           and by raps i mean raps `not wraps because im launching my own hiphop label soon and need some talent to prop up so we can get the first few albums recordeded
         </TileText>
         <TileImg src='https://www.ecocaters.com/wp-content/uploads/2019/05/FreshLocalProductsFT.jpg' />
@@ -93,7 +123,7 @@ const Homepage = ( {test} ) => {
         <InfoTile>
         <TileImg src='https://www.ecocaters.com/wp-content/uploads/2019/05/FreshLocalProductsFT.jpg' />
         <TileText>
-          Hello testing testing hihi ok im writing a long thing cuz i need to know how this thing raps
+        <h1>LIFESTYLE GUIDE TO TRACK YOUR GOALS</h1>Hello testing testing hihi ok im writing a long thing cuz i need to know how this thing raps
           and by raps i mean raps `not wraps because im launching my own hiphop label soon and need some talent to prop up so we can get the first few albums recordeded
         </TileText>
         </InfoTile>
@@ -102,7 +132,7 @@ const Homepage = ( {test} ) => {
       <Carousel
         swipeable={false}
         draggable={false}
-        showDots={true}
+        showDots={false}
         responsive={responsive}
         ssr={true} // means to render carousel on server-side.
         infinite={true}
