@@ -14,13 +14,14 @@ const UserInfo = () => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // axios.get('/userdata')
-    //   .then((response) => {
-    //     setUser(response.data)
-    //   })
-    //   .catch((err) => {
-    //     console.log('setUser did not work', err)
-    //   })
+    axios.get('user/login')
+      .then((response) => {
+        console.log('hello', response) //returns empty data
+        // setUser(response.data)
+      })
+      .catch((err) => {
+        console.log('setUser did not work', err)
+      })
   }, [])
 
   const handleSubmit = (event) => {
@@ -71,10 +72,6 @@ const UserInfo = () => {
           </div>
         </InfoContainer>
       </InfoView>
-      <ButtonContainer>
-        <button>Health and Lifestyle</button>
-        <button>Manage Account</button>
-      </ButtonContainer>
     </UserContainer>
   );
 }
@@ -84,7 +81,7 @@ export default UserInfo;
 const UserContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 300px;
   border: 2px solid green; `
 
 const UserAv = styled.div`
@@ -115,9 +112,4 @@ const Info = styled.p`
   font-size: 16px;
   `
 
-const ButtonContainer = styled.div`
-  margin: 2%;
-  position: relative;
-  justify-content: center;
-  border: 1px solid pink;`
 
