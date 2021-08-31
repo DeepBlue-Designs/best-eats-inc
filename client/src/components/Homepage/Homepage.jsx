@@ -16,10 +16,13 @@ const TileContainer = styled.div`
 const InfoTile = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 `
 const TileText = styled.text`
   font-family: Courier New;
-  font-size: 15px;
+  height: 30vh;
+  width: 30vw;
+  font-size: 20px;
   margin: 5vw;
 `
 
@@ -28,6 +31,7 @@ const TileImg = styled.img`
   width: 30vw;
   margin: 5vw;
   border-radius: 15px;
+  object-fit: cover;
 `
 
 const Homepage = ( {test} ) => {
