@@ -2,7 +2,7 @@ const User = require('../../../database/UserProfile/model/users');
 
 module.exports = {
   add: (req, res) => {
-    const index = req.query.index;
+    const index = req.query.goalIndex;
     User.updateOne({_id: req.params.userID}, {$push: { [`goals.${index}.actionItems`]: req.body }}, (err, data) => {
       if (err) {
         res.send(err);
@@ -12,8 +12,9 @@ module.exports = {
     });
   },
   check: (req, res) => {
-    const index = req.query.index;
-    User.updateOne({_id: req.params.userID}, {$push: { [`goals.${index}.actionItems`]: req.body }}, (err, data) => {
+    const goalIndex = req.query.goalIndex;
+    const actionItemIndex = req.query.actionItemIndex;
+    User.updateOne({_id: req.params.userID}, {$set: { [`goals.${goalIndex}.actionItems.${actionItemIndex}.completed`]: req.body.complete }}, (err, data) => {
       if (err) {
         res.send(err);
       } else {

@@ -16,9 +16,9 @@ router.put('/:userID/mealplan/add', controller.mealPlan.add);
 
 router.put('/:userID/mealplan/remove', controller.mealPlan.remove);
 
-router.put('/:userID/:goalID/actionItems/add', controller.actionItems.add);
+router.put('/:userID/actionItems/add', controller.actionItems.add);
 
-router.put('/:userID/:goalID/actionItems/check', controller.actionItems.check);
+router.put('/:userID/actionItems/check', controller.actionItems.check);
 
 
 module.exports = router;
