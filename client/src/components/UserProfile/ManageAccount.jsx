@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import userData from '../../../../database/userData/json/dummyUser1.json';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import { RiEmotionSadLine, RiEmotionHappyFill } from 'react-icons/ri';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -24,7 +25,10 @@ const ManageAccount = () => {
     //   .catch((err) => console.log('Cancel failed', err))
   }
 
-  console.log(userData);
+  const modifyPlan = () => {
+
+  }
+
   return(
     <ManageContainer>
       Current Meal Plan:
@@ -34,7 +38,7 @@ const ManageAccount = () => {
         </MealCard>
         <ButtonContainer>
           <button onClick={cancelPlan}>Cancel</button>
-          <button>Modify</button>
+          <button onClick={modifyPlan}>Modify</button>
         </ButtonContainer>
       </MealPlanContainer>
     </ManageContainer>
@@ -50,7 +54,6 @@ const ManageContainer = styled.div`
   `
 
 const MealPlanContainer = styled.div`
-  /* position: relative; */
   display: flex;
   flex-direction: row;
   border: 1px solid orange;
