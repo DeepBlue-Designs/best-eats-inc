@@ -14,7 +14,7 @@ module.exports = {
   check: (req, res) => {
     const goalIndex = req.query.goalIndex;
     const actionItemIndex = req.query.actionItemIndex;
-    User.updateOne({_id: req.params.userID}, {$set: { [`goals.${goalIndex}.actionItems.${actionItemIndex}.completed`]: req.body.complete }}, (err, data) => {
+    User.updateOne({_id: req.params.userID}, {$set: { [`goals.${goalIndex}.actionItems.${actionItemIndex}.completed`]: req.body.completed }}, (err, data) => {
       if (err) {
         res.send(err);
       } else {
