@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useLocation } from 'react-router-dom';
 import { calculateAndFormatPrice } from '../Shop/common/helpers.js';
+import MealPlanCard from '../Shop/common/MealPlanCard.jsx';
+import Context from '../Context.jsx';
 
 const servings = {
   single: 1,
@@ -9,10 +11,26 @@ const servings = {
   family: 4,
 };
 
-const Checkout = ({ userId }) => {
+const priceInfo = {
+  single: {
+    serving: 1,
+    baselinePrice: 15.99,
+  },
+  duo: {
+    serving: 2,
+    baselinePrice: 12.49,
+  },
+  family: {
+    serving: 4,
+    baselinePrice: 8.99,
+  },
+};
+
+const Checkout = () => {
   const location = useLocation();
   const { mealIDs, plan, mealsPerWeek } = location.state;
   const [confirmation, setConfirmation] = useState(false);
+  const { userData } = useContext(Context);
 
   const handleCheckout = (userId, plan, mealsPerWeek, mealIDs) => {
     const options = {
@@ -25,21 +43,20 @@ const Checkout = ({ userId }) => {
       .catch(() => {console.log('error')});
   };
 
-  if (confirmation) {
+  if (!confirmation) {
     return (
     <div>
-      <div>meal plan here</div>
-      <div> User Info and Price goes here</div>
-      <div onClick={() => {handleCheckout(userId, plan, mealsPerWeek, mealIDs)}}>Checkout</div>
+      <div><MealPlanCard plan={plan} mealsPerWeek={mealsPerWeek}/></div>
+      <div>Username: {userData.userName} <br/> email: {userData.email} <br/> Address: {userData.address} <br/> Price: {calculateAndFormatPrice(priceInfo[plan].baselinePrice, priceInfo[plan].serving, mealsPerWeek)}</div>
+      <button onClick={() => {handleCheckout(userData._id, plan, mealsPerWeek, mealIDs)}}>Checkout</button>
     </div>
     )
   } else {
     return (
       <div>
-      <div>meal plan here</div>
-      <div>meal kit card here</div>
-      <div> User Info and Price goes here</div>
-      <div>Checkout</div>
+      <div><MealPlanCard plan={plan} mealsPerWeek={mealsPerWeek}/></div>
+      <div>Username: {userData.userName} <br/> email: {userData.email} <br/> Address: {userData.address} <br/> Price: {calculateAndFormatPrice(priceInfo[plan].baselinePrice, priceInfo[plan].serving, mealsPerWeek)}</div>
+      <button onClick={() => {handleCheckout(userData._id, plan, mealsPerWeek, mealIDs)}}>Checkout</button>
       <div>Congrats, checkout successful!</div>
     </div>
     )
