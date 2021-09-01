@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import Modal from "react-modal";
+import Header from "./goalTrackerComponents/header.js";
+import GoalsList from "./goalTrackerComponents/GoalsList.js";
 
 const GoalButton = styled.a`
   display: inline-block;
@@ -12,14 +15,25 @@ const GoalButton = styled.a`
   letter-spacing: 0.15rem;
   transition: all 0.3s;
   position: relative;
-  z-index: 1;
+  // z-index: 1;
   cursor: pointer;
 `;
 
 const GoalTracker = () => {
+  const [goalMoadal, setGoalModal] = useState(false);
+  const clickOnGoal = () => {
+    setGoalModal(!goalMoadal);
+  };
   return (
     <div style={{ margin: "auto" }}>
-      <GoalButton>Goal Tracker</GoalButton>
+      <GoalButton onClick={clickOnGoal}>Goal Tracker</GoalButton>
+      <Modal isOpen={goalMoadal} onRequestClose={() => setGoalModal(false)}>
+        <span style={{ cursor: "pointer" }} onClick={clickOnGoal}>
+          [X] CLOSE
+        </span>
+        <Header />
+        <GoalsList />
+      </Modal>
     </div>
   );
 };
