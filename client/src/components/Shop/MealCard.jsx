@@ -2,11 +2,28 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { MdAddCircleOutline, MdRemoveCircleOutline } from 'react-icons/md';
 
-const MealCard = ({ id, title, image, prepTime }) => {
+const MealCard = ({ id, title, image, prepTime, selectedMealPlan, setSelectedMealPlan }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleClick = () => {
-    setIsSelected(!isSelected);
+    if (selectedMealPlan.mealIDs.length < selectedMealPlan.mealsPerWeek) {
+      setIsSelected(!isSelected);
+      setSelectedMealPlan((prevState) => ({
+        ...prevState,
+        mealIDs: [...prevState.mealIDs, id],
+      }))
+    } else {
+      setIsSelected(false);
+      const idxToRemove = selectedMealPlan.mealIDs.indexOf(id);
+      console.log('remove', idxToRemove);
+      if (idxToRemove > -1) {
+        const newMealIDs = [...selectedMealPlan.mealIDs].splice(0, idxToRemove);
+        setSelectedMealPlan((prevState) => ({
+          ...prevState,
+          mealIDs: newMealIDs,
+        }))
+      }
+    }
   }
 
   return (
