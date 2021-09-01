@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { calculateAndFormatPrice } from './helpers.js';
 
 const planInfo = {
   single: {
@@ -18,16 +19,6 @@ const planInfo = {
     baselinePrice: 8.99,
   },
 };
-
-const calculateAndFormatPrice = (price, servings, mealsPerWeek) => {
-  let multiplier = 1;
-  if (Number(mealsPerWeek) > 2) {
-    multiplier = .85;
-  }
-  const result = Math.round(price * servings * multiplier * Number(mealsPerWeek) * 100) / 100;
-  console.log(price, servings, multiplier, Number(mealsPerWeek));
-  return `$${result}`
-}
 
 const MealPlanCard = ({ plan, mealsPerWeek, handleSelectChange, selectable, isCurrentlySelected }) => (
   <StyledCard
