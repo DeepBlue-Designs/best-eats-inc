@@ -4,6 +4,10 @@ import Homepage from '../Homepage/Homepage.jsx';
 import MeetTheFarmers from '../MeetTheFarmers/MeetTheFarmers.jsx';
 import LetsGetHealthy from '../LetsGetHealthy/LetsGetHealthy.jsx';
 import Shop from '../Shop/Shop.jsx';
+import Footer from './Footer.jsx';
+import LoginForm from '../LoginSignup/LoginForm.jsx';
+import SignupForm from '../LoginSignup/SignupForm.jsx';
+import UserProfile from '../UserProfile/UserProfile.jsx';
 
 const Header = () => {
   return (
@@ -21,6 +25,9 @@ const Header = () => {
         </Link>
         <Link to="/healthy">
           Let&apos;s Get Healthy
+        </Link>
+        <Link to="/profile">
+          User Profile
         </Link>
         <Link to="/login">
           <button>LOG IN</button>
@@ -42,14 +49,18 @@ const Header = () => {
           <Route path="/healthy">
             <LetsGetHealthy />
           </Route>
+          <Route path="/profile">
+            <UserProfile />
+          </Route>
           <Route path="/login">
-            {/* <LogIn /> */}
+            <LoginForm />
           </Route>
           <Route path="/signup">
-            {/* <SignUp /> */}
+            <SignupForm />
           </Route>
         </Switch>
 
+        <Footer />
       </Router>
     </div>
   );

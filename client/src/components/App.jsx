@@ -1,5 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
-import axios from 'axios';
+import React, {useState} from 'react';
 import Header from './HeaderFooter/Header.jsx';
 import UserProfile from './UserProfile/UserProfile.jsx';
 
@@ -7,12 +6,8 @@ const App = () => {
   return (
   <div>
     <Header />
-    <h1>
-      <UserProfile />
-    </h1>
-  </div>
+   </div>
   );
 };
 
 export default App;
-
