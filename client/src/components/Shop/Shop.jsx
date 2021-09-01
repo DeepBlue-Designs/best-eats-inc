@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MealPlanList from './MealPlanList.jsx'
-import DisplaySelections from './DisplaySelections.jsx';
 import MealList from './MealList.jsx';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
@@ -51,7 +50,6 @@ const Shop = ({ loggedIn, userId }) => {
         selectedMealPlan={selectedMealPlan}
         setSelectedMealPlan={setSelectedMealPlan}
       />
-      <DisplaySelections />
       {isLoading
       ? <p>Loading delicious meals, please be patient...</p>
       : <MealList
@@ -68,7 +66,7 @@ const Shop = ({ loggedIn, userId }) => {
           type="button"
           onClick={handleRegisterOrCheckoutClick}
         >
-        {loggedIn ? 'Checkout' : 'Register'}
+        {!loggedIn ? 'Checkout' : 'Register'}
         </button>
         </Link>
       </div>
