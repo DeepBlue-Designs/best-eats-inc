@@ -32,7 +32,8 @@ const UserSchema = new mongoose.Schema({
   moods: [
     {
       date: {
-        type: Number
+        type: String,
+        unique: true
       },
       feeling: {
         type: String

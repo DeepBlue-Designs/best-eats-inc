@@ -3,6 +3,10 @@
   "password": "12345",
   "email": "db@mail.com",
   "address": "891 Berkeley St., San Francisco, CA, 94133",
+  "healthMetrics": {
+    "height": "6'5",
+    "weight": 250
+  },
   "currentMealPlan": {
     "plan": "family",
     "mealsPerWeek": 4,
@@ -10,111 +14,127 @@
   },
   "moods": [
     {
-      "date": 1627776000000,
-      "feeling": "tired"
+        "date": "Sat Jul 31 2021",
+        "feeling": "tired"
     },
     {
-      "date": 1627862400000,
-      "feeling": "tired"
+        "date": "Sun Aug 01 2021",
+        "feeling": "tired"
     },
     {
-      "date": 1627948800000,
-      "feeling": "tired"
+        "date": "Mon Aug 02 2021",
+        "feeling": "tired"
     },
     {
-      "date": 1628035200000,
-      "feeling": "tired"
+        "date": "Tue Aug 03 2021",
+        "feeling": "tired"
     },
     {
-      "date": 1628121600000,
-      "feeling": "sluggish"
+        "date": "Wed Aug 04 2021",
+        "feeling": "sluggish"
     },
     {
-      "date": 1628208000000,
-      "feeling": "sluggish"
+        "date": "Thu Aug 05 2021",
+        "feeling": "sluggish"
     },
     {
-      "date": 1628294400000,
-      "feeling": "sluggish"
+        "date": "Fri Aug 06 2021",
+        "feeling": "sluggish"
     },
     {
-      "date": 1628380800000,
+        "date": "Sat Aug 07 2021",
+        "feeling": "ready"
+    },
+    {
+        "date": "Sun Aug 08 2021",
+        "feeling": "ready"
+    },
+    {
+        "date": "Mon Aug 09 2021",
+        "feeling": "ready"
+    },
+    {
+        "date": "Tue Aug 10 2021",
+        "feeling": "ready"
+    },
+    {
+        "date": "Wed Aug 11 2021",
+        "feeling": "ready"
+    },
+    {
+        "date": "Thu Aug 12 2021",
+        "feeling": "sluggish"
+    },
+    {
+        "date": "Fri Aug 13 2021",
+        "feeling": "sluggish"
+    },
+    {
+        "date": "Sat Aug 14 2021",
+        "feeling": "sluggish"
+    },
+    {
+        "date": "Sun Aug 15 2021",
+        "feeling": "heavy"
+    },
+    {
+        "date": "Mon Aug 16 2021",
+        "feeling": "heavy"
+    },
+    {
+        "date": "Tue Aug 17 2021",
+        "feeling": "heavy"
+    },
+    {
+        "date": "Wed Aug 18 2021",
+        "feeling": "heavy"
+    },
+    {
+        "date": "Thu Aug 19 2021",
+        "feeling": "heavy"
+    },
+    {
+        "date": "Fri Aug 20 2021",
+        "feeling": "sluggish"
+    },
+    {
+        "date": "Sat Aug 21 2021",
+        "feeling": "sluggish"
+    },
+    {
+        "date": "Sun Aug 22 2021",
+        "feeling": "tired"
+    },
+    {
+        "date": "Mon Aug 23 2021",
+        "feeling": "tired"
+    },
+    {
+        "date": "Tue Aug 24 2021",
+        "feeling": "ready"
+    },
+    {
+        "date": "Wed Aug 25 2021",
+        "feeling": "ready"
+    },
+    {
+        "date": "Thu Aug 26 2021",
+        "feeling": "ready"
+    },
+    {
+      "date": "Fri Aug 27 2021",
       "feeling": "ready"
     },
     {
-      "date": 1628467200000,
-      "feeling": "ready"
-    },
-    {
-      "date": 1628553600000,
-      "feeling": "ready"
-    },
-    {
-      "date": 1628640000000,
-      "feeling": "ready"
-    },
-    {
-      "date": 1628726400000,
-      "feeling": "ready"
-    },
-    {
-      "date": 1628812800000,
+      "date": "Sat Aug 28 2021",
       "feeling": "sluggish"
     },
     {
-      "date": 1628899200000,
-      "feeling": "sluggish"
-    },
-    {
-      "date": 1628985600000,
-      "feeling": "sluggish"
-    },
-    {
-      "date": 1629072000000,
-      "feeling": "heavy"
-    },
-    {
-      "date": 1629158400000,
-      "feeling": "heavy"
-    },
-    {
-      "date": 1629244800000,
-      "feeling": "heavy"
-    },
-    {
-      "date": 1629331200000,
-      "feeling": "heavy"
-    },
-    {
-      "date": 1629417600000,
-      "feeling": "heavy"
-    },
-    {
-      "date": 1629504000000,
-      "feeling": "sluggish"
-    },
-    {
-      "date": 1629590400000,
-      "feeling": "sluggish"
-    },
-    {
-      "date": 1629676800000,
-      "feeling": "tired"
-    },
-    {
-      "date": 1629763200000,
-      "feeling": "tired"
-    },
-    {
-      "date": 1629849600000,
+      "date": "Sun Aug 29 2021",
       "feeling": "ready"
     },
     {
-      "date": 1629936000000,
-      "feeling": "ready"
-    },
-    {
-      "date": 1630022400000,
+      "date": "Mon Aug 30 2021",
       "feeling": "ready"
     }
   ],
