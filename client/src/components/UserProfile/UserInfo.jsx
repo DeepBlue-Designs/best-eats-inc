@@ -3,7 +3,6 @@ import Context from '../Context.jsx'
 import axios from 'axios';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-//import userData from '../../../../database/userData/json/dummyUser1.json';
 import Avatar, { genConfig } from 'react-nice-avatar';
 import { FaEdit } from 'react-icons/fa';
 
@@ -11,34 +10,22 @@ const config = genConfig('AvatarConfig?')
 Modal.setAppElement('#app');
 
 const UserInfo = () => {
-  const [user, setUser] = useState(userData);
+  // const [user, setUser] = useState(userData);
   const [modalIsOpen, setIsOpen] = useState(false);
-  const { userData } = useContext(Context);
-
-  // useEffect(() => {
-  //   axios.get('user/login')
-  //     .then((response) => {
-  //        //returns empty data
-  //        console.log('data', response.data)
-  //       // setUser(response.data)
-  //     })
-  //     .catch((err) => {
-  //       console.log('setUser did not work', err)
-  //     })
-  // }, [])
+  const { userData, setUserData } = useContext(Context);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsOpen(false);
 
-    // axios.put(`user/${user.id}/update`, user)
-    //   .then((res) => console.log('successful user update'))
-    //   .catch((err) => console.log('user update failed', err))
+    axios.put(`user/${userData.id}/update`, userData)
+      .then((res) => console.log('successful user update'))
+      .catch((err) => console.log('user update failed', err))
   }
 
   const handleChange = (event) => {
-    setUser({
-      ...user,
+    setUserData({
+      ...userData,
       [event.target.name]: event.target.value
     })
   }

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import userData from '../../../../database/userData/json/dummyUser1.json';
+import React, { useState, useContext } from 'react';
+import axios from 'axios';
+import Context from '../Context.jsx';
 import styled from 'styled-components';
 import Calendar from './Calendar.jsx';
 import Picker from 'emoji-picker-react';
@@ -7,23 +8,21 @@ import Emoji from './Emoji.jsx';
 
 const MoodTracker = () => {
   // eslint-disable-next-line no-unused-vars
+  const { userData } = useContext(Context);
   const [pastMoods, setPast] = useState(userData.moods);
   const [currentMood, setMood] = useState(null);
   const [isOpen, setOpen] = useState(false);
 
-  const handleClick = () => {
-    setOpen(true);
-  }
-
   const handleSubmit = (event, emojiObject) => {
-    setMood({ date: new Date(), feeling: emojiObject })
-    console.log(currentMood)
+    setMood({ date: new Date(), feeling: emojiObject.emoji })
     setOpen(false);
     event.preventDefault();
-    // const body = currentMood;
-    // axios.put(`/user/${user.id}/moods`, body)
-    //   .then((res) => console.log('Successful mood change', res.status))
-    //   .catch((err) => console.log('Failed mood change', err))
+    const body = currentMood;
+    if (currentMood) {
+      axios.put(`/user/${userData.id}/moods`, body)
+        .then((res) => console.log('Successful mood change', res.status))
+        .catch((err) => console.log('Failed mood change', err))
+    }
   }
 
   return(
@@ -34,7 +33,7 @@ const MoodTracker = () => {
         </Text>
         {isOpen ? <Picker onEmojiClick={handleSubmit} preload={true} groupVisibility={{flags: false, travel_places: false, objects: false, symbols: false}} /> :
           <form>
-            <select onClick={handleClick}>
+            <select onClick={() => setOpen(true)}>
               <option>Select A Mood!</option>
             </select>
           </form>}
