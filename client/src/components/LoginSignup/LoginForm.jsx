@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import axios from 'axios';
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
+  const [userName, setName] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = () => {
@@ -12,7 +12,6 @@ const LoginForm = () => {
       })
       .then(() => console.log('log in successfully'))
       .catch(() => console.log('fail to log in'))
-    }
     event.preventDefault();
   }
 
@@ -20,11 +19,11 @@ const LoginForm = () => {
     <form onSubmit={handleSubmit}>
       <h2>Login</h2>
       <br />
-      <label> Email: </label>
+      <label> Username: </label>
       <input
           type="text"
-          value={email}
-          onChange={e => setEmail(e.target.email)}
+          value={userName}
+          onChange={e => setName(e.target.value)}
       />
       <br />
       <label> Password: </label>
@@ -35,12 +34,11 @@ const LoginForm = () => {
       />
       <div>
         <button>
-          create account
+          Login
         </button>
       </div>
     </form>
   )
 }
-
 
 export default LoginForm;

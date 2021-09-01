@@ -20,7 +20,7 @@ const SignupForm = () => {
     return re.test(email)
   }
 
-  const handleSubmit = () => {
+  const handleSubmit = (event) => {
     if (isEmpty()) {
       alert('input field can not be empty');
     } else if (!validEmail()) {
