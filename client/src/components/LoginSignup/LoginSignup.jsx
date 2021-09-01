@@ -1,7 +1,14 @@
-import React, {useState} from 'react';
+import React from 'react';
+import LoginForm from './LoginForm.jsx';
+import SignupForm from './SignupForm.jsx';
 
 const LoginSignup = () => {
   return (
-    <form>Test</form>
+    <>
+      <LoginForm />
+      <SignupForm />
+    </>
   );
 };
+
+export default LoginSignup;
