@@ -54,7 +54,11 @@ const UserSchema = new mongoose.Schema({
         }
       ]
     }
-  ]
+  ],
+  healthMetrics: {
+    height: String,
+    weight: Number
+  }
 });
 
 const User = mongoose.model('User', UserSchema);

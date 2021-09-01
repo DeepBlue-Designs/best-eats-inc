@@ -27,5 +27,14 @@ module.exports = {
         res.status(200).send(data);
       }
     });
+  },
+  healthMetrics: (req, res) => {
+    User.findByIdAndUpdate(req.params.userID, req.body, { new: true }, (err, data) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(data);
+      }
+    });
   }
 };
