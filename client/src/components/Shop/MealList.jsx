@@ -8,18 +8,10 @@ const DIETS = ['Gluten Free', 'Vegetarian', 'Vegan', 'Pescatarian', 'Paleo'];
 const STARTING_IDX = 55;
 const SLICE = 9;
 
-const MealList = ({ meals, loggedIn }) => {
+const MealList = ({ meals, selectedMealPlan, setSelectedMealPlan }) => {
   const initialMeals = meals.slice(STARTING_IDX, STARTING_IDX + SLICE);
   const [currentMeals, setCurrentMeals] = useState(initialMeals);
   const [slicer, setSlicer] = useState(SLICE);
-
-  const handleRegisterOrCheckoutClick = () => {
-    if (loggedIn) {
-      console.log('Go to check out');
-    } else {
-      console.log('Go to registration');
-    }
-  };
 
   const handleFilterClick = (e) => {
     const filterText = e.target.name.toLowerCase();
@@ -59,19 +51,13 @@ const MealList = ({ meals, loggedIn }) => {
             title={meal.title}
             image={meal.image}
             prepTime={meal.readyInMinutes}
+            selectedMealPlan={selectedMealPlan}
+            setSelectedMealPlan={setSelectedMealPlan}
           />
         ))}
       </MealsContainer>
       <div>
         <button type="button" onClick={handleAddMoreClick}>Show More Meals</button>
-      </div>
-      <div>
-        <button
-          type="button"
-          onClick={handleRegisterOrCheckoutClick}
-        >
-        {loggedIn ? 'Checkout' : 'Register'}
-        </button>
       </div>
     </Section>
   );

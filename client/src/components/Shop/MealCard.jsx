@@ -2,11 +2,27 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 import { MdAddCircleOutline, MdRemoveCircleOutline } from 'react-icons/md';
 
-const MealCard = ({ id, title, image, prepTime }) => {
+const MealCard = ({ id, title, image, prepTime, selectedMealPlan, setSelectedMealPlan }) => {
   const [isSelected, setIsSelected] = useState(false);
 
   const handleClick = () => {
-    setIsSelected(!isSelected);
+    if (selectedMealPlan.mealIDs.length < selectedMealPlan.mealsPerWeek) {
+      setIsSelected(!isSelected);
+      setSelectedMealPlan((prevState) => ({
+        ...prevState,
+        mealIDs: [...prevState.mealIDs, id],
+      }))
+    } else {
+      setIsSelected(false);
+      const idxToRemove = selectedMealPlan.mealIDs.indexOf(id);
+      if (idxToRemove > -1) {
+        const newMealIDs = [...selectedMealPlan.mealIDs].splice(0, idxToRemove);
+        setSelectedMealPlan((prevState) => ({
+          ...prevState,
+          mealIDs: newMealIDs,
+        }))
+      }
+    }
   }
 
   return (
@@ -47,7 +63,7 @@ const MealCardContainer = styled.div`
   margin-bottom: 20px;
   padding-left: 10px;
   padding-right: 10px;
-  flex: 1 1 25%;
+  flex: 1 0 25%;
   border-radius: 5px;
 `;
 
@@ -58,12 +74,12 @@ const MealCardContent = styled.div`
   display: flex;
   flex-direction: column;
   height: 100%;
+  justify-content: space-evenly;
 `;
 
 const StyledImageDiv = styled.div`
   border-radius: 5px 5px 0 0;
   overflow: hidden;
-  flex: 2 0 50%;
 `;
 
 const MealImage = styled.img`
@@ -74,9 +90,12 @@ const MealImage = styled.img`
 const MealDescription = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 5px;
-  & h4 {
-    font-size: 1em;
+  font-size: 1em;
+  & p {
+    font-size: .8em;
+    color: rgb(6, 122, 70);
   }
 `;
 
