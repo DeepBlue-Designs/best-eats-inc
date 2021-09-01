@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-  <div>
+  <div style={{position: 'relative'}}>
     <Link to="/">
       Logo
     {/* <img src="">LOGO</img> */}
