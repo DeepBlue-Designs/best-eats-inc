@@ -8,6 +8,7 @@ import Footer from './Footer.jsx';
 import LoginForm from '../LoginSignup/LoginForm.jsx';
 import SignupForm from '../LoginSignup/SignupForm.jsx';
 import UserProfile from '../UserProfile/UserProfile.jsx';
+import Checkout from '../Checkout/Checkout.jsx';
 
 const Header = () => {
   return (
@@ -57,6 +58,9 @@ const Header = () => {
           </Route>
           <Route path="/signup">
             <SignupForm />
+          </Route>
+          <Route path="/checkout">
+            <Checkout />
           </Route>
         </Switch>
 
