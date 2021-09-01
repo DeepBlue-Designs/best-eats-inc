@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import axios from 'axios';
+import { useHistory } from "react-router-dom";
 
 const SignupForm = () => {
   const [userName, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [address, setAddress] = useState("");
+
+  let history = useHistory()
 
   const isEmpty = () => {
     let isEmpty = false;
@@ -32,7 +35,7 @@ const SignupForm = () => {
         email: email,
         address: address
       })
-      .then(() => console.log('create user account successully'))
+      .then(history.push('/login'))
       .catch(() => console.log('fail to create user account'))
     }
     event.preventDefault();

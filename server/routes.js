@@ -6,6 +6,12 @@ router.post('/signup', controller.createUser.post);
 
 router.post('/login', controller.login.post);
 
+router.put('/:userID/username/edit', controller.userInfo.username);
+
+router.put('/:userID/email/edit', controller.userInfo.email);
+
+router.put('/:userID/address/edit', controller.userInfo.address);
+
 router.put('/:userID/moods', controller.moods.put);
 
 router.put('/:userID/goal/add', controller.goals.add);
