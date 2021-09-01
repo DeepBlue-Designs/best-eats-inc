@@ -6,8 +6,8 @@ import styled from 'styled-components';
 import Avatar, { genConfig } from 'react-nice-avatar';
 import { FaEdit } from 'react-icons/fa';
 
-const config = genConfig('AvatarConfig?')
-Modal.setAppElement('#app');
+const config = genConfig("AvatarConfig?");
+Modal.setAppElement("#app");
 
 const UserInfo = () => {
   // const [user, setUser] = useState(userData);
@@ -34,7 +34,7 @@ const UserInfo = () => {
     <UserContainer>
       <InfoView>
         <UserAv>
-          <Avatar style={{ width: '8rem', height: '8rem' }} {...config} />
+          <Avatar style={{ width: "8rem", height: "8rem" }} {...config} />
         </UserAv>
         <InfoContainer>
           <div>
@@ -64,7 +64,7 @@ const UserInfo = () => {
       </InfoView>
     </UserContainer>
   );
-}
+};
 
 export default UserInfo;
 
@@ -72,7 +72,8 @@ const UserContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 300px;
-  border: 2px solid green; `
+  border: 2px solid green;
+`;
 
 const UserAv = styled.div`
   display: flex;
@@ -81,18 +82,20 @@ const UserAv = styled.div`
   border-radius: 20%;
   width: 25%;
   margin: 2%;
-  `
+`;
 const InfoView = styled.div`
-display: flex;
-border: 1px solid red;
-flex-direction: row;
-height: 250px; `
+  display: flex;
+  border: 1px solid red;
+  flex-direction: row;
+  height: 250px;
+`;
 
 const InfoContainer = styled.div`
   display: flex;
   flex-direction: row;
   margin: 2%;
-  border: 1px solid black; `
+  border: 1px solid black;
+`;
 
 const Info = styled.p`
   margin-top: 4%;
@@ -100,6 +103,4 @@ const Info = styled.p`
   font-family: Tahoma;
   font-weight: 400;
   font-size: 16px;
-  `
-
-
+`;
