@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import Calendar from './Calendar.jsx';
 import Emoji from './Emoji.jsx';
 
 const MoodTracker = () => {
@@ -41,7 +42,7 @@ const MoodTracker = () => {
         </form>
       </DropDownContainer>
       <CalendarContainer>
-
+      <Calendar />
     </CalendarContainer>
     </MoodContainer>
   )
