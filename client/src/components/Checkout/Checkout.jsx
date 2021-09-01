@@ -29,7 +29,6 @@ const Checkout = ({ userId }) => {
     return (
     <div>
       <div>meal plan here</div>
-      <div>meal kit card here</div>
       <div> User Info and Price goes here</div>
       <div onClick={() => {handleCheckout(userId, plan, mealsPerWeek, mealIDs)}}>Checkout</div>
     </div>
@@ -41,7 +40,7 @@ const Checkout = ({ userId }) => {
       <div>meal kit card here</div>
       <div> User Info and Price goes here</div>
       <div>Checkout</div>
-      <div>Congrats my guy, you like, bought a meal plan lmao</div>
+      <div>Congrats, checkout successful!</div>
     </div>
     )
   }
