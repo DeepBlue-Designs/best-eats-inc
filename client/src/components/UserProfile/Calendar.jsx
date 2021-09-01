@@ -25,7 +25,6 @@ const Calendar = () => {
         data={data}
         xLabels={xLabels}
         yLabels={yLabels}
-        // Reder cell with tooltip
         cellRender={(x, y, value) => (
           <div title={`Pos(${x}, ${y}) = ${value}`}>{value}</div>
         )}

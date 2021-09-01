@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import userData from '../../../../database/userData/json/dummyUser1.json';
 import styled from 'styled-components';
 import Calendar from './Calendar.jsx';
 import Emoji from './Emoji.jsx';
 
 const MoodTracker = () => {
-  const [currentMood, setMood] = useState({ date: new Date(), feeling: null});
+  const [pastMoods, setPast] = useState(userData.moods);
+  const [currentMood, setMood] = useState(null);
+
   //TODO: implement dynamic emoji selection for drop down
   const moods = [
     { feeling: <Emoji symbol="🥱 " label="sluggish" />},
@@ -35,6 +38,9 @@ const MoodTracker = () => {
           <select onChange={handleChange}>
             <option>Select A Mood!</option>
             <option value="sluggish">Sluggish</option>
+            <option value="heavy">Heavy</option>
+            <option value="ready">Ready</option>
+            <option value="tired">Tired</option>
             <option value="energetic">Energetic</option>
             <option value="hungry">Hungry</option>
           </select>

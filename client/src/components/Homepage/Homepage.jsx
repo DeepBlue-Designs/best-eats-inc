@@ -38,7 +38,7 @@ const GetStartedButton = styled.button`
 
 const TileContainer = styled.div`
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 `
 
 const InfoTile = styled.div`

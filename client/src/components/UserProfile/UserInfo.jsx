@@ -13,22 +13,23 @@ const UserInfo = () => {
   const [user, setUser] = useState(userData);
   const [modalIsOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    axios.get('user/login')
-      .then((response) => {
-         //returns empty data
-        // setUser(response.data)
-      })
-      .catch((err) => {
-        console.log('setUser did not work', err)
-      })
-  }, [])
+  // useEffect(() => {
+  //   axios.get('user/login')
+  //     .then((response) => {
+  //        //returns empty data
+  //        console.log('data', response.data)
+  //       // setUser(response.data)
+  //     })
+  //     .catch((err) => {
+  //       console.log('setUser did not work', err)
+  //     })
+  // }, [])
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsOpen(false);
 
-    // axios.post('/userdata', user)
+    // axios.put(`user/${user.id}/update`, user)
     //   .then((res) => console.log('successful user update'))
     //   .catch((err) => console.log('user update failed', err))
   }
