@@ -2,7 +2,6 @@ const User = require('../../../database/UserProfile/model/users');
 
 module.exports = {
   post: (req, res) => {
-    console.log('body', req.body);
     User
     .findOne()
     .where('userName').equals(req.body.userName)
