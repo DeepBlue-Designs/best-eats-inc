@@ -10,23 +10,65 @@ const config = genConfig('AvatarConfig?')
 Modal.setAppElement('#app');
 
 const UserInfo = () => {
-  const [modalIsOpen, setIsOpen] = useState(false);
   const { userData, setUserData } = useContext(Context);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [username, setUsername] = useState(null);
+  const [currEmail, setEmail] = useState(null);
+  const [currAddress, setAddress] = useState(null);
+  const [healthStat, setHealthStat] = useState(null);
 
   //TODO: update user info routes
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsOpen(false);
-    axios.put(`user/${userData._id}/update`, userData)
-      .then((res) => console.log('successful user update', res.status))
+
+    if (username) {
+      console.log(username)
+      axios.put(`user/${userData._id}/username/edit`, {"userName": username})
+        .then((res) => console.log('successful user update', setUserData(res.data)))
+        .catch((err) => console.log('user update failed', err))
+    } else if (currEmail) {
+      axios.put(`user/${userData._id}/email/edit`, {"email": currEmail})
+      .then((res) => console.log('successful user update', setUserData(res.data)))
       .catch((err) => console.log('user update failed', err))
+    } else if (currAddress) {
+      axios.put(`user/${userData._id}/address/edit`, {"address": currAddress})
+      .then((res) => console.log('successful user update', setUserData(res.data)))
+      .catch((err) => console.log('user update failed', err))
+    } else if (healthStat) {
+      axios.put(`user/${userData._id}/healthMetrics`,
+      { "healthMetrics": {
+          "height": healthStat.height,
+          "weight": healthStat.weight
+        }
+      })
+      .then((res) => console.log('successful user update', setUserData(res.data)))
+      .catch((err) => console.log('user update failed', err))
+    }
+
+
   }
 
   const handleChange = (event) => {
-    setUserData({
-      ...userData,
-      [event.target.name]: event.target.value
-    })
+    const value = event.target.value;
+    const name = event.target.name;
+    if (event.target.name === 'weight') {
+      value = `${event.target.value}lbs`;
+    }
+
+    if (name === 'userName') {
+      console.log(value)
+      setUsername(value)
+    } else if (name === 'email') {
+      setEmail(value)
+    } else if (name === 'address') {
+      setAddress(value)
+    } else if (name === 'weight') {
+      setHealthStat({weight: value})
+    } else if (name === 'height') {
+      setHealthStat({heigh: value})
+    }
+
   }
 
   return (
@@ -41,7 +83,9 @@ const UserInfo = () => {
               Username: {userData.userName} <br /><br />
               Email: {userData.email} <br /><br />
               Shipping Address: {userData.address} <br /><br />
-              Health Metrics: {userData.healthMetrics ? userData.healthMetrics : null}
+              Health Metrics: <br />
+              {userData.healthMetrics ? userData.healthMetrics.height : null}
+              {userData.healthMetrics ? userData.healthMetrics.weight : null}
             </Info>
           </div>
           <div>
@@ -53,7 +97,11 @@ const UserInfo = () => {
                   <input type="text" name="userName" placeholder="User Name" onChange={handleChange}  />
                   <input type="text" name="email" placeholder="Email" onChange={handleChange} />
                   <input type="text" name="address" placeholder="Shipping address" onChange={handleChange} />
-                  <input type="text" name="healthMetrics" placeholder="Health Metrics" onChange={handleChange} value={userData.healthMetrics ? userData.healthMetrics : ''}/>
+                  <label>
+                    Health Metrics:
+                      <input type="number" name="weight" placeholder="Weight" onChange={handleChange} />
+                      <input type="text" name="height" placeholder="5'10" onChange={handleChange} />
+                  </label>
                   <input type="submit" value="Submit" />
                   <button onClick={() => setIsOpen(false)}>Cancel</button>
                 </form>
