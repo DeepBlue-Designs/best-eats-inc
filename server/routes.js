@@ -4,7 +4,7 @@ const router = require('express').Router();
 
 router.post('/signup', controller.createUser.post);
 
-router.get('/login', controller.login.get);
+router.post('/login', controller.login.post);
 
 router.put('/:userID/moods', controller.moods.put);
 

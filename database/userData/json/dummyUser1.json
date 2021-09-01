@@ -1,15 +1,14 @@
 {
-  "id": 1,
   "userName": "bobthebuilder",
   "password": "12345",
   "email": "bb@mail.com",
   "address": "2131 San Francisco St., San Francisco, CA, 94133",
   "currentMealPlan": {
-    "type": "solo",
+    "plan": "solo",
     "mealsPerWeek": 3,
     "mealIDs": [1, 6, 8]
   },
-  "mood": [
+  "moods": [
     {
       "date": 1627776000000,
       "feeling": "heavy"

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import UserInfo from './UserInfo.jsx';
 import styled from 'styled-components';
+import Lifestyle from './Lifestyle.jsx';
 import ManageAccount from './ManageAccount.jsx';
 
 
@@ -24,7 +25,7 @@ const UserProfile = () => {
         <button onClick={currentView} name="lifestyle">Health and Lifestyle</button>
         <button onClick={currentView} name="manage">Manage Account</button>
       </ButtonContainer>
-      {manage ? <ManageAccount /> : null}
+      {manage ? <ManageAccount /> : <Lifestyle />}
     </>
   );
 };
