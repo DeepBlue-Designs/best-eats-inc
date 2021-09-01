@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import '../../../../node_modules/react-multi-carousel/lib/styles.css';
 import styled from 'styled-components';
@@ -38,7 +38,7 @@ const GetStartedButton = styled.button`
 
 const TileContainer = styled.div`
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 `
 
 const InfoTile = styled.div`
@@ -84,7 +84,7 @@ const responsive = {
   }
 }
 
-const Homepage = ( {test} ) => {
+const Homepage = () => {
   return (
     <div>
       {/* <div>Homepage {test}</div> */}

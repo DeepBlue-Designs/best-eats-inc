@@ -1,46 +1,34 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import Modal from "react-modal";
-import styled from "styled-components";
-import userData from "../../../../database/userData/json/dummyUser1.json";
-import Avatar, { genConfig } from "react-nice-avatar";
-import { FaEdit } from "react-icons/fa";
-import GoalTracker from "./GoalTracker.js";
+import React, {useState, useEffect, useContext} from 'react';
+import Context from '../Context.jsx'
+import axios from 'axios';
+import Modal from 'react-modal';
+import styled from 'styled-components';
+import Avatar, { genConfig } from 'react-nice-avatar';
+import { FaEdit } from 'react-icons/fa';
 
 const config = genConfig("AvatarConfig?");
 Modal.setAppElement("#app");
 
 const UserInfo = () => {
-  const [user, setUser] = useState(userData);
+  // const [user, setUser] = useState(userData);
   const [modalIsOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    axios
-      .get("user/login")
-      .then((response) => {
-        console.log("hello", response); //returns empty data
-        // setUser(response.data)
-      })
-      .catch((err) => {
-        console.log("setUser did not work", err);
-      });
-  }, []);
+  const { userData, setUserData } = useContext(Context);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsOpen(false);
 
-    // axios.post('/userdata', user)
-    //   .then((res) => console.log('successful user update'))
-    //   .catch((err) => console.log('user update failed', err))
-  };
+    axios.put(`user/${userData.id}/update`, userData)
+      .then((res) => console.log('successful user update'))
+      .catch((err) => console.log('user update failed', err))
+  }
 
   const handleChange = (event) => {
-    setUser({
-      ...user,
-      [event.target.name]: event.target.value,
-    });
-  };
+    setUserData({
+      ...userData,
+      [event.target.name]: event.target.value
+    })
+  }
 
   return (
     <UserContainer>
@@ -51,54 +39,29 @@ const UserInfo = () => {
         <InfoContainer>
           <div>
             <Info>
-              Username: {user.userName} <br />
-              <br />
-              Email: {user.email} <br />
-              <br />
-              Shipping Address: {user.address} <br />
-              <br />
-              Health Metrics: {user.healthMetrics ? user.healthMetrics : null}
+              Username: {userData.userName} <br /><br />
+              Email: {userData.email} <br /><br />
+              Shipping Address: {userData.address} <br /><br />
+              Health Metrics: {userData.healthMetrics ? userData.healthMetrics : null}
             </Info>
           </div>
           <div>
-            <button onClick={() => setIsOpen(true)}>
-              <FaEdit />
-            </button>
-            <Modal isOpen={modalIsOpen} onRequestClose={() => setIsOpen(false)}>
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  name="userName"
-                  placeholder="User Name"
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  name="email"
-                  placeholder="Email"
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  name="address"
-                  placeholder="Shipping address"
-                  onChange={handleChange}
-                />
-                <input
-                  type="text"
-                  name="healthMetrics"
-                  placeholder="Health Metrics"
-                  onChange={handleChange}
-                  value={user.healthMetrics ? user.healthMetrics : ""}
-                />
-                <input type="submit" value="Submit" />
-                <button onClick={() => setIsOpen(false)}>Cancel</button>
-              </form>
+            <button onClick={() => setIsOpen(true)}><FaEdit /></button>
+            <Modal
+              isOpen={modalIsOpen}
+              onRequestClose={() => setIsOpen(false)}>
+                <form onSubmit={handleSubmit}>
+                  <input type="text" name="userName" placeholder="User Name" onChange={handleChange}  />
+                  <input type="text" name="email" placeholder="Email" onChange={handleChange} />
+                  <input type="text" name="address" placeholder="Shipping address" onChange={handleChange} />
+                  <input type="text" name="healthMetrics" placeholder="Health Metrics" onChange={handleChange} value={userData.healthMetrics ? userData.healthMetrics : ''}/>
+                  <input type="submit" value="Submit" />
+                  <button onClick={() => setIsOpen(false)}>Cancel</button>
+                </form>
             </Modal>
           </div>
         </InfoContainer>
       </InfoView>
-      <GoalTracker />
     </UserContainer>
   );
 };

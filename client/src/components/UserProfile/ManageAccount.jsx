@@ -1,17 +1,18 @@
-import React, { useState, useEffect } from 'react';
-import Shop from '../Shop/Shop.jsx';
-import userData from '../../../../database/userData/json/dummyUser1.json';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+// import userData from '../../../../database/userData/json/dummyUser1.json';
+import Context from '../Context.jsx';
+import { Link } from 'react-router-dom';
 import { RiEmotionSadLine, RiEmotionHappyFill } from 'react-icons/ri';
+import MealPlanCard from '../Shop/common/MealPlanCard.jsx'
 import styled from 'styled-components';
 import axios from 'axios';
 
 const ManageAccount = () => {
-  const [user, setUser] = useState(userData)
-  // const [currentMeal, setMeal] = useState(userData.currentMealPlan);
-  const [currentMeal, setMeal] = useState(null);
+  const { userData } = useContext(Context)
+  const [currentMeal, setMeal] = useState(userData.currentMealPlan);
 
   useEffect(() => {
+    // console.log('user', userData)
     // axios.get('/login')
     //   .then((res) => {
     //     if (res.data.currentMealplan) {
@@ -23,27 +24,24 @@ const ManageAccount = () => {
 
   const cancelPlan = () => {
     setMeal(null);
-
-    // const cancel = {currentMealPlan: null};
-    // axios.put(`user/${user.id}/currentmealplan/remove`, cancel)
-    //   .then((res) => console.log('Cancel successful', res.status))
-    //   .catch((err) => console.log('Cancel failed', err))
+    const cancel = {currentMealPlan: null};
+    axios.put(`user/${userData._id}/currentmealplan/remove`, cancel)
+      .then((res) => console.log('Cancel successful', res.status))
+      .catch((err) => console.log('Cancel failed', err))
   }
-
+  console.log('current', currentMeal.plan)
   return(
     <ManageContainer>
       Current Meal Plan:
       <MealPlanContainer>
         <MealCard>
-          {currentMeal ? <RiEmotionHappyFill /> : <RiEmotionSadLine />}
+        {currentMeal.mealIDs.length ? <MealPlanCard plan={currentMeal.plan} mealsPerWeek={currentMeal.mealsPerWeek} /> : "Please Select a MealPlan" }
         </MealCard>
         <ButtonContainer>
           <button onClick={cancelPlan}>Cancel</button>
-          <Router>
             <Link to="/shop">
               <button>Modify</button>
             </Link>
-          </Router>
         </ButtonContainer>
       </MealPlanContainer>
     </ManageContainer>
