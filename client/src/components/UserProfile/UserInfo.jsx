@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import Context from '../Context.jsx'
 import axios from 'axios';
 import Modal from 'react-modal';
 import styled from 'styled-components';
-import userData from '../../../../database/userData/json/dummyUser1.json';
+//import userData from '../../../../database/userData/json/dummyUser1.json';
 import Avatar, { genConfig } from 'react-nice-avatar';
 import { FaEdit } from 'react-icons/fa';
 
@@ -12,6 +13,7 @@ Modal.setAppElement('#app');
 const UserInfo = () => {
   const [user, setUser] = useState(userData);
   const [modalIsOpen, setIsOpen] = useState(false);
+  const { userData } = useContext(Context);
 
   useEffect(() => {
     axios.get('user/login')
@@ -49,10 +51,10 @@ const UserInfo = () => {
         <InfoContainer>
           <div>
             <Info>
-              Username: {user.userName} <br /><br />
-              Email: {user.email} <br /><br />
-              Shipping Address: {user.address} <br /><br />
-              Health Metrics: {user.healthMetrics ? user.healthMetrics : null}
+              Username: {userData.userName} <br /><br />
+              Email: {userData.email} <br /><br />
+              Shipping Address: {userData.address} <br /><br />
+              Health Metrics: {userData.healthMetrics ? userData.healthMetrics : null}
             </Info>
           </div>
           <div>
@@ -64,7 +66,7 @@ const UserInfo = () => {
                   <input type="text" name="userName" placeholder="User Name" onChange={handleChange}  />
                   <input type="text" name="email" placeholder="Email" onChange={handleChange} />
                   <input type="text" name="address" placeholder="Shipping address" onChange={handleChange} />
-                  <input type="text" name="healthMetrics" placeholder="Health Metrics" onChange={handleChange} value={user.healthMetrics ? user.healthMetrics : ''}/>
+                  <input type="text" name="healthMetrics" placeholder="Health Metrics" onChange={handleChange} value={userData.healthMetrics ? userData.healthMetrics : ''}/>
                   <input type="submit" value="Submit" />
                   <button onClick={() => setIsOpen(false)}>Cancel</button>
                 </form>
