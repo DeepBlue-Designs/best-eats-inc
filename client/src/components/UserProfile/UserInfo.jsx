@@ -27,15 +27,18 @@ const UserInfo = () => {
       axios.put(`user/${userData._id}/username/edit`, {"userName": username})
         .then((res) => console.log('successful user update', setUserData(res.data)))
         .catch((err) => console.log('user update failed', err))
-    } else if (currEmail) {
+    }
+    if (currEmail) {
       axios.put(`user/${userData._id}/email/edit`, {"email": currEmail})
       .then((res) => console.log('successful user update', setUserData(res.data)))
       .catch((err) => console.log('user update failed', err))
-    } else if (currAddress) {
+    }
+    if (currAddress) {
       axios.put(`user/${userData._id}/address/edit`, {"address": currAddress})
       .then((res) => console.log('successful user update', setUserData(res.data)))
       .catch((err) => console.log('user update failed', err))
-    } else if (healthStat) {
+    }
+    if (healthStat) {
       axios.put(`user/${userData._id}/healthMetrics`,
       { "healthMetrics": {
           "height": healthStat.height,
