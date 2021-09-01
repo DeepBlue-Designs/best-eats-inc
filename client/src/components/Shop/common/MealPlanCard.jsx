@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { calculateAndFormatPrice } from './helpers.js';
 
 const planInfo = {
-  single: {
+  solo: {
     photo: 'https://images.unsplash.com/photo-1461555806864-d8b528023e7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80',
     serving: 1,
     baselinePrice: 15.99,

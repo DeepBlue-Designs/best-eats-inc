@@ -13,7 +13,7 @@ const Shop = ({ loggedIn, userId }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const [selectedMealPlan, setSelectedMealPlan] = useState({
-    plan: 'single',
+    plan: 'solo',
     mealsPerWeek: 2,
     mealIDs: [],
   });

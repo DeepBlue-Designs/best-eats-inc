@@ -6,13 +6,13 @@ import MealPlanCard from '../Shop/common/MealPlanCard.jsx';
 import Context from '../Context.jsx';
 
 const servings = {
-  single: 1,
+  solo: 1,
   duo: 2,
   family: 4,
 };
 
 const priceInfo = {
-  single: {
+  solo: {
     serving: 1,
     baselinePrice: 15.99,
   },
