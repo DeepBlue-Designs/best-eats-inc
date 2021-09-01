@@ -16,7 +16,7 @@ const UserInfo = () => {
   useEffect(() => {
     axios.get('user/login')
       .then((response) => {
-        console.log('hello', response) //returns empty data
+         //returns empty data
         // setUser(response.data)
       })
       .catch((err) => {

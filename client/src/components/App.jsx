@@ -6,9 +6,7 @@ const App = () => {
   return (
   <div>
     <Header />
-    <h1>
-      <UserProfile />
-    </h1>
+    <UserProfile />
    </div>
   );
 };
