@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useLocation } from 'react-router-dom';
+import { calculateAndFormatPrice } from '../Shop/common/helpers.js';
 
-const Checkout = (userId, plan, mealsPerWeek, mealIDs) => {
-  // const location = useLocation();
-  // const {nhu} = location.state;
+const servings = {
+  single: 1,
+  duo: 2,
+  family: 4,
+};
+
+const Checkout = ({ userId }) => {
+  const location = useLocation();
+  const { mealIDs, plan, mealsPerWeek } = location.state;
   const [confirmation, setConfirmation] = useState(false);
 
   const handleCheckout = (userId, plan, mealsPerWeek, mealIDs) => {
@@ -17,11 +25,10 @@ const Checkout = (userId, plan, mealsPerWeek, mealIDs) => {
       .catch(() => {console.log('error')});
   };
 
-  if (!confirmation) {
+  if (confirmation) {
     return (
     <div>
       <div>meal plan here</div>
-      <div>meal kit card here</div>
       <div> User Info and Price goes here</div>
       <div onClick={() => {handleCheckout(userId, plan, mealsPerWeek, mealIDs)}}>Checkout</div>
     </div>
@@ -33,7 +40,7 @@ const Checkout = (userId, plan, mealsPerWeek, mealIDs) => {
       <div>meal kit card here</div>
       <div> User Info and Price goes here</div>
       <div>Checkout</div>
-      <div>Congrats my guy, you like, bought a meal plan lmao</div>
+      <div>Congrats, checkout successful!</div>
     </div>
     )
   }

@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 
 const Footer = () => {
   return (
-  <div>
+  <div style={{position: 'relative'}}>
     <Link to="/">
       Logo
     {/* <img src="">LOGO</img> */}
@@ -24,7 +24,6 @@ const Footer = () => {
     <Link to="/signup">
       <button>SIGN UP</button>
     </Link>
-    <>Hello this is my react fragment for testing</>
   </div>
   );
 };

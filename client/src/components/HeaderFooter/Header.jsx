@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Context from '../Context.jsx';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Homepage from '../Homepage/Homepage.jsx';
 import MeetTheFarmers from '../MeetTheFarmers/MeetTheFarmers.jsx';
@@ -8,8 +9,22 @@ import Footer from './Footer.jsx';
 import LoginForm from '../LoginSignup/LoginForm.jsx';
 import SignupForm from '../LoginSignup/SignupForm.jsx';
 import UserProfile from '../UserProfile/UserProfile.jsx';
+import Checkout from '../Checkout/Checkout.jsx';
+
+
 
 const Header = () => {
+
+  const { userData } = useContext(Context);
+
+  let userProfilePath;
+
+  if (userData) {
+    userProfilePath = '/profile';
+  } else {
+    userProfilePath = 'login';
+  }
+
   return (
     <div>
       <Router>
@@ -26,7 +41,7 @@ const Header = () => {
         <Link to="/healthy">
           Let&apos;s Get Healthy
         </Link>
-        <Link to="/profile">
+        <Link to={userProfilePath}>
           User Profile
         </Link>
         <Link to="/login">
@@ -57,6 +72,9 @@ const Header = () => {
           </Route>
           <Route path="/signup">
             <SignupForm />
+          </Route>
+          <Route path="/checkout">
+            <Checkout />
           </Route>
         </Switch>
 
