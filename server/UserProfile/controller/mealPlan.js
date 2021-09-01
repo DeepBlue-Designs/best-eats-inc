@@ -2,7 +2,7 @@ const User = require('../../../database/UserProfile/model/users');
 
 module.exports = {
   add: (req, res) => {
-    User.findByIdAndUpdate(req.params.userID, { currentMealPlan: req.body }, (err, data) => {
+    User.findByIdAndUpdate(req.params.userID, { currentMealPlan: req.body }, { new: true }, (err, data) => {
       if (err) {
         res.status(500).send(err);
       } else {
@@ -11,7 +11,7 @@ module.exports = {
     });
   },
   remove: (req, res) => {
-    User.findByIdAndUpdate(req.params.userID, { currentMealPlan: {} }, (err, data) => {
+    User.findByIdAndUpdate(req.params.userID, { currentMealPlan: {} }, { new: true }, (err, data) => {
       if (err) {
         res.status(500).send(err);
       } else {
