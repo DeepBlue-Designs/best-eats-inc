@@ -11,7 +11,7 @@ const ManageAccount = () => {
   // const [currentMeal, setMeal] = useState(null);
 
   useEffect(() => {
-    console.log('user', userData)
+    // console.log('user', userData)
     // axios.get('/login')
     //   .then((res) => {
     //     if (res.data.currentMealplan) {

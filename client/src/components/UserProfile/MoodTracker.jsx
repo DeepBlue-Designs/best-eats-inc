@@ -51,7 +51,7 @@ export default MoodTracker;
 const MoodContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
   border: 1px solid purple;
   height: 500px; `

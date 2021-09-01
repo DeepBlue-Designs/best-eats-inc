@@ -6,7 +6,7 @@ import Emoji from './Emoji.jsx';
 
 const Calendar = ({ mood }) => {
   const [value, onChange] = useState(new Date());
-  console.log(mood)
+  // console.log(mood)
 
   return(
     <div>
