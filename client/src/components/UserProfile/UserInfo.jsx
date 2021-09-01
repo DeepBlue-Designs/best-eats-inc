@@ -45,7 +45,7 @@ const UserInfo = () => {
   return (
     <UserContainer>
       <InfoView>
-        <UserAv style={{ border: "2px solid red" }}>
+        <UserAv>
           <Avatar style={{ width: "8rem", height: "8rem" }} {...config} />
         </UserAv>
         <InfoContainer>

@@ -14,12 +14,14 @@ const AddGoal = styled.a`
   position: relative;
   cursor: pointer;
   margin-top: 15px;
+  margin-right: 10px;
 `;
 
 const Header = () => {
   return (
-    <div>
+    <div style={{ marginLeft: "70px" }}>
       <AddGoal>ADD NEW GOAL</AddGoal>
+      <AddGoal>UPDATE A GOAL</AddGoal>
     </div>
   );
 };

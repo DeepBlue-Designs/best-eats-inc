@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const GoalContainer = styled.div`
-  border: 2px solid red;
+  border: 2px solid #9e9e9e;
   margin-top: 30px;
   width: 650px;
+  padding: 20px;
+  border-radius: 10px;
+  margin-left: 70px;
 `;
 
 const GoalsList = () => {
-  const [goalID, setGoalID] = useState(1);
-  const [actions, setActions] = useState([]);
-  const [progress, setProgress] = useState([]);
   var goalData = [
     {
       id: 1,
@@ -31,6 +31,11 @@ const GoalsList = () => {
       ],
     },
   ];
+  const [goalID, setGoalID] = useState(1);
+  const [actions, setActions] = useState([
+    { name: "SELECT THE GOAL FIRST", done: false },
+  ]);
+  const [progress, setProgress] = useState();
 
   const handleChange = (e) => {
     var t = e.target.value;
@@ -51,38 +56,63 @@ const GoalsList = () => {
     <GoalContainer>
       <div
         id="selectGoal"
-        style={{ display: "flex", justifyContent: "space-between" }}
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "baseline",
+        }}
       >
-        <select onChange={handleChange} style={{ padding: "5px 20px" }}>
-          <option> SELECT GOAL</option>
+        <select onChange={handleChange} style={{ padding: "10px 30px" }}>
+          <option>SELECT GOAL</option>
           {goalData.map((elm) => {
             return <option key={elm.id}>{elm.name}</option>;
           })}
         </select>
 
-        <div>
+        <div className="allOptions" style={{ width: "200px" }}>
           {actions.map((elm, index) => (
-            <div key={index}>
+            <div
+              className="listOptions"
+              style={{ marginTop: "10px" }}
+              key={index}
+            >
               <input
                 type="checkbox"
                 id={elm.name}
                 name={elm.name}
                 checked={elm.done}
+                className="inputy"
+                width="20px"
+                height="20px"
+                style={{ width: "20px", height: "20px" }}
                 disabled
               ></input>
-              <label htmlFor={elm.name}> {elm.name}</label>
+              <label
+                style={{
+                  fontSize: "1.3rem",
+                  marginTop: "15px",
+                  paddingLeft: "10px",
+                }}
+                htmlFor={elm.name}
+              >
+                {elm.name}
+              </label>
             </div>
           ))}
         </div>
       </div>
       <div style={{ marginTop: "20px" }}>
+        <span>
+          {" "}
+          {isNaN(Math.ceil(progress))
+            ? "CHOOSE THE GOAL FIRST"
+            : `Your Goal Progress:${Math.ceil(progress)} %`}{" "}
+        </span>
         <progress
-          style={{ width: "100%", height: "50px" }}
+          style={{ width: "100%", height: "70px" }}
           value={progress}
           max="100"
-        >
-          {progress}
-        </progress>
+        ></progress>
       </div>
     </GoalContainer>
   );
@@ -90,3 +120,4 @@ const GoalsList = () => {
 
 export default GoalsList;
 // <li key={index}>{elm.name}</li>
+// style={{ padding: "5px 20px" }}
