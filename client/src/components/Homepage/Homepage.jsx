@@ -1,9 +1,8 @@
-import React, { useState, useContext }  from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import '../../../../node_modules/react-multi-carousel/lib/styles.css';
 import styled from 'styled-components';
 import Carousel from 'react-multi-carousel';
-import Context from '../Context.jsx';
 
 const MainSplash = styled.img`
   height: 90vh;
@@ -85,14 +84,9 @@ const responsive = {
   }
 }
 
-const Homepage = ( {test} ) => {
-
-  const { userData } = useContext(Context);
-  const { setUserData } = useContext(Context);
-  console.log(userData);
+const Homepage = () => {
   return (
     <div>
-      <div onClick={() => {setUserData(' test successful')}}>CLICK THIS HERE{userData}</div>
       {/* <div>Homepage {test}</div> */}
       <MainSplashContainer>
         <MainSplash src='https://puregreensaz.com/wp-content/uploads/2020/06/dan-meyers-IQVFVH0ajag-unsplash-1080x675.jpg'/>
