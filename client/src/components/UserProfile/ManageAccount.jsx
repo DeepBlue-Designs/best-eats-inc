@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import userData from '../../../../database/userData/json/dummyUser1.json';
-// import Context from '../Context.jsx';
+// import userData from '../../../../database/userData/json/dummyUser1.json';
+import Context from '../Context.jsx';
 import { Link } from 'react-router-dom';
 import { RiEmotionSadLine, RiEmotionHappyFill } from 'react-icons/ri';
 import MealPlanCard from '../Shop/common/MealPlanCard.jsx'
@@ -8,10 +8,8 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const ManageAccount = () => {
-  const [user, setUser] = useState(userData)
-  // const { userData } = useContext(Context)
+  const { userData } = useContext(Context)
   const [currentMeal, setMeal] = useState(userData.currentMealPlan);
-  // const [currentMeal, setMeal] = useState(null);
 
   useEffect(() => {
     // console.log('user', userData)
@@ -27,17 +25,17 @@ const ManageAccount = () => {
   const cancelPlan = () => {
     setMeal(null);
     const cancel = {currentMealPlan: null};
-    axios.put(`user/${user.id}/currentmealplan/remove`, cancel)
+    axios.put(`user/${userData._id}/currentmealplan/remove`, cancel)
       .then((res) => console.log('Cancel successful', res.status))
       .catch((err) => console.log('Cancel failed', err))
   }
-
+  console.log('current', currentMeal.plan)
   return(
     <ManageContainer>
       Current Meal Plan:
       <MealPlanContainer>
         <MealCard>
-          {currentMeal ? <RiEmotionHappyFill style={{fontSize: '80px'}}/> : <RiEmotionSadLine style={{fontSize: '80px'}}/>}
+        {currentMeal.mealIDs.length ? <MealPlanCard plan={currentMeal.plan} mealsPerWeek={currentMeal.mealsPerWeek} /> : "Please Select a MealPlan" }
         </MealCard>
         <ButtonContainer>
           <button onClick={cancelPlan}>Cancel</button>

@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
-import userData from '../../../../database/userData/json/dummyUser1.json';
 import axios from 'axios';
-// import Context from '../Context.jsx';
+import Context from '../Context.jsx';
 import styled from 'styled-components';
 import Calendar from './Calendar.jsx';
 import Picker from 'emoji-picker-react';
@@ -9,7 +8,7 @@ import Emoji from './Emoji.jsx';
 
 const MoodTracker = () => {
   // eslint-disable-next-line no-unused-vars
-  // const { userData } = useContext(Context);
+  const { userData } = useContext(Context);
   const [pastMoods, setPast] = useState(userData.moods);
   const [currentMood, setMood] = useState(null);
   const [isOpen, setOpen] = useState(false);
