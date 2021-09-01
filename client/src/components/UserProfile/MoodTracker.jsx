@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
+import userData from '../../../../database/userData/json/dummyUser1.json';
 import styled from 'styled-components';
 import Calendar from './Calendar.jsx';
+import Picker from 'emoji-picker-react';
 import Emoji from './Emoji.jsx';
 
 const MoodTracker = () => {
-  const [currentMood, setMood] = useState({ date: new Date(), feeling: null});
-  //TODO: implement dynamic emoji selection for drop down
-  const moods = [
-    { feeling: <Emoji symbol="🥱 " label="sluggish" />},
-    { feeling: <Emoji symbol="🥳 " label="energetic" />},
-    { feeling: <Emoji symbol="🤤 " label="hungry" />},
-  ];
+  // eslint-disable-next-line no-unused-vars
+  const [pastMoods, setPast] = useState(userData.moods);
+  const [currentMood, setMood] = useState(null);
+  const [isOpen, setOpen] = useState(false);
 
-  const handleChange = (event) => {
-    console.log(event.target.value)
-    setMood({ date: new Date(), feeling: event.target.value });
+  const handleClick = () => {
+    setOpen(true);
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event, emojiObject) => {
+    setMood({ date: new Date(), feeling: emojiObject })
+    console.log(currentMood)
+    setOpen(false);
     event.preventDefault();
-    const body = currentMood;
+    // const body = currentMood;
     // axios.put(`/user/${user.id}/moods`, body)
     //   .then((res) => console.log('Successful mood change', res.status))
     //   .catch((err) => console.log('Failed mood change', err))
@@ -31,18 +32,15 @@ const MoodTracker = () => {
         <Text>
           How are you feeling today? <Emoji symbol="🥳"/>
         </Text>
-        <form onSubmit={handleSubmit}>
-          <select onChange={handleChange}>
-            <option>Select A Mood!</option>
-            <option value="sluggish">Sluggish</option>
-            <option value="energetic">Energetic</option>
-            <option value="hungry">Hungry</option>
-          </select>
-          <input type="submit" value="Submit" />
-        </form>
+        {isOpen ? <Picker onEmojiClick={handleSubmit} preload={true} groupVisibility={{flags: false, travel_places: false, objects: false, symbols: false}} /> :
+          <form>
+            <select onClick={handleClick}>
+              <option>Select A Mood!</option>
+            </select>
+          </form>}
       </DropDownContainer>
       <CalendarContainer>
-      <Calendar />
+      <Calendar mood={currentMood}/>
     </CalendarContainer>
     </MoodContainer>
   )
@@ -53,7 +51,7 @@ export default MoodTracker;
 const MoodContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: start;
   align-items: center;
   border: 1px solid purple;
   height: 500px; `
