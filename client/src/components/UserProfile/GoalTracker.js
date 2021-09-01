@@ -28,10 +28,7 @@ const GoalTracker = () => {
     <div style={{ margin: "auto" }}>
       <GoalButton onClick={clickOnGoal}>Goal Tracker</GoalButton>
       <Modal isOpen={goalMoadal} onRequestClose={() => setGoalModal(false)}>
-        <span
-          style={{ cursor: "pointer", color: "#795548", fontSize: ".9rem" }}
-          onClick={clickOnGoal}
-        >
+        <span style={{ cursor: "pointer" }} onClick={clickOnGoal}>
           [X] CLOSE
         </span>
         <Header />
