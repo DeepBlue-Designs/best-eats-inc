@@ -53,7 +53,7 @@ const GoalsList = () => {
 
         <div>
           {actions.map((elm, index) => (
-            <li key={index}>{elm}</li>
+            <li key={index}>{elm.name}</li>
           ))}
         </div>
       </div>
