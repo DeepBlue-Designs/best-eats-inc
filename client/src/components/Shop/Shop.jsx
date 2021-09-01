@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import MealPlan from './MealPlan.jsx'
+import MealPlanList from './MealPlanList.jsx'
 import DisplaySelections from './DisplaySelections.jsx';
 import MealList from './MealList.jsx';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const getMeals = () => axios.get('/meals');
+const getMealPlan = () => axios.get('/');
 
-const Shop = () => {
+const Shop = ({ loggedIn, userId }) => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [selectedMealPlan, setSelectedMealPlan] = useState({
+    plan: 'single',
+    mealsPerWeek: 2,
+    mealIDs: [],
+  });
 
   useEffect(() => {
     getMeals()
@@ -24,17 +32,46 @@ const Shop = () => {
       });
   }, []);
 
+  useEffect(() => {
+    // TODO: getMealPlan() via axios or context, then setSelectedMealPlan
+  }, []);
+
+  const handleRegisterOrCheckoutClick = () => {
+    if (loggedIn) {
+      console.log('Go to check out');
+    } else {
+      console.log('Go to registration');
+    }
+  };
+
   return (
     <ShopContainer>
       <h2>Menu and Pricing</h2>
-      <MealPlan />
+      <MealPlanList
+        selectedMealPlan={selectedMealPlan}
+        setSelectedMealPlan={setSelectedMealPlan}
+      />
       <DisplaySelections />
       {isLoading
       ? <p>Loading delicious meals, please be patient...</p>
       : <MealList
           meals={meals}
-          loggedIn={false}
+          selectedMealPlan={selectedMealPlan}
+          setSelectedMealPlan={setSelectedMealPlan}
         />}
+             <div>
+      <Link to={{
+        pathname: '/checkout',
+        state: selectedMealPlan,
+      }}>
+        <button
+          type="button"
+          onClick={handleRegisterOrCheckoutClick}
+        >
+        {loggedIn ? 'Checkout' : 'Register'}
+        </button>
+        </Link>
+      </div>
     </ShopContainer>
   );
 };
