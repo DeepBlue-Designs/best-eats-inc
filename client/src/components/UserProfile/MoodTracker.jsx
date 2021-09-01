@@ -15,7 +15,7 @@ const MoodTracker = () => {
   const [isOpen, setOpen] = useState(false);
 
   const handleSubmit = (event, emojiObject) => {
-    setMood({ date: new Date().toDateString(), feeling: emojiObject.emoji })
+    setMood({ date: new Date(), feeling: emojiObject.emoji })
     setOpen(false);
     event.preventDefault();
     const body = currentMood;

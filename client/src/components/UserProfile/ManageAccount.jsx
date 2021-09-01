@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import userData from '../../../../database/userData/json/dummyUser1.json';
+// import Context from '../Context.jsx';
 import { Link } from 'react-router-dom';
 import { RiEmotionSadLine, RiEmotionHappyFill } from 'react-icons/ri';
+import MealPlanCard from '../Shop/common/MealPlanCard.jsx'
 import styled from 'styled-components';
 import axios from 'axios';
 
 const ManageAccount = () => {
   const [user, setUser] = useState(userData)
+  // const { userData } = useContext(Context)
   const [currentMeal, setMeal] = useState(userData.currentMealPlan);
   // const [currentMeal, setMeal] = useState(null);
 
