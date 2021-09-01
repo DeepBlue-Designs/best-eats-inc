@@ -4,6 +4,7 @@ import Homepage from '../Homepage/Homepage.jsx';
 import MeetTheFarmers from '../MeetTheFarmers/MeetTheFarmers.jsx';
 import LetsGetHealthy from '../LetsGetHealthy/LetsGetHealthy.jsx';
 import Shop from '../Shop/Shop.jsx';
+import Footer from './Footer.jsx'
 
 const Header = () => {
   return (
@@ -50,6 +51,7 @@ const Header = () => {
           </Route>
         </Switch>
 
+        <Footer />
       </Router>
     </div>
   );
