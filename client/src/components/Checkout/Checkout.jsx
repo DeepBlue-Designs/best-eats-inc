@@ -30,7 +30,7 @@ const Checkout = () => {
   const location = useLocation();
   const { mealIDs, plan, mealsPerWeek } = location.state;
   const [confirmation, setConfirmation] = useState(false);
-  const { userData } = useContext(Context);
+  const { userData, setUserData } = useContext(Context);
 
   const handleCheckout = (userId, plan, mealsPerWeek, mealIDs) => {
     const options = {
@@ -38,8 +38,11 @@ const Checkout = () => {
       mealsPerWeek: mealsPerWeek,
       mealIDs: mealIDs,
     }
-    axios.put(`/user/${userId}/mealplan/add`, options)
-      .then(() => {setConfirmation(true)})
+    axios.put(`/user/${userData._id}/mealplan/add`, options)
+      .then((res) => {
+        setUserData(res.data);
+        setConfirmation(true);
+      })
       .catch(() => {console.log('error')});
   };
 

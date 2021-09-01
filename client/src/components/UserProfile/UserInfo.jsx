@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import Context from '../Context.jsx'
 import axios from 'axios';
 import Modal from 'react-modal';
@@ -10,16 +10,15 @@ const config = genConfig('AvatarConfig?')
 Modal.setAppElement('#app');
 
 const UserInfo = () => {
-  // const [user, setUser] = useState(userData);
   const [modalIsOpen, setIsOpen] = useState(false);
   const { userData, setUserData } = useContext(Context);
 
+  //TODO: update user info routes
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsOpen(false);
-
-    axios.put(`user/${userData.id}/update`, userData)
-      .then((res) => console.log('successful user update'))
+    axios.put(`user/${userData._id}/update`, userData)
+      .then((res) => console.log('successful user update', res.status))
       .catch((err) => console.log('user update failed', err))
   }
 

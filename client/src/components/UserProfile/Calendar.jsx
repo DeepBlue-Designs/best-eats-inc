@@ -7,18 +7,21 @@ import Emoji from './Emoji.jsx';
 const Calendar = ({ mood }) => {
   const [value, onChange] = useState(new Date());
 
-  //map past moods to calendar days
-  const convert = () => {
-    mood.map((time) => console.log(new Date(time.date).toDateString()))
-  }
   return(
     <div>
       <Calendars
         onChange={onChange}
         value={value}
-        defaultView={'year'}
-        tileContent={({ view, date }) =>
-          mood && view === 'month' && date.toDateString() === mood.date.toDateString() ?  <Emoji symbol={mood.feeling} /> : null}
+        defaultView={'month'}
+        tileContent={({view, date}) => {
+          if (mood && view === 'month') {
+            return mood.map((pastDay) => {
+              if (date.toDateString() === new Date(pastDay.date).toDateString()) {
+                return <Emoji symbol={pastDay.feeling} key={pastDay._id}/>
+              }
+            })
+          }
+        }}
       />
     </div>
   )
