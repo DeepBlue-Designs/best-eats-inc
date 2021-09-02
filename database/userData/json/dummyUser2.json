@@ -1,15 +1,14 @@
 {
-  "id": 2,
   "userName": "deepblue",
   "password": "12345",
   "email": "db@mail.com",
   "address": "891 Berkeley St., San Francisco, CA, 94133",
   "currentMealPlan": {
-    "type": "family",
+    "plan": "family",
     "mealsPerWeek": 4,
     "mealIDs": [5, 6, 8, 9]
   },
-  "mood": [
+  "moods": [
     {
       "date": 1627776000000,
       "feeling": "tired"
