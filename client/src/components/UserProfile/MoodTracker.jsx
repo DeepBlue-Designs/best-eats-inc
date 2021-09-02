@@ -19,7 +19,7 @@ const MoodTracker = () => {
       setOpen(false);
     } else {
       myStorage.setItem('today', new Date(Date.now()).toDateString());
-      setMood({ date: Date.now(), feeling: emojiObject.emoji })
+      setMood({ date: new Date(Date.now()).toDateString(), feeling: emojiObject.emoji })
       setOpen(false);
     }
     event.preventDefault();
