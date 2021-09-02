@@ -20,7 +20,7 @@ const AddGoal = styled.a`
 const Header = () => {
   return (
     <div style={{ marginLeft: "70px" }}>
-      <AddGoal>ADD NEW GOAL</AddGoal>
+      <AddGoal>ADD A GOAL</AddGoal>
       <AddGoal>UPDATE A GOAL</AddGoal>
     </div>
   );

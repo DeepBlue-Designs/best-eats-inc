@@ -39,12 +39,14 @@ const UserInfo = () => {
       .catch((err) => console.log('user update failed', err))
     }
     if (healthStat) {
-      axios.put(`user/${userData._id}/healthMetrics`,
+      console.log('axios', healthStat)
+      axios.put(`user/${userData._id}/healthMetrics/edit`,
       { "healthMetrics": {
-          "height": healthStat.height,
-          "weight": healthStat.weight
+        "height": healthStat.height ? healthStat.height : userData.healthMetrics.height,
+        "weight": healthStat.weight ? healthStat.weight : userData.healthMetrics.weight
         }
-      })
+      }
+      )
       .then((res) => console.log('successful user update', setUserData(res.data)))
       .catch((err) => console.log('user update failed', err))
     }
@@ -55,21 +57,17 @@ const UserInfo = () => {
   const handleChange = (event) => {
     let value = event.target.value;
     let name = event.target.name;
-    if (event.target.name === 'weight') {
-      value = `${event.target.value}lbs`;
-    }
 
     if (name === 'userName') {
-      console.log(value)
       setUsername(value)
     } else if (name === 'email') {
       setEmail(value)
     } else if (name === 'address') {
       setAddress(value)
     } else if (name === 'weight') {
-      setHealthStat({weight: value})
+      setHealthStat({...healthStat, weight: value})
     } else if (name === 'height') {
-      setHealthStat({heigh: value})
+      setHealthStat({...healthStat, height: value})
     }
 
   }
@@ -87,8 +85,10 @@ const UserInfo = () => {
               Email: {userData.email} <br /><br />
               Shipping Address: {userData.address} <br /><br />
               Health Metrics: <br />
-              {userData.healthMetrics ? userData.healthMetrics.height : null}
-              {userData.healthMetrics ? userData.healthMetrics.weight : null}
+              Height:
+              {userData.healthMetrics ? userData.healthMetrics.height : 0}
+              Weight:
+              {userData.healthMetrics ? userData.healthMetrics.weight : 0}lbs
             </Info>
           </div>
           <div>
