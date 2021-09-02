@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import Context from '../Context.jsx';
 import styled from 'styled-components';
@@ -12,19 +12,30 @@ const MoodTracker = () => {
   const [pastMoods, setPast] = useState(userData.moods);
   const [currentMood, setMood] = useState(null);
   const [isOpen, setOpen] = useState(false);
+  const myStorage = window.sessionStorage;
 
   const handleSubmit = (event, emojiObject) => {
-    setMood({ date: new Date(), feeling: emojiObject.emoji })
-    setOpen(false);
-    event.preventDefault();
-    const body = currentMood;
-    if (currentMood) {
-      axios.put(`/user/${userData.id}/moods`, body)
-        .then((res) => console.log('Successful mood change', res.status))
-        .catch((err) => console.log('Failed mood change', err))
+    if (myStorage.getItem('today') === new Date(Date.now()).toDateString()) {
+      setOpen(false);
+    } else {
+      myStorage.setItem('today', new Date(Date.now()).toDateString());
+      setMood({ date: Date.now(), feeling: emojiObject.emoji })
+      setOpen(false);
     }
+    event.preventDefault();
   }
 
+  useEffect(() => {
+    if (currentMood) {
+      axios.put(`/user/${userData._id}/moods`, currentMood)
+        .then((res) => {
+          setPast(res.data.moods)
+        })
+        .catch((err) => console.log('Set mood failed', err))
+    }
+  }, [currentMood])
+
+  console.log(currentMood)
   return(
     <MoodContainer>
       <DropDownContainer>
@@ -39,7 +50,7 @@ const MoodTracker = () => {
           </form>}
       </DropDownContainer>
       <CalendarContainer>
-      <Calendar mood={currentMood}/>
+      <Calendar mood={pastMoods}/>
     </CalendarContainer>
     </MoodContainer>
   )
