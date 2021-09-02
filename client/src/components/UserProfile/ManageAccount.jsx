@@ -1,8 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react';
-// import userData from '../../../../database/userData/json/dummyUser1.json';
+import React, { useState, useContext } from 'react';
 import Context from '../Context.jsx';
 import { Link } from 'react-router-dom';
-import { RiEmotionSadLine, RiEmotionHappyFill } from 'react-icons/ri';
 import MealPlanCard from '../Shop/common/MealPlanCard.jsx'
 import styled from 'styled-components';
 import axios from 'axios';
@@ -11,31 +9,20 @@ const ManageAccount = () => {
   const { userData } = useContext(Context)
   const [currentMeal, setMeal] = useState(userData.currentMealPlan);
 
-  useEffect(() => {
-    // console.log('user', userData)
-    // axios.get('/login')
-    //   .then((res) => {
-    //     if (res.data.currentMealplan) {
-    //       setMeal(res.data.currentMealPlan)
-    //     }
-    //   })
-    //   .catch((err) => console.log('could not fetch meal plan', err));
-  }, [])
 
   const cancelPlan = () => {
     setMeal(null);
-    const cancel = {currentMealPlan: null};
-    axios.put(`user/${userData._id}/currentmealplan/remove`, cancel)
+    axios.put(`user/${userData._id}/mealplan/remove`)
       .then((res) => console.log('Cancel successful', res.status))
       .catch((err) => console.log('Cancel failed', err))
   }
-  console.log('current', currentMeal.plan)
+
   return(
     <ManageContainer>
       Current Meal Plan:
       <MealPlanContainer>
         <MealCard>
-        {currentMeal.mealIDs.length ? <MealPlanCard plan={currentMeal.plan} mealsPerWeek={currentMeal.mealsPerWeek} /> : "Please Select a MealPlan" }
+        {currentMeal && currentMeal.mealIDs.length ? <MealPlanCard plan={currentMeal.plan} mealsPerWeek={currentMeal.mealsPerWeek} /> : "Please Select a MealPlan" }
         </MealCard>
         <ButtonContainer>
           <button onClick={cancelPlan}>Cancel</button>
