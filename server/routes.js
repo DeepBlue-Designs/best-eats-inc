@@ -1,5 +1,4 @@
-/*eslint-disable*/
-const controller = require('./UserProfile/controller');
+const controller = require('./User/controller');
 const router = require('express').Router();
 
 router.post('/signup', controller.createUser.post);
