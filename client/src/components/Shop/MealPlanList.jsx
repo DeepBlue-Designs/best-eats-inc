@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import SelectMealPlanCard from './SelectMealPlanCard.jsx';
 
-const PLANS = ['single', 'duo', 'family'];
+const PLANS = ['solo', 'duo', 'family'];
 
 const MealPlanList = ({ selectedMealPlan, setSelectedMealPlan }) => (
   <>
