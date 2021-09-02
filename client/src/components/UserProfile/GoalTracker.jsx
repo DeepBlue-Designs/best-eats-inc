@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Modal from "react-modal";
-import Header from "./goalTrackerComponents/header.js";
-import GoalsList from "./goalTrackerComponents/GoalsList.js";
+import Header from "./goalTrackerComponents/Header.jsx";
+import GoalsList from "./goalTrackerComponents/GoalsList.jsx";
 
 const GoalButton = styled.a`
   display: inline-block;

@@ -12,10 +12,16 @@ const MoodTracker = () => {
   const [pastMoods, setPast] = useState(userData.moods);
   const [currentMood, setMood] = useState(null);
   const [isOpen, setOpen] = useState(false);
+  const myStorage = window.sessionStorage;
 
   const handleSubmit = (event, emojiObject) => {
-    setMood({ date: Date.now(), feeling: emojiObject.emoji })
-    setOpen(false);
+    if (myStorage.getItem('today') === new Date(Date.now()).toDateString()) {
+      setOpen(false);
+    } else {
+      myStorage.setItem('today', new Date(Date.now()).toDateString());
+      setMood({ date: Date.now(), feeling: emojiObject.emoji })
+      setOpen(false);
+    }
     event.preventDefault();
   }
 

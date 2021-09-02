@@ -53,8 +53,8 @@ const UserInfo = () => {
   }
 
   const handleChange = (event) => {
-    const value = event.target.value;
-    const name = event.target.name;
+    let value = event.target.value;
+    let name = event.target.name;
     if (event.target.name === 'weight') {
       value = `${event.target.value}lbs`;
     }
