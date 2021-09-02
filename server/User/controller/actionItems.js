@@ -1,4 +1,4 @@
-const User = require('../../../database/UserProfile/model/users');
+const User = require('../../../database/model/users');
 
 module.exports = {
   add: (req, res) => {

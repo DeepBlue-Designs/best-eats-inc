@@ -1,4 +1,4 @@
-const User = require('../../../database/UserProfile/model/users');
+const User = require('../../../database/model/users');
 
 module.exports = {
   username: (req, res) => {
@@ -20,6 +20,15 @@ module.exports = {
     });
   },
   address: (req, res) => {
+    User.findByIdAndUpdate(req.params.userID, req.body, { new: true }, (err, data) => {
+      if (err) {
+        res.status(500).send(err);
+      } else {
+        res.status(200).send(data);
+      }
+    });
+  },
+  healthMetrics: (req, res) => {
     User.findByIdAndUpdate(req.params.userID, req.body, { new: true }, (err, data) => {
       if (err) {
         res.status(500).send(err);
