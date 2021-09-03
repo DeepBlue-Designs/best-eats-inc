@@ -77,7 +77,12 @@ const DisplaySelections = ({ selectedMealPlan, setSelectedMealPlan }) => {
           </StyledDiv>
         </div>
       )
-      : <p>None so far. Time to make some selections!</p>
+      : (
+        <FlexDiv>
+        <ActionDiv>
+          <ActionText>None so far. Time to make some selections!</ActionText>
+        </ActionDiv>
+        </FlexDiv>)
       }
     </Section>
   )
@@ -91,5 +96,24 @@ const StyledDiv = styled.div`
 const Section = styled.section`
   border-bottom: 1px solid #E4E4E4;
   padding-bottom: 20px;
+  background-color: #FFFFFF;
 `;
+
+const FlexDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const ActionDiv = styled.div`
+  background-color: #B5FAFF;
+  width: 40%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.077), 0 6px 20px 0 rgba(0, 0, 0, 0.077);
+`;
+
+const ActionText = styled.p`
+  padding: 10px;
+  text-align: center;
+`;
+
 export default DisplaySelections;
