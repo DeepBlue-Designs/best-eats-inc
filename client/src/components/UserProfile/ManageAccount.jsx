@@ -19,15 +19,18 @@ const ManageAccount = () => {
 
   return(
     <ManageContainer>
+      <Text>
       Current Meal Plan:
+      </Text>
       <MealPlanContainer>
         <MealCard>
-        {currentMeal && currentMeal.mealIDs.length ? <MealPlanCard plan={currentMeal.plan} mealsPerWeek={currentMeal.mealsPerWeek} /> : "Please Select a MealPlan" }
+        {currentMeal && currentMeal.mealIDs.length ? <MealPlanCard plan={currentMeal.plan} mealsPerWeek={currentMeal.mealsPerWeek} style={{'background-color': '#BAFFAE'}}/> : "Please Select a MealPlan" }
         </MealCard>
         <ButtonContainer>
-          <button onClick={cancelPlan}>Cancel</button>
+          <button onClick={cancelPlan}
+          style={{'border': '5px solid #baffae', 'padding':'14px 57px', 'background-color': 'white', 'width': 'fit-content'}}>Cancel</button>
             <Link to="/shop">
-              <button>Modify</button>
+              <button style={{'border': '5px solid #BAFFAE', 'padding': '14px 57px', 'background-color': 'white'}}>Modify</button>
             </Link>
         </ButtonContainer>
       </MealPlanContainer>
@@ -39,6 +42,7 @@ export default ManageAccount;
 
 const ManageContainer = styled.div`
   display: flex;
+  margin-bottom: 2%;
   flex-direction: column;
   border: 1px solid lightblue;
   `
@@ -46,9 +50,10 @@ const ManageContainer = styled.div`
 const MealPlanContainer = styled.div`
   display: flex;
   flex-direction: row;
-  border: 1px solid orange;
+  /* border: 1px solid orange; */
   height: 500px;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  align-items: baseline;
   max-width: 100%; `
 
 const MealCard = styled.div`
@@ -57,9 +62,11 @@ const MealCard = styled.div`
   align-items: center;
   margin: 2%;
   height: 75%;
-  max-width: 30%;
+  max-width: 20%;
   min-width: 30%;
-  border: 1px solid blue;`
+  background-color: #baffae;
+  border-radius: 5px;
+  `
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -68,8 +75,10 @@ const ButtonContainer = styled.div`
   align-content: center;
   margin: 2%;
   height: 75%;
-  max-width: 30%;
-  min-width: 30%;
-  border: 1px solid purple;
+  width: 300px;
+  /* min-width: 30%; */
 `
 
+const Text = styled.div`
+  padding: 29px 75px 0px;
+`
