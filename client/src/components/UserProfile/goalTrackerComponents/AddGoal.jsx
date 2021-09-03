@@ -61,30 +61,34 @@ class AddGoal extends React.Component {
       <div>
         <form onSubmit={this.sendGoal}>
           <input
+            style={{ padding: "10px", marginRight: "10px" }}
             placeholder="goal name"
             name="name"
             value={this.state.name}
             onChange={this.onChangeFn}
           />
           <input
+            style={{ padding: "10px", marginRight: "10px" }}
             placeholder="Action To DO"
             name="item1"
             value={this.state.item1}
             onChange={this.onChangeFn}
           />
           <input
+            style={{ padding: "10px", marginRight: "10px" }}
             placeholder="Action To DO"
             name="item2"
             value={this.state.item2}
             onChange={this.onChangeFn}
           />
           <input
+            style={{ padding: "10px", marginRight: "10px" }}
             placeholder="Action To DO"
             name="item3"
             value={this.state.item3}
             onChange={this.onChangeFn}
           />
-          <input type="submit" name="Send" />
+          <input style={{ padding: "10px" }} type="submit" name="Send" />
         </form>
       </div>
     );

@@ -23,6 +23,7 @@ const App = () => {
           justifyContent: "space-between",
           width: "1300px",
           marginTop: "40px",
+          marginLeft: "40px",
         }}
         className="goalclass"
       >

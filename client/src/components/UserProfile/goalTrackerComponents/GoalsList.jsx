@@ -96,14 +96,6 @@ const GoalsList = (props) => {
           max="100"
         ></progress>
       </div>
-      <h1 onClick={() => console.log(props.allUserGoals)}>
-        TEST .... CAN YOU SEE ALL DATA
-        {
-          (console.log("----------->"),
-          console.log(Array.isArray(props.allUserGoals)),
-          console.log("----------->"))
-        }
-      </h1>
     </GoalContainer>
   );
 };
