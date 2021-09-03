@@ -9,8 +9,8 @@ const App = () => {
   const [userData, setUserData] = useState();
 
   return (
-    <div>
-    <GlobalStyle/>
+  <div>
+    <GlobalStyle />
     <Context.Provider value={{userData, setUserData}}>
       <Header />
     </Context.Provider>

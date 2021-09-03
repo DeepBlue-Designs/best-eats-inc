@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import 'react-calendar/dist/Calendar.css';
+import './Calendar.css';
 import Calendars from 'react-calendar';
 import Emoji from './Emoji.jsx';
 

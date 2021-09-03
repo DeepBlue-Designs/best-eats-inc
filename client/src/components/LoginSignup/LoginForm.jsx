@@ -37,7 +37,9 @@ const LoginForm = () => {
   } else {
     return (
       <div className="LoginForm">
+
         <form className="form">
+          <h1> Log in</h1>
           <CustomInput
             labelText="Username"
             id="userName"
