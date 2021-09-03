@@ -6,11 +6,11 @@ const FooterContainer = styled.div`
 background: #FFEF9C;
 border-radius: 15px;
 width: 90vw;
-height: 50px;
+height: 70px;
 display: flex;
 justify-content: space-evenly;
 margin: auto;
-line-height: 50px;
+line-height: 70px;
 `
 
 const Footer = () => {
@@ -18,8 +18,7 @@ const Footer = () => {
   <div style={{position: 'relative'}}>
   <FooterContainer>
     <Link to="/">
-      Logo
-    {/* <img src="">LOGO</img> */}
+    <img src="https://i.imgur.com/7jRksZX.png" title="source: imgur.com" style={{"width": "60px", "border-radius": "5px", "margin-top": "5px"}}/>
     </Link>
     <Link to="/shop">
       Menu & Pricing
