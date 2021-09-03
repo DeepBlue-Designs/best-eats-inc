@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Modal from "react-modal";
 import Header from "./goalTrackerComponents/Header.jsx";
-import GoalsList from "./goalTrackerComponents/GoalsList.jsx";
+
+import App from "./goalTrackerComponents/App.jsx";
 
 const GoalButton = styled.a`
   display: inline-block;
@@ -27,6 +28,7 @@ const GoalTracker = () => {
   return (
     <div style={{ margin: "auto" }}>
       <GoalButton onClick={clickOnGoal}>Goal Tracker</GoalButton>
+
       <Modal isOpen={goalMoadal} onRequestClose={() => setGoalModal(false)}>
         <span
           style={{ cursor: "pointer", color: "#795548", fontSize: ".9rem" }}
@@ -35,7 +37,7 @@ const GoalTracker = () => {
           [X] CLOSE
         </span>
         <Header />
-        <GoalsList />
+        <App />
       </Modal>
     </div>
   );

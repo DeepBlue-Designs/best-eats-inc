@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import userdata from "../../../../../database/userData/json/dummyUser1.json";
 
@@ -8,20 +8,19 @@ const GoalContainer = styled.div`
   width: 650px;
   padding: 20px;
   border-radius: 10px;
-  margin-left: 70px;
+  margin: auto;
 `;
 
-const GoalsList = () => {
+const GoalsList = (props) => {
   const [goalID, setGoalID] = useState(1);
   const [actions, setActions] = useState([
     { name: "SELECT THE GOAL FIRST", completed: false },
   ]);
   const [progress, setProgress] = useState();
 
-  const handleChange = (e) => {
+  function handleChange(e) {
     var t = e.target.value;
-    console.log(t);
-    var currentOptions = userdata.goals.filter((elm) => elm.name === t);
+    var currentOptions = props.allUserGoals.filter((elm) => elm.name === t);
     setActions(currentOptions[0].actionItems);
 
     var progressIndice = currentOptions[0].actionItems.filter(
@@ -31,7 +30,7 @@ const GoalsList = () => {
     var pourcent =
       (progressIndice.length / currentOptions[0].actionItems.length) * 100;
     setProgress(pourcent);
-  };
+  }
 
   return (
     <GoalContainer>
@@ -45,9 +44,11 @@ const GoalsList = () => {
       >
         <select onChange={handleChange} style={{ padding: "10px 30px" }}>
           <option>SELECT GOAL</option>
-          {userdata.goals.map((elm) => {
-            return <option key={elm.id}>{elm.name}</option>;
-          })}
+          {props.allUserGoals === undefined
+            ? "Waiting ...."
+            : props.allUserGoals.map((elm) => {
+                return <option key={elm.id}>{elm.name}</option>;
+              })}
         </select>
 
         <div className="allOptions" style={{ width: "200px" }}>
@@ -95,7 +96,14 @@ const GoalsList = () => {
           max="100"
         ></progress>
       </div>
-      {console.log(userdata.goals)}
+      <h1 onClick={() => console.log(props.allUserGoals)}>
+        TEST .... CAN YOU SEE ALL DATA
+        {
+          (console.log("----------->"),
+          console.log(Array.isArray(props.allUserGoals)),
+          console.log("----------->"))
+        }
+      </h1>
     </GoalContainer>
   );
 };
@@ -103,3 +111,4 @@ const GoalsList = () => {
 export default GoalsList;
 // <li key={index}>{elm.name}</li>
 // style={{ padding: "5px 20px" }}
+// {console.log(allData.goals)}
