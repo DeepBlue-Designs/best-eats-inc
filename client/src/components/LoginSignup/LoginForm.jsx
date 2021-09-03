@@ -2,6 +2,9 @@ import React, { useState, useContext } from 'react';
 import { useHistory } from "react-router-dom";
 import axios from 'axios';
 import Context from '../Context.jsx';
+import CustomInput from './CustomInput';
+import Button from './Button';
+import './LoginForm.css';
 
 const LoginForm = () => {
   const [userName, setName] = useState("");
@@ -10,6 +13,7 @@ const LoginForm = () => {
   let history = useHistory()
 
   const handleSubmit = () => {
+    console.log('Do I submit?')
     axios.post('/user/login', {
         "userName": userName,
         "password": password,
@@ -26,28 +30,29 @@ const LoginForm = () => {
     return(<>this return exists to satisfy the requirements for returning something by the browser</>);
   } else {
     return (
-      <form onSubmit={handleSubmit}>
-        <h2>Login</h2>
-        <br />
-        <label> Username: </label>
-        <input
+      <div className='LoginForm'>
+        <form className='form'>
+
+          <CustomInput
+            labelText="Username"
+            id="userName"
+            handleChange={e => setName(e.target.value)}
             type="text"
-            value={userName}
-            onChange={e => setName(e.target.value)}
-        />
-        <br />
-        <label> Password: </label>
-        <input
-            type="text"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-        />
-        <div>
-          <button>
+          />
+          <CustomInput
+            labelText="Password"
+            id="password"
+            handleChange={e => setPassword(e.target.value)}
+            type="password"
+          />
+
+          <Button onClick={handleSubmit}>
             Login
-          </button>
-        </div>
-      </form>
+          </Button>
+
+        </form>
+      </div>
+
     )}
 }
 
