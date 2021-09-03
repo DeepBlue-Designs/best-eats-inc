@@ -29,9 +29,8 @@ const App = () => {
         style={{
           display: "flex",
           justifyContent: "space-between",
-          width: "1300px",
-          marginTop: "40px",
-          marginLeft: "40px",
+          width: "1200px",
+          margin: "auto",
         }}
         className="goalclass"
       >

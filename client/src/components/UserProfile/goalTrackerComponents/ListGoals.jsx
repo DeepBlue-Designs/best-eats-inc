@@ -67,10 +67,12 @@ class ListGoals extends React.Component {
         <h2
           style={{
             marginBottom: "30px",
-            border: "2px solid black",
+            border: "1px solid gray",
             textAlign: "center",
             padding: "20px",
             color: "#0375ff",
+            background: "#fffbe7",
+            borderRadius: "5px",
           }}
         >
           Your Goals{" "}
@@ -120,7 +122,7 @@ class ListGoals extends React.Component {
           <div
             style={{
               border: "1px solid black",
-              marginTop: "20px",
+              marginTop: "65px",
               background: "#f7bd1191",
             }}
           >

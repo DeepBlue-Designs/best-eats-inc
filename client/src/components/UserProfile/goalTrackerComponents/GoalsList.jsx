@@ -9,6 +9,8 @@ const GoalContainer = styled.div`
   padding: 20px;
   border-radius: 10px;
   margin: auto;
+  margin-bottom: 60px;
+  background: #ddf4d5;
 `;
 
 const GoalsList = (props) => {
@@ -40,6 +42,7 @@ const GoalsList = (props) => {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "baseline",
+          backgroundColor: "#ddf4d5",
         }}
       >
         <select onChange={handleChange} style={{ padding: "10px 30px" }}>
