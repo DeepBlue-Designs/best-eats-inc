@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import userdata from "../../../../../database/userData/json/dummyUser1.json";
 
 const GoalContainer = styled.div`
   border: 2px solid #9e9e9e;
@@ -11,44 +12,24 @@ const GoalContainer = styled.div`
 `;
 
 const GoalsList = () => {
-  var goalData = [
-    {
-      id: 1,
-      name: "Lose weight",
-      actions: [
-        { name: "cut out white carbs", done: true },
-        { name: "Cut out soda", done: false },
-        { name: "cut out carbs", done: true },
-      ],
-    },
-    {
-      id: 2,
-      name: "Healthy stuff",
-      actions: [
-        { name: "daily exercice", done: false },
-        { name: "sleep 8 hours", done: false },
-        { name: "other stuff", done: true },
-      ],
-    },
-  ];
   const [goalID, setGoalID] = useState(1);
   const [actions, setActions] = useState([
-    { name: "SELECT THE GOAL FIRST", done: false },
+    { name: "SELECT THE GOAL FIRST", completed: false },
   ]);
   const [progress, setProgress] = useState();
 
   const handleChange = (e) => {
     var t = e.target.value;
     console.log(t);
-    var currentOptions = goalData.filter((elm) => elm.name === t);
-    setActions(currentOptions[0].actions);
+    var currentOptions = userdata.goals.filter((elm) => elm.name === t);
+    setActions(currentOptions[0].actionItems);
 
-    var progressIndice = currentOptions[0].actions.filter(
-      (elm) => elm.done === true
+    var progressIndice = currentOptions[0].actionItems.filter(
+      (elm) => elm.completed === true
     );
 
     var pourcent =
-      (progressIndice.length / currentOptions[0].actions.length) * 100;
+      (progressIndice.length / currentOptions[0].actionItems.length) * 100;
     setProgress(pourcent);
   };
 
@@ -64,7 +45,7 @@ const GoalsList = () => {
       >
         <select onChange={handleChange} style={{ padding: "10px 30px" }}>
           <option>SELECT GOAL</option>
-          {goalData.map((elm) => {
+          {userdata.goals.map((elm) => {
             return <option key={elm.id}>{elm.name}</option>;
           })}
         </select>
@@ -80,7 +61,7 @@ const GoalsList = () => {
                 type="checkbox"
                 id={elm.name}
                 name={elm.name}
-                checked={elm.done}
+                checked={elm.completed}
                 className="inputy"
                 width="20px"
                 height="20px"
@@ -114,6 +95,7 @@ const GoalsList = () => {
           max="100"
         ></progress>
       </div>
+      {console.log(userdata.goals)}
     </GoalContainer>
   );
 };
