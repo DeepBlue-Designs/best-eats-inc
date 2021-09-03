@@ -24,14 +24,12 @@ const ManageAccount = () => {
         <Text>
       Current Meal Plan:
       </Text>
-        {currentMeal && currentMeal.mealIDs.length ? <MealPlanCard plan={currentMeal.plan} mealsPerWeek={currentMeal.mealsPerWeek} style={{'background-color': '#BAFFAE'}}/> : "Please Select a MealPlan" }
+        {currentMeal && currentMeal.mealIDs.length ? <MealPlanCard plan={currentMeal.plan} mealsPerWeek={currentMeal.mealsPerWeek} /> : "Please Select a MealPlan" }
         </MealCard>
         <ButtonContainer>
-          <button onClick={cancelPlan}
-          style={{'border': '5px solid #baffae', 'padding':'14px 57px', 'background-color': '#baffae', 'width': 'fit-content', 'box-shadow': 'rgb(0 0 0 / 15%) 0px 2px 6px 0px'
-        }}>Cancel</button>
+          <button onClick={cancelPlan}>Cancel</button>
             <Link to="/shop">
-              <button style={{'border': '5px solid #BAFFAE', 'padding': '14px 57px', 'background-color': '#baffae','box-shadow': 'rgb(0 0 0 / 15%) 0px 2px 6px 0px'}}>Modify</button>
+              <button style={{'width': '100%'}}>Modify</button>
             </Link>
         </ButtonContainer>
       </MealPlanContainer>
@@ -53,6 +51,7 @@ const MealPlanContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 500px;
+  border-radius: 5px;
   background-color: white !important;
   justify-content: space-evenly;
   align-items: center;
@@ -80,7 +79,6 @@ const ButtonContainer = styled.div`
   margin: 2%;
   height: 75%;
   width: 300px;
-  /* min-width: 30%; */
 `
 
 const Text = styled.div`

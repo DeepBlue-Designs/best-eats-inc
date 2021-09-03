@@ -43,10 +43,7 @@ const MoodTracker = () => {
           How are you feeling today? <Emoji symbol="🥳"/>
         </Text>
         {isOpen ? <Picker onEmojiClick={handleSubmit} preload={true} groupVisibility={{flags: false, travel_places: false, objects: false, symbols: false}} /> :
-          <button onClick={() => setOpen(true)}
-            style={{'border': 'none',
-              'padding': '10px 30px',
-              'background-color': '#FFEF9C', 'box-shadow': 'rgb(0 0 0 / 15%) 0px 2px 6px 0px'}}>Select A Mood</button>}
+          <button onClick={() => setOpen(true)}>Select A Mood</button>}
       </DropDownContainer>
       <CalendarContainer>
       <Calendar mood={pastMoods}/>
@@ -70,9 +67,10 @@ const DropDownContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 3% 5% 4% 5%;
+  margin-top: 1%;
+  margin-bottom: 4%;
   width: 100%;
-  height: 15%;
+  min-height: 15%;
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px 0px;
   background: #B5FAFF;

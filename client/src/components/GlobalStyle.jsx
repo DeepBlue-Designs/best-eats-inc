@@ -11,15 +11,19 @@ const GlobalStyle = createGlobalStyle`
   button {
     background: #FFEF9C;
     font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
+    /* border: 0px solid #2A2E2B;
+    box-shadow: rgb(0 0 0 / 25%) 0px 2px 6px 0px; */
     border: 2px solid #2A2E2B;
-    border-radius: 7px;
-    width: 100px;
-    height: 30px;
+    border-radius: 5px;
+    /* width: 100px; */
+    padding: 5px 22px;
     cursor: pointer;
+    /* &:hover {
+      background: #FFEF9C;
+    } */
   }
 
   a {
-    background: #FFEF9C;
     font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
     color: #2A2E2B;
     text-decoration: none;

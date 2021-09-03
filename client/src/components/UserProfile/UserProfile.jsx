@@ -39,5 +39,5 @@ const ButtonContainer = styled.div`
   `
 
 const ProfileContainer = styled.div`
-  background-color: #BAFFAE;
+  /* background-color: #BAFFAE; */
   `
