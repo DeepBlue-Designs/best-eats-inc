@@ -82,7 +82,7 @@ const SignupForm = () => {
         />
 
         <Button onClick={handleSubmit}>
-          Creat an account
+          Create an account
         </Button>
       </form>
 
