@@ -65,7 +65,6 @@ const Tabs = styled.button`
   border-radius: 10px;
   cursor: pointer;
   &:hover {
-    color: #74FF5C;
-    outline: 0;
+    text-decoration: underline;
   }
 `;
