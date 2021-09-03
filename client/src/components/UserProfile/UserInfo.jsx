@@ -73,11 +73,12 @@ const UserInfo = () => {
   }
 
   return (
-    // <UserContainer>
+    <UserContainer>
+      <MyProfile>My Profile</MyProfile>
+      <UserAv>
+        <Avatar style={{ width: "9rem", height: "9rem" }} {...config} />
+      </UserAv>
       <InfoView>
-        <UserAv>
-          <Avatar style={{ width: "9rem", height: "9rem" }} {...config} />
-        </UserAv>
         <InfoContainer>
           <Info>
             UserName:
@@ -122,18 +123,23 @@ const UserInfo = () => {
             </Modal>
           </div>
       </InfoView>
-    // </UserContainer>
+    </UserContainer>
   );
 };
 
 export default UserInfo;
 
-// const UserContainer = styled.div`
-//   display: flex;
-//   flex-direction: column;
-//   height: 300px;
-//   border: 2px solid green;
-// `;
+const UserContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 380px;
+  border: 2px solid green;
+`;
+
+const MyProfile = styled.div`
+  align-self: flex-start;
+`;
 
 const UserAv = styled.div`
   display: flex;
@@ -162,6 +168,7 @@ const InfoContainer = styled.div`
 
 const Info = styled.p`
   margin-top: 4%;
+  margin-left: 30px;
   /* border: 1px solid yellow; */
   font-family: Tahoma;
   font-weight: 400;
