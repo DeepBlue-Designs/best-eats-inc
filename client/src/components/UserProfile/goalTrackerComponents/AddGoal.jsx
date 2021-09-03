@@ -59,7 +59,7 @@ class AddGoal extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.sendGoal}>
+        <form style={{ marginTop: "20px" }} onSubmit={this.sendGoal}>
           <input
             style={{ padding: "10px", marginRight: "10px" }}
             placeholder="goal name"

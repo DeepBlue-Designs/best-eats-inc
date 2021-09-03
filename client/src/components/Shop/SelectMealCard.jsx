@@ -17,7 +17,6 @@ const SelectMealCard = ({ id, title, image, prepTime, selectedMealPlan, setSelec
       if (idxToRemove > -1) {
         const newMealIDs = [...selectedMealPlan.mealIDs];
         newMealIDs.splice(idxToRemove, 1);
-        console.log('how about now', newMealIDs)
         setSelectedMealPlan((prevState) => ({
           ...prevState,
           mealIDs: newMealIDs,
