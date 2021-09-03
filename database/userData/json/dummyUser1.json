@@ -4,8 +4,8 @@
   "email": "bb@mail.com",
   "address": "2131 San Francisco St., San Francisco, CA, 94133",
   "healthMetrics": {
-      "height": "6'0",
-      "weight": 200
+    "height": "6'0",
+    "weight": 200
   },
   "currentMealPlan": {
     "plan": "solo",
@@ -14,112 +14,112 @@
   },
   "moods": [
     {
-        "date": "Sat Jul 31 2021",
-        "feeling": "heavy"
+      "date": "Sat Jul 31 2021",
+      "feeling": "heavy"
     },
     {
-        "date": "Sun Aug 01 2021",
-        "feeling": "heavy"
+      "date": "Sun Aug 01 2021",
+      "feeling": "heavy"
     },
     {
-        "date": "Mon Aug 02 2021",
-        "feeling": "heavy"
+      "date": "Mon Aug 02 2021",
+      "feeling": "heavy"
     },
     {
-        "date": "Tue Aug 03 2021",
-        "feeling": "sluggish"
+      "date": "Tue Aug 03 2021",
+      "feeling": "sluggish"
     },
     {
-        "date": "Wed Aug 04 2021",
-        "feeling": "sluggish"
+      "date": "Wed Aug 04 2021",
+      "feeling": "sluggish"
     },
     {
-        "date": "Thu Aug 05 2021",
-        "feeling": "sluggish"
+      "date": "Thu Aug 05 2021",
+      "feeling": "sluggish"
     },
     {
-        "date": "Fri Aug 06 2021",
-        "feeling": "tired"
+      "date": "Fri Aug 06 2021",
+      "feeling": "tired"
     },
     {
-        "date": "Sat Aug 07 2021",
-        "feeling": "tired"
+      "date": "Sat Aug 07 2021",
+      "feeling": "tired"
     },
     {
-        "date": "Sun Aug 08 2021",
-        "feeling": "tired"
+      "date": "Sun Aug 08 2021",
+      "feeling": "tired"
     },
     {
-        "date": "Mon Aug 09 2021",
-        "feeling": "tired"
+      "date": "Mon Aug 09 2021",
+      "feeling": "tired"
     },
     {
-        "date": "Tue Aug 10 2021",
-        "feeling": "ready"
+      "date": "Tue Aug 10 2021",
+      "feeling": "ready"
     },
     {
-        "date": "Wed Aug 11 2021",
-        "feeling": "ready"
+      "date": "Wed Aug 11 2021",
+      "feeling": "ready"
     },
     {
-        "date": "Thu Aug 12 2021",
-        "feeling": "ready"
+      "date": "Thu Aug 12 2021",
+      "feeling": "ready"
     },
     {
-        "date": "Fri Aug 13 2021",
-        "feeling": "sluggish"
+      "date": "Fri Aug 13 2021",
+      "feeling": "sluggish"
     },
     {
-        "date": "Sat Aug 14 2021",
-        "feeling": "heavy"
+      "date": "Sat Aug 14 2021",
+      "feeling": "heavy"
     },
     {
-        "date": "Sun Aug 15 2021",
-        "feeling": "heavy"
+      "date": "Sun Aug 15 2021",
+      "feeling": "heavy"
     },
     {
-        "date": "Mon Aug 16 2021",
-        "feeling": "sluggish"
+      "date": "Mon Aug 16 2021",
+      "feeling": "sluggish"
     },
     {
-        "date": "Tue Aug 17 2021",
-        "feeling": "tired"
+      "date": "Tue Aug 17 2021",
+      "feeling": "tired"
     },
     {
-        "date": "Wed Aug 18 2021",
-        "feeling": "tired"
+      "date": "Wed Aug 18 2021",
+      "feeling": "tired"
     },
     {
-        "date": "Thu Aug 19 2021",
-        "feeling": "tired"
+      "date": "Thu Aug 19 2021",
+      "feeling": "tired"
     },
     {
-        "date": "Fri Aug 20 2021",
-        "feeling": "tired"
+      "date": "Fri Aug 20 2021",
+      "feeling": "tired"
     },
     {
-        "date": "Sat Aug 21 2021",
-        "feeling": "sluggish"
+      "date": "Sat Aug 21 2021",
+      "feeling": "sluggish"
     },
     {
-        "date": "Sun Aug 22 2021",
-        "feeling": "sluggish"
+      "date": "Sun Aug 22 2021",
+      "feeling": "sluggish"
     },
     {
-        "date": "Mon Aug 23 2021",
-        "feeling": "sluggish"
+      "date": "Mon Aug 23 2021",
+      "feeling": "sluggish"
     },
     {
-        "date": "Tue Aug 24 2021",
-        "feeling": "ready"
+      "date": "Tue Aug 24 2021",
+      "feeling": "ready"
     },
     {
-        "date": "Wed Aug 25 2021",
-        "feeling": "ready"
+      "date": "Wed Aug 25 2021",
+      "feeling": "ready"
     },
     {
-        "date": "Thu Aug 26 2021",
-        "feeling": "ready"
+      "date": "Thu Aug 26 2021",
+      "feeling": "ready"
     },
     {
       "date": "Fri Aug 27 2021",
@@ -148,7 +148,7 @@
           "completed": true
         },
         {
-          "name": "Cut out fats",
+          "name": "Don't dring Soda",
           "completed": false
         },
         {
