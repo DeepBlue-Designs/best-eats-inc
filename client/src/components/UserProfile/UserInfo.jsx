@@ -74,7 +74,7 @@ const UserInfo = () => {
 
   return (
     <UserContainer>
-      <MyProfile>My Profile</MyProfile>
+      <MyProfile>MY PROFILE</MyProfile>
       <InfoView>
         <UserAv>
           <Avatar style={{ width: "9rem", height: "9rem" }} {...config} />
@@ -110,14 +110,17 @@ const UserInfo = () => {
               onRequestClose={() => setIsOpen(false)}>
                 <form onSubmit={handleSubmit}>
                   <input type="text" name="userName" placeholder="User Name" onChange={handleChange}  />
+                  <br />
                   <input type="text" name="email" placeholder="Email" onChange={handleChange} />
+                  <br />
                   <input type="text" name="address" placeholder="Shipping address" onChange={handleChange} />
-                  <label>
-                    Health Metrics:
-                      <input type="number" name="weight" placeholder="Weight" onChange={handleChange} />
-                      <input type="text" name="height" placeholder="5'10" onChange={handleChange} />
-                  </label>
+                  <br />
+                  <input type="number" name="weight" placeholder="Weight" onChange={handleChange} />
+                  <br />
+                  <input type="text" name="height" placeholder="5'10" onChange={handleChange} />
+                  <br />
                   <input type="submit" value="Submit" />
+                  <br />
                   <button onClick={() => setIsOpen(false)}>Cancel</button>
                 </form>
             </Modal>
@@ -134,7 +137,6 @@ const UserContainer = styled.div`
   flex-direction: column;
   align-items: center;
   height: 280;
-  border: 2px solid green;
 `;
 
 const MyProfile = styled.div`
@@ -147,7 +149,6 @@ const UserAv = styled.div`
   justify-content: center;
   align-items: flex-start;
   margin-right: 50px;
-  /* position: relative; */
   border-radius: 20%;
   width: 25%;
   margin: 2%;
@@ -156,7 +157,6 @@ const UserAv = styled.div`
 const InfoView = styled.div`
   display: flex;
   justify-content: center;
-  /* border: 1px solid red; */
   flex-direction: row;
   height: 190px;
 `;
@@ -166,12 +166,10 @@ const InfoContainer = styled.div`
   flex-direction: row;
   align-items: center;
   margin: 2%;
-  /* border: 1px solid black; */
 `;
 
 const Info = styled.p`
   margin-top: 4%;
-  /* border: 1px solid yellow; */
   font-family: Tahoma;
   font-weight: 400;
   font-size: 16px;

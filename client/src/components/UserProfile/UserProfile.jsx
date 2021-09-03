@@ -27,8 +27,20 @@ const UserProfile = () => {
     <>
       <UserInfo />
       <ButtonContainer>
-        <Tabs onClick={currentView} style={{backgroundColor: healthTabColor}} name="lifestyle">Health and Lifestyle</Tabs>
-        <Tabs onClick={currentView} style={{backgroundColor: manageTabColor}}name="manage">Manage Account</Tabs>
+        <Tabs
+          onClick={currentView}
+          style={{backgroundColor: healthTabColor, borderColor: manageTabColor}}
+          name="lifestyle"
+        >
+          HEALTH & LIFESTYLE
+        </Tabs>
+        <Tabs
+          onClick={currentView}
+          style={{backgroundColor: manageTabColor, borderColor: healthTabColor}}
+          name="manage"
+        >
+          MANAGE ACCOUNT
+        </Tabs>
       </ButtonContainer>
       {manage ? <ManageAccount /> : <Lifestyle />}
     </>
@@ -49,7 +61,11 @@ const Tabs = styled.button`
   height: 100px;
   font-size: 20px;
   font-weight: 300;
-  background-color: #FFF;
   border: 3px solid #FFF;
+  border-radius: 10px;
   cursor: pointer;
+  &:hover {
+    color: #74FF5C;
+    outline: 0;
+  }
 `;
