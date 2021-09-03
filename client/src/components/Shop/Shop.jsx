@@ -49,7 +49,7 @@ const Shop = () => {
 
   return (
     <ShopContainer>
-      <h2>Menu and Pricing</h2>
+      <h1>Menu &amp; Pricing</h1>
       <MealPlanList
         selectedMealPlan={selectedMealPlan}
         setSelectedMealPlan={setSelectedMealPlan}
@@ -68,7 +68,7 @@ const Shop = () => {
           setSelectedMealPlan={setSelectedMealPlan}
         />
       )}
-        <div>
+        <CheckoutDiv>
           {userData
           ?
           <CheckoutBtn verifyMeals={verifyMeals} selectedMealPlan={selectedMealPlan}/>
@@ -77,15 +77,22 @@ const Shop = () => {
             <button type="button">Register</button>
           </Link>
           )}
-        </div>
+        </CheckoutDiv>
     </ShopContainer>
   );
 };
 
 const ShopContainer = styled.div`
-  background-color: #f8f8f8;
   & h1, h2, h3 {
-    padding: 1em .5em;
+    padding: 1em 0;
   }
+  margin: auto;
+  width: 90vw;
+`;
+
+const CheckoutDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
 `;
 export default Shop;
