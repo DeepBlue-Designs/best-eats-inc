@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 import { useHistory } from "react-router-dom";
+import CustomInput from './CustomInput';
+import Button from './Button';
+import './LoginForm.css';
 
 const SignupForm = () => {
   const [userName, setName] = useState("");
@@ -42,48 +45,49 @@ const SignupForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Sign Up</h2>
+    <div className='LoginForm'>
+      <form className="form">
+        <h1>Sign Up</h1>
 
-      <br />
-      <label> Name: </label>
-      <input
-          type="text"
+        <CustomInput
+          labelText="Username"
+          id="userName"
           value={userName}
-          onChange={e => setName(e.target.value)}
-      />
-
-      <br />
-
-      <label> Password: </label>
-      <input
+          handleChange={e => setName(e.target.value)}
           type="text"
+        />
+
+        <CustomInput
+          labelText="Password"
+          id="password"
           value={password}
-          onChange={e => setPassword(e.target.value)}
-      />
+          handleChange={e => setPassword(e.target.value)}
+          type="password"
+        />
 
-      <br />
-
-      <label> Email: </label>
-      <input
-          type="text"
+        <CustomInput
+          labelText="Email"
+          id="email"
           value={email}
-          onChange={e => setEmail(e.target.value)}
-      />
-
-      <br />
-      <label> Shipping Address: </label>
-      <input
+          handleChange={e => setEmail(e.target.value)}
           type="text"
+        />
+
+        <CustomInput
+          labelText="Shipping Address"
+          id="address"
           value={address}
-          onChange={e => setAddress(e.target.value)}
-      />
-      <div>
-        <button>
-          create account
-        </button>
-      </div>
-    </form>
+          handleChange={e => setAddress(e.target.value)}
+          type="text"
+        />
+
+        <Button onClick={handleSubmit}>
+          Creat an account
+        </Button>
+      </form>
+
+    </div>
+
   )
 }
 
