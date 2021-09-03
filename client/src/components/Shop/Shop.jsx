@@ -1,16 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
+import Context from '../Context.jsx'
 import MealPlanList from './MealPlanList.jsx'
 import MealList from './MealList.jsx';
+import DisplaySelections from './DisplaySelections.jsx';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
 const getMeals = () => axios.get('/meals');
-const getMealPlan = () => axios.get('/');
 
-const Shop = ({ loggedIn, userId }) => {
+const Shop = () => {
   const [meals, setMeals] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const { userData } = useContext(Context);
 
   const [selectedMealPlan, setSelectedMealPlan] = useState({
     plan: 'solo',
@@ -32,16 +34,10 @@ const Shop = ({ loggedIn, userId }) => {
   }, []);
 
   useEffect(() => {
-    // TODO: getMealPlan() via axios or context, then setSelectedMealPlan
-  }, []);
-
-  const handleRegisterOrCheckoutClick = () => {
-    if (loggedIn) {
-      console.log('Go to check out');
-    } else {
-      console.log('Go to registration');
+    if (userData?.currentMealPlan.plan) {
+      setSelectedMealPlan(userData.currentMealPlan);
     }
-  };
+  }, [userData]);
 
   return (
     <ShopContainer>
@@ -50,26 +46,36 @@ const Shop = ({ loggedIn, userId }) => {
         selectedMealPlan={selectedMealPlan}
         setSelectedMealPlan={setSelectedMealPlan}
       />
+      <DisplaySelections
+        selectedMealPlan={selectedMealPlan}
+        setSelectedMealPlan={setSelectedMealPlan}
+      />
+      <h2>All Meals</h2>
       {isLoading
       ? <p>Loading delicious meals, please be patient...</p>
-      : <MealList
+      : (
+        <MealList
           meals={meals}
           selectedMealPlan={selectedMealPlan}
           setSelectedMealPlan={setSelectedMealPlan}
-        />}
-             <div>
-      <Link to={{
-        pathname: '/checkout',
-        state: selectedMealPlan,
-      }}>
-        <button
-          type="button"
-          onClick={handleRegisterOrCheckoutClick}
-        >
-        {!loggedIn ? 'Checkout' : 'Register'}
-        </button>
-        </Link>
-      </div>
+        />
+      )}
+        <div>
+          {userData
+          ? (
+          <Link to={{
+            pathname: '/checkout',
+            state: selectedMealPlan,
+          }}>
+            <button type="button">Checkout</button>
+          </Link>
+          )
+          : (
+          <Link to= '/signup'>
+            <button type="button">Register</button>
+          </Link>
+          )}
+        </div>
     </ShopContainer>
   );
 };
