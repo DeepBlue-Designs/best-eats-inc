@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.LoginForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  text-align: center;
+  height: 100vh;
+  width: 100%;
+  background-color: #BAFFAE;
+}
+
+.form {
+  width: 60%;
+  height: 50%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  background: white;
+  padding: 20px;
+  margin-top: 30px;
+  background: #637d63;
+}
+
+.form .form__custom-button {
+  margin-top: 50px;
+}
