@@ -121,9 +121,10 @@ class ListGoals extends React.Component {
         ) : (
           <div
             style={{
-              border: "1px solid black",
+              border: "1px solid grey",
               marginTop: "65px",
-              background: "#f7bd1191",
+              background: "rgb(254 251 231)",
+              borderRadius: "5px",
             }}
           >
             <form onSubmit={this.editGoal}>
