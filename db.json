@@ -7,7 +7,7 @@
       "actionItems": [
         {
           "name": "Cut out carbs",
-          "completed": false
+          "completed": true
         },
         {
           "name": "Don't dring Soda",
@@ -15,7 +15,7 @@
         },
         {
           "name": "Cut out protein",
-          "completed": false
+          "completed": true
         }
       ]
     },

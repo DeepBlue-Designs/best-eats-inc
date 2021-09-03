@@ -8,11 +8,19 @@ const App = () => {
   const [allData, setAllData] = useState();
 
   useEffect(() => {
+    getAllGoals();
+  }, [allData]);
+
+  const getAllGoals = () => {
     fetch("http://127.0.0.1:4000/goals")
       .then((res) => res.json())
       .then((result) => setAllData(result))
       .catch(console.log);
-  }, [allData]);
+  };
+
+  const refresh = () => {
+    getAllGoals();
+  };
 
   return (
     <div>
@@ -28,7 +36,7 @@ const App = () => {
         className="goalclass"
       >
         <AddGoal />
-        <ListGoals allUserGoals={allData} />
+        <ListGoals allUserGoals={allData} refresh={refresh} />
       </div>
     </div>
   );
