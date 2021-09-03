@@ -1,6 +1,6 @@
 const express = require('express');
 const compression = require('compression');
-const { getMeals } = require('./Shop');
+const { getMeals, getMealById } = require('./Shop');
 const router = require('./routes');
 const db = require('../database/UserProfile/index')
 const path = require('path');
@@ -35,3 +35,5 @@ app.listen(PORT, () => {
  */
 
  app.get('/meals', getMeals);
+
+ app.get('/:id/meals', getMealById);
