@@ -7,25 +7,43 @@ import ManageAccount from './ManageAccount.jsx';
 
 const UserProfile = () => {
   const [manage, setManage] = useState(false);
+  const [healthTabColor, sethealthTabColor] = useState('#FFEF9C');
+  const [manageTabColor, setManageTabColor] = useState('#FFF');
 
   const currentView = (event) => {
     const name = event.target.name;
     if (name === 'manage') {
       setManage(true);
+      sethealthTabColor('#FFF');
+      setManageTabColor('#FFEF9C');
     } else {
       setManage(false);
+      sethealthTabColor('#FFEF9C');
+      setManageTabColor('#FFF');
     }
   }
 
   return (
-    <ProfileContainer>
+    <>
       <UserInfo />
       <ButtonContainer>
-        <button onClick={currentView} name="lifestyle">Health and Lifestyle</button>
-        <button onClick={currentView} name="manage">Manage Account</button>
+        <Tabs
+          onClick={currentView}
+          style={{backgroundColor: healthTabColor, borderColor: manageTabColor}}
+          name="lifestyle"
+        >
+          HEALTH & LIFESTYLE
+        </Tabs>
+        <Tabs
+          onClick={currentView}
+          style={{backgroundColor: manageTabColor, borderColor: healthTabColor}}
+          name="manage"
+        >
+          MANAGE ACCOUNT
+        </Tabs>
       </ButtonContainer>
       {manage ? <ManageAccount /> : <Lifestyle />}
-    </ProfileContainer>
+    </>
   );
 };
 
@@ -33,11 +51,21 @@ export default UserProfile;
 
 const ButtonContainer = styled.div`
   display: flex;
-  margin: 2%;
+  margin: 1.5%;
   position: relative;
-  justify-content: space-evenly;
-  `
+  justify-content: center;
+`;
 
-const ProfileContainer = styled.div`
-  /* background-color: #BAFFAE; */
-  `
+const Tabs = styled.button`
+  width: 500px;
+  height: 100px;
+  font-size: 20px;
+  font-weight: 300;
+  border: 3px solid #FFF;
+  border-radius: 10px;
+  cursor: pointer;
+  &:hover {
+    color: #74FF5C;
+    outline: 0;
+  }
+`;
