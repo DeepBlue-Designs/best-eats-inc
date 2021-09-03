@@ -79,7 +79,7 @@ const PlanCardContent = styled.div`
   height: 100%;
   margin: 10px;
   padding: 10px;
-  background-color: ${props => props.isCurrentlySelected ? '#BAFFAE' : 'fff'};
+  background-color: ${props => props.isCurrentlySelected ? '#FFEF9C' : '#FFFFFF'};
   cursor: ${props => props.selectable ? 'pointer' : 'auto'};
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px 0px;
@@ -100,6 +100,8 @@ const Select = styled.select`
   text-align: left;
   position: relative;
   border-bottom: 1px solid black;
+  font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
+  font-size: 1em;
 `;
 
 
