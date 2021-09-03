@@ -18,12 +18,7 @@ const AddGoal = styled.a`
 `;
 
 const Header = () => {
-  return (
-    <div style={{ marginLeft: "70px" }}>
-      <AddGoal>ADD A GOAL</AddGoal>
-      <AddGoal>UPDATE A GOAL</AddGoal>
-    </div>
-  );
+  return <div style={{ marginLeft: "70px", marginTop: "20px" }}></div>;
 };
 
 export default Header;

@@ -1,0 +1,61 @@
+{
+  "goals": [
+    {
+      "id": 1,
+      "name": "Lose Weight",
+      "completed": false,
+      "actionItems": [
+        {
+          "name": "Cut out carbs",
+          "completed": true
+        },
+        {
+          "name": "Don't dring Soda",
+          "completed": false
+        },
+        {
+          "name": "Cut out protein",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Run 5 miles straight",
+      "completed": false,
+      "actionItems": [
+        {
+          "name": "Run 1 mile straight",
+          "completed": true
+        },
+        {
+          "name": "Run 2 miles straight",
+          "completed": true
+        },
+        {
+          "name": "Run 3 miles straight",
+          "completed": true
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Meditation",
+      "completed": true,
+      "actionItems": [
+        {
+          "name": "Try once",
+          "completed": true
+        },
+        {
+          "name": "3 times one week",
+          "completed": false
+        },
+        {
+          "name": "Attain enlightenment",
+          "completed": true
+        }
+      ]
+    }
+  ]
+}
