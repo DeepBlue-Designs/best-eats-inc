@@ -114,7 +114,7 @@ const ActionDiv = styled.div`
 `;
 
 const ActionText = styled.p`
-  padding: 10px;
+  padding: 5px;
   text-align: center;
 `;
 

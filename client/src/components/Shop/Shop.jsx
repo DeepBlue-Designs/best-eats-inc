@@ -74,7 +74,7 @@ const Shop = () => {
           <CheckoutBtn verifyMeals={verifyMeals} selectedMealPlan={selectedMealPlan}/>
           : (
           <Link to= '/signup'>
-            <button type="button">Register</button>
+            <Button type="button">Register</Button>
           </Link>
           )}
         </CheckoutDiv>
@@ -94,5 +94,11 @@ const CheckoutDiv = styled.div`
   display: flex;
   justify-content: center;
   margin: 20px 0;
+`;
+
+const Button = styled.button`
+  padding: 10px;
+  font-size: 1em;
+  text-transform: uppercase;
 `;
 export default Shop;

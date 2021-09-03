@@ -8,10 +8,15 @@ const CheckoutBtn = ({ verifyMeals, selectedMealPlan }) => (
       pathname: '/checkout',
       state: selectedMealPlan,
     }}>
-    <button type="button" onClick={verifyMeals}>Ready to Checkout!</button>
+    <Button type="button" onClick={verifyMeals}>Ready to Checkout!</Button>
     </Link>)
   : (
-    <button type="button" onClick={verifyMeals}>Keep Selecting Delicious Meals!</button>)
+    <Button type="button" onClick={verifyMeals}>Keep Selecting Delicious Meals!</Button>)
 );
+
+const Button = styled.button`
+  padding: 10px;
+  font-size: 1em;
+`;
 
 export default CheckoutBtn;
