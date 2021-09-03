@@ -21,82 +21,99 @@ const planInfo = {
 };
 
 const MealPlanCard = ({ plan, mealsPerWeek, handleSelectChange, selectable, isCurrentlySelected }) => (
-  <StyledCard
-    isCurrentlySelected={isCurrentlySelected}
-    selectable={selectable}
-  >
-    <div>
-      {`${plan} Plan`}
-    </div>
-    <ImageCard>
-      <Img src={planInfo[plan].photo} alt={`${plan} plan`} />
-    </ImageCard>
-    <InLineText>
+  <>
+    <PlanCardContent
+      isCurrentlySelected={isCurrentlySelected}
+      selectable={selectable}
+    >
+      <CardTitle>
+        {`${plan} Plan`}
+      </CardTitle>
       <div>
-        Servings:
+        <PlanImg src={planInfo[plan].photo} alt={`${plan} plan`} />
+      </div>
+      <InLineText>
+        <div>
+          Servings:
+        </div>
+        <div>
+          {planInfo[plan].serving}
+        </div>
+      </InLineText>
+      <InLineText>
+        <div>
+          Meals/Week:
+        </div>
+      {selectable
+      ? (
+        <Select onChange={handleSelectChange} >
+          {[...Array(5)].map((el, index) => (
+            <option
+              key={`meal${index}`}
+              value={index + 2}
+            >
+              {index + 2}
+            </option>
+          ))}
+        </Select>
+        )
+      : <div>{mealsPerWeek}</div>
+      }
+      </InLineText>
+      <InLineText>
+      <div>
+        Price:
       </div>
       <div>
-        {planInfo[plan].serving}
+        {calculateAndFormatPrice(planInfo[plan].baselinePrice, planInfo[plan].serving, mealsPerWeek)}
       </div>
-    </InLineText>
-    <StyledTextDiv>
-      <InLineText>Meals/Week:
-    {selectable
-    ? (
-      <select onChange={handleSelectChange} >
-        {[...Array(5)].map((el, index) => (
-          <option
-            key={`meal${index}`}
-            value={index + 2}
-          >
-            {index + 2}
-          </option>
-        ))}
-      </select>
-      )
-    : <div>{mealsPerWeek}</div>
-    }
-    </InLineText>
-    <InLineText>
-    <div>
-      Price:
-    </div>
-    <div>
-      {calculateAndFormatPrice(planInfo[plan].baselinePrice, planInfo[plan].serving, mealsPerWeek)}
-    </div>
-    </InLineText>
-    </StyledTextDiv>
-  </StyledCard>
+      </InLineText>
+    </PlanCardContent>
+  </>
 );
 
-const StyledCard = styled.div`
+const PlanCardContent = styled.div`
   display: flex;
   flex-direction: column;
-  text-transform: uppercase;
-  margin: 0 10px;
+  justify-content: space-between;
+  height: 100%;
+  margin: 10px;
   padding: 10px;
-  background-color: ${props => props.isCurrentlySelected ? 'rgba(6, 122, 70, 0.8)' : 'fff'};
+  background-color: ${props => props.isCurrentlySelected ? '#BAFFAE' : 'fff'};
   cursor: ${props => props.selectable ? 'pointer' : 'auto'};
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px 0px;
-`;
-
-const StyledTextDiv = styled.div`
   text-transform: uppercase;
 `;
 
-const ImageCard = styled.div`
-  margin: 10px;
-  align-self: center;
+const PlanImg = styled.img`
+  width: 100%;
 `;
 
-const Img = styled.img`
-  max-height: 150px;
+const Select = styled.select`
+  background-color: transparent;
+  border: none;
+  &:focus{
+    outline: none;
+  }
+  padding: 0 5px;
+  text-align: left;
+  position: relative;
+  border-bottom: 1px solid black;
 `;
+
 
 const InLineText = styled.div`
   display: flex;
   justify-content: space-between;
+  padding-top: 5px;
+`;
+
+const CardTitle = styled.div`
+  font-size: 1.1em;
+  font-weight: bold;
+  text-align: center;
+  padding: 5px 0;
 `;
 
 export default MealPlanCard;
