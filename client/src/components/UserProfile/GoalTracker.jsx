@@ -14,9 +14,10 @@ const GoalButton = styled.a`
   text-transform: uppercase;
   font-size: 1rem;
   letter-spacing: 0.15rem;
-  transition: all 0.3s;
-  position: relative;
-  // z-index: 1;
+  margin-left: 720px;
+  display: block;
+  width: 170px;
+  text-align: center;
   cursor: pointer;
 `;
 

@@ -49,7 +49,7 @@
         },
         {
           "name": "3 times one week",
-          "completed": true
+          "completed": false
         },
         {
           "name": "Attain enlightenment",

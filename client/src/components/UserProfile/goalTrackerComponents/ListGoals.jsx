@@ -22,7 +22,7 @@ class ListGoals extends React.Component {
   deleteGoal(e) {
     var id = e.target.attributes.getNamedItem("data-tag").value;
     axios.delete("http://127.0.0.1:4000/goals/" + id);
-    console.log(id);
+    this.setState({ item1: "" });
   }
 
   editGoal(e) {
