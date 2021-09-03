@@ -39,21 +39,18 @@ const MealCard = ({ id, title, image, prepTime, isSelectable, isSelected, select
 );
 
 const MealCardContainer = styled.div`
-  margin-bottom: 20px;
-  padding-left: 10px;
-  padding-right: 10px;
-  flex: 1 0 25%;
-  border-radius: 5px;
+  padding: 10px;
+  flex: 0 0 25%;
 `;
 
 const MealCardContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
   border-radius: 5px;
   box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px 0px;
   background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-evenly;
 `;
 
 const StyledImageDiv = styled.div`
@@ -63,30 +60,30 @@ const StyledImageDiv = styled.div`
 
 const MealImage = styled.img`
   width: 100%;
-  object-fit: cover;
 `;
 
 const MealDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 5px;
+  padding: 10px;
   font-size: 1em;
   & p {
     font-size: .8em;
-    color: rgb(6, 122, 70);
+    color: #999999;
   }
 `;
 
 const Select = styled.div`
   cursor: pointer;
+  background-color: ${props => props.isSelected ? '#FFEF9C' : '#FFFFFF'};
   display: flex;
-  background-color: ${props => props.isSelected ? 'rgba(6, 122, 70, 0.8)' : 'fff'};
   justify-content: center;
   text-align: center;
   flex-direction: column;
-  padding: 5px 0;
+  padding: 10px 0;
   border-radius: 0 0 5px 5px;
+  font-size: .9em;
 `;
 
 export default MealCard;
