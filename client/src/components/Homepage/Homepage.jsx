@@ -58,8 +58,8 @@ const TileImg = styled.img`
   margin: 3vw;
   border-radius: 15px;
   object-fit: cover;
-  border: 3px solid #2A2E2B;
-  /* box-shadow: rgb(0 0 0 / 22%) 0px 2px 6px 0px; */
+  border: 0px solid #2A2E2B;
+  box-shadow: rgb(0 0 0 / 25%) 0px 2px 6px 0px;
 `
 
 const CarouselContainer = styled.div`
