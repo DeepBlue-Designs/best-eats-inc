@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import MealCard from './MealCard.jsx';
-
-const randomNumToNinety = () => Math.floor(Math.random() * 90);
+import SelectMealCard from './SelectMealCard.jsx';
 
 const DIETS = ['Gluten Free', 'Vegetarian', 'Vegan', 'Pescatarian', 'Paleo'];
 const STARTING_IDX = 55;
@@ -45,7 +43,7 @@ const MealList = ({ meals, selectedMealPlan, setSelectedMealPlan }) => {
       )}
       <MealsContainer>
         {currentMeals.map((meal) => (
-          <MealCard
+          <SelectMealCard
             key={meal.id}
             id={meal.id}
             title={meal.title}
@@ -53,6 +51,7 @@ const MealList = ({ meals, selectedMealPlan, setSelectedMealPlan }) => {
             prepTime={meal.readyInMinutes}
             selectedMealPlan={selectedMealPlan}
             setSelectedMealPlan={setSelectedMealPlan}
+            isSelected={selectedMealPlan.mealIDs.includes(meal.id)}
           />
         ))}
       </MealsContainer>
