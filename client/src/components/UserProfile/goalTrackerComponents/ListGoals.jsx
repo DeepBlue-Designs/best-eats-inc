@@ -144,7 +144,13 @@ class ListGoals extends React.Component {
                 style={{ display: "block", fontSize: "1.3rem", margin: "10px" }}
               >
                 {this.state.currentGoal.actionItems[2].name} :
-                <input type="checkbox" id="item3" />
+                <input
+                  type="checkbox"
+                  id="item3"
+                  onClick={() => this.setState({ item3: !this.state.item3 })}
+                  onChange={() => this.setState({ item3: !this.state.item3 })}
+                  checked={this.state.item3}
+                />
               </label>
               <input
                 style={{ padding: "5px", margin: "15px" }}

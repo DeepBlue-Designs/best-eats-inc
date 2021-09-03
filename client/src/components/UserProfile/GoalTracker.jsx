@@ -31,7 +31,7 @@ const GoalTracker = () => {
 
       <Modal isOpen={goalMoadal} onRequestClose={() => setGoalModal(false)}>
         <span
-          style={{ cursor: "pointer", color: "#795548", fontSize: ".9rem" }}
+          style={{ cursor: "pointer", color: "red", fontSize: ".9rem" }}
           onClick={clickOnGoal}
         >
           [X] CLOSE
