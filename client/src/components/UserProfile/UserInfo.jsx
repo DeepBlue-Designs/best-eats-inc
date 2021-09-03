@@ -73,24 +73,35 @@ const UserInfo = () => {
   }
 
   return (
-    <UserContainer>
+    // <UserContainer>
       <InfoView>
         <UserAv>
-          <Avatar style={{ width: "8rem", height: "8rem" }} {...config} />
+          <Avatar style={{ width: "9rem", height: "9rem" }} {...config} />
         </UserAv>
         <InfoContainer>
-          <div>
-            <Info>
-              Username: {userData.userName} <br /><br />
-              Email: {userData.email} <br /><br />
-              Shipping Address: {userData.address} <br /><br />
-              Health Metrics: <br />
-              Height:
-              {userData.healthMetrics ? userData.healthMetrics.height : 0}
-              Weight:
-              {userData.healthMetrics ? userData.healthMetrics.weight : 0}lbs
-            </Info>
-          </div>
+          <Info>
+            UserName:
+            <br />
+            Email:
+            <br />
+            Address:
+            <br />
+            Height:
+            <br />
+            Weight:
+          </Info>
+          <Info>
+            {userData.userName}
+            <br />
+            {userData.email}
+            <br />
+            {userData.address}
+            <br />
+            {userData.healthMetrics ? userData.healthMetrics.height : 0}
+            <br />
+            {userData.healthMetrics ? userData.healthMetrics.weight : 0}lbs
+          </Info>
+        </InfoContainer>
           <div>
             <button onClick={() => setIsOpen(true)}><FaEdit /></button>
             <Modal
@@ -110,47 +121,51 @@ const UserInfo = () => {
                 </form>
             </Modal>
           </div>
-        </InfoContainer>
       </InfoView>
-    </UserContainer>
+    // </UserContainer>
   );
 };
 
 export default UserInfo;
 
-const UserContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  height: 300px;
-  border: 2px solid green;
-`;
+// const UserContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   height: 300px;
+//   border: 2px solid green;
+// `;
 
 const UserAv = styled.div`
   display: flex;
   justify-content: center;
-  position: relative;
+  align-items: flex-start;
+  /* position: relative; */
   border-radius: 20%;
   width: 25%;
   margin: 2%;
 `;
 const InfoView = styled.div`
   display: flex;
-  border: 1px solid red;
+  justify-content: center;
+  /* border: 1px solid red; */
   flex-direction: row;
-  height: 250px;
+  height: 190px;
 `;
 
 const InfoContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin: 2%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 `;
 
 const Info = styled.p`
   margin-top: 4%;
-  border: 1px solid yellow;
+  /* border: 1px solid yellow; */
   font-family: Tahoma;
   font-weight: 400;
   font-size: 16px;
+  width: 9rem;
+  line-height: 1.5;
 `;
