@@ -3,9 +3,6 @@ import styled from 'styled-components';
 import MealPlanCard from './common/MealPlanCard.jsx';
 
 const SelectMealPlanCard = ({ plan, mealsPerWeek, isCurrentlySelected, setSelectedMealPlan }) => {
-  if (!mealsPerWeek) {
-    mealsPerWeek = 2;
-  }
   const [selectedMealsNum, setSelectedMealsNum] = useState(mealsPerWeek);
 
   const handleSelectChange = (e) => {
@@ -17,7 +14,6 @@ const SelectMealPlanCard = ({ plan, mealsPerWeek, isCurrentlySelected, setSelect
   };
 
   const handleCardClick = () => {
-    console.log(plan);
     setSelectedMealPlan((prevState) => ({
       ...prevState,
       plan
