@@ -10,8 +10,18 @@ import LoginForm from '../LoginSignup/LoginForm.jsx';
 import SignupForm from '../LoginSignup/SignupForm.jsx';
 import UserProfile from '../UserProfile/UserProfile.jsx';
 import Checkout from '../Checkout/Checkout.jsx';
+import styled from 'styled-components';
 
-
+const HeaderContainer = styled.div`
+background: #FFEF9C;
+border-radius: 15px;
+width: 90vw;
+height: 50px;
+display: flex;
+justify-content: space-evenly;
+margin: auto;
+line-height: 50px;
+`
 
 const Header = () => {
 
@@ -26,8 +36,8 @@ const Header = () => {
   }
 
   return (
-    <div>
-      <Router>
+    <Router>
+        <HeaderContainer>
         <Link to="/">
           Logo
           {/* <img src="">LOGO</img> */}
@@ -50,6 +60,7 @@ const Header = () => {
         <Link to="/signup">
           <button>SIGN UP</button>
         </Link>
+    </HeaderContainer>
 
         <Switch>
           <Route exact path="/">
@@ -77,10 +88,8 @@ const Header = () => {
             <Checkout />
           </Route>
         </Switch>
-
         <Footer />
       </Router>
-    </div>
   );
 };
 
