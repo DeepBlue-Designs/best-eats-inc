@@ -6,14 +6,14 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const ManageAccount = () => {
-  const { userData } = useContext(Context)
+  const { userData, setUserData } = useContext(Context)
   const [currentMeal, setMeal] = useState(userData.currentMealPlan);
 
 
   const cancelPlan = () => {
     setMeal(null);
     axios.put(`user/${userData._id}/mealplan/remove`)
-      .then((res) => console.log('Cancel successful', res.status))
+      .then((res) => console.log('Cancel successful', setUserData(res.data)))
       .catch((err) => console.log('Cancel failed', err))
   }
 
