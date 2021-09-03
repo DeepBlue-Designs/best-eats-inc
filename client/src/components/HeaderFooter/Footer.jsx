@@ -4,8 +4,7 @@ import styled from 'styled-components';
 
 const FooterContainer = styled.div`
 background: #FFEF9C;
-border-radius: 15px;
-width: 90vw;
+width: 100vw;
 height: 70px;
 display: flex;
 justify-content: space-evenly;
