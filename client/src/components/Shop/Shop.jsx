@@ -5,6 +5,7 @@ import Context from '../Context.jsx'
 import MealPlanList from './MealPlanList.jsx'
 import MealList from './MealList.jsx';
 import DisplaySelections from './DisplaySelections.jsx';
+import CheckoutBtn from './CheckoutBtn.jsx';
 import styled from 'styled-components';
 
 const getMeals = () => axios.get('/meals');
@@ -39,6 +40,13 @@ const Shop = () => {
     }
   }, [userData]);
 
+  const verifyMeals = () => {
+    const areMealsSelected = selectedMealPlan.mealIDs?.length === selectedMealPlan.mealsPerWeek;
+    const isPlanSelected = selectedMealPlan.plan !== '';
+    console.log(areMealsSelected, isPlanSelected, selectedMealPlan.mealIDs)
+    return areMealsSelected && isPlanSelected;
+  }
+
   return (
     <ShopContainer>
       <h2>Menu and Pricing</h2>
@@ -62,14 +70,8 @@ const Shop = () => {
       )}
         <div>
           {userData
-          ? (
-          <Link to={{
-            pathname: '/checkout',
-            state: selectedMealPlan,
-          }}>
-            <button type="button">Checkout</button>
-          </Link>
-          )
+          ?
+          <CheckoutBtn verifyMeals={verifyMeals} selectedMealPlan={selectedMealPlan}/>
           : (
           <Link to= '/signup'>
             <button type="button">Register</button>
@@ -82,5 +84,8 @@ const Shop = () => {
 
 const ShopContainer = styled.div`
   background-color: #f8f8f8;
+  & h1, h2, h3 {
+    padding: 1em .5em;
+  }
 `;
 export default Shop;
