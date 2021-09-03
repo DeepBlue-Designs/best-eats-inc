@@ -33,7 +33,8 @@ const UserProfile = () => {
 export default UserProfile;
 
 const ButtonContainer = styled.div`
+  display: flex;
   margin: 2%;
   position: relative;
-  justify-content: center;
-  border: 1px solid pink;`
+  justify-content: space-evenly;
+  `
