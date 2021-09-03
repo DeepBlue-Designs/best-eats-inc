@@ -211,7 +211,8 @@ const Info = styled.p`
 `;
 
 const EditButton = styled.button`
-  width: 30px;
+  width: 12px;
+  height: 20px;
   padding-left: 4px;
   margin-top: 35px;
 `;
