@@ -53,6 +53,7 @@ const MealPlanContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 500px;
+  background-color: white !important;
   justify-content: space-evenly;
   align-items: center;
   max-width: 100%; `
@@ -65,7 +66,7 @@ const MealCard = styled.div`
   margin: 2%;
   height: 75%;
   width: 300px;
-  background-color: rgb(186 255 174 / 24%);
+  background-color: rgb(186 255 174 / 24%) !important;
   border: 5px solid #BAFFAE;
   box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px 0px;
   border-radius: 5px;

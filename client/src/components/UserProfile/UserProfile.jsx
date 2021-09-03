@@ -18,15 +18,14 @@ const UserProfile = () => {
   }
 
   return (
-    <>
-      User Profile Page
+    <ProfileContainer>
       <UserInfo />
       <ButtonContainer>
         <button onClick={currentView} name="lifestyle">Health and Lifestyle</button>
         <button onClick={currentView} name="manage">Manage Account</button>
       </ButtonContainer>
       {manage ? <ManageAccount /> : <Lifestyle />}
-    </>
+    </ProfileContainer>
   );
 };
 
@@ -37,4 +36,8 @@ const ButtonContainer = styled.div`
   margin: 2%;
   position: relative;
   justify-content: space-evenly;
+  `
+
+const ProfileContainer = styled.div`
+  background-color: #BAFFAE;
   `

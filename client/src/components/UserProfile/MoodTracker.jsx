@@ -43,7 +43,10 @@ const MoodTracker = () => {
           How are you feeling today? <Emoji symbol="🥳"/>
         </Text>
         {isOpen ? <Picker onEmojiClick={handleSubmit} preload={true} groupVisibility={{flags: false, travel_places: false, objects: false, symbols: false}} /> :
-          <button onClick={() => setOpen(true)}>Select A Mood</button>}
+          <button onClick={() => setOpen(true)}
+            style={{'border': 'none',
+              'padding': '10px 30px',
+              'background-color': '#FFEF9C', 'box-shadow': 'rgb(0 0 0 / 15%) 0px 2px 6px 0px'}}>Select A Mood</button>}
       </DropDownContainer>
       <CalendarContainer>
       <Calendar mood={pastMoods}/>
@@ -65,23 +68,24 @@ const MoodContainer = styled.div`
 
 const DropDownContainer = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  margin: 3% 5% 5% 5%;
-  width: 70%;
-  height: 10%;
+  margin: 3% 5% 4% 5%;
+  width: 100%;
+  height: 15%;
   border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.077), 0 6px 20px 0 rgba(0, 0, 0, 0.077);
+  box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px 0px;
   background: #B5FAFF;
    `
 
 const Text = styled.span`
   font-family: Tahoma;
+  padding-right: 7%;
 `
 
 const CalendarContainer = styled.div`
   height: fit-content;
   max-width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px 0px;
   border-radius: 5px;
 `
