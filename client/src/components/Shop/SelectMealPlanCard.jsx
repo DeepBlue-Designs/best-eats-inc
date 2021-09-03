@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
 import MealPlanCard from './common/MealPlanCard.jsx';
+import styled from 'styled-components';
 
 const SelectMealPlanCard = ({ plan, mealsPerWeek, isCurrentlySelected, setSelectedMealPlan }) => {
   const [selectedMealsNum, setSelectedMealsNum] = useState(mealsPerWeek);
@@ -21,7 +21,7 @@ const SelectMealPlanCard = ({ plan, mealsPerWeek, isCurrentlySelected, setSelect
   };
 
   return (
-    <div onClick={handleCardClick}>
+    <MealPlanCardContainer onClick={handleCardClick}>
       <MealPlanCard
         isCurrentlySelected={isCurrentlySelected}
         handleSelectChange={handleSelectChange}
@@ -29,8 +29,14 @@ const SelectMealPlanCard = ({ plan, mealsPerWeek, isCurrentlySelected, setSelect
         selectable
         mealsPerWeek={selectedMealsNum}
       />
-    </div>
+    </MealPlanCardContainer>
   );
 };
+
+const MealPlanCardContainer = styled.div`
+  margin: 10px;
+  flex: 0 1 25%;
+  height: 100%;
+`;
 
 export default SelectMealPlanCard;
