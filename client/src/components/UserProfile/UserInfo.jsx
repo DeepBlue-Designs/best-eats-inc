@@ -103,12 +103,43 @@ const UserInfo = () => {
             {userData.healthMetrics ? userData.healthMetrics.weight : 0}lbs
           </Info>
         </InfoContainer>
-          <div>
-            <button onClick={() => setIsOpen(true)}><FaEdit /></button>
+          <div style={{display: 'flex', justifyContent: 'center'}}>
+            <EditButton onClick={() => setIsOpen(true)}><FaEdit /></EditButton>
             <Modal
+              style={{
+                overlay: {
+                  position: 'fixed',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'flex-start',
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  paddingTop: '150px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.75)'
+                },
+                content: {
+                  lineHeight: 2,
+                  position: 'relative',
+                  // top: '150px',
+                  // left: '300px',
+                  // inset: 'none',
+                  border: '1px solid #ccc',
+                  background: '#fff',
+                  overflow: 'auto',
+                  borderRadius: '4px',
+                  outline: 'none',
+                  padding: '20px',
+                  width: '160px',
+                  height: '270px'
+                }
+              }}
               isOpen={modalIsOpen}
               onRequestClose={() => setIsOpen(false)}>
                 <form onSubmit={handleSubmit}>
+                  <label style={{marginBottom: '10px'}}>Edit Profile</label>
+                  <br />
                   <input type="text" name="userName" placeholder="User Name" onChange={handleChange}  />
                   <br />
                   <input type="text" name="email" placeholder="Email" onChange={handleChange} />
@@ -119,7 +150,7 @@ const UserInfo = () => {
                   <br />
                   <input type="text" name="height" placeholder="5'10" onChange={handleChange} />
                   <br />
-                  <input type="submit" value="Submit" />
+                  <SubmitBtn type="submit" value="Submit" />
                   <br />
                   <button onClick={() => setIsOpen(false)}>Cancel</button>
                 </form>
@@ -137,6 +168,8 @@ const UserContainer = styled.div`
   flex-direction: column;
   align-items: center;
   height: 280;
+  background-color: white;
+  margin: 20px 0 10px 0;
 `;
 
 const MyProfile = styled.div`
@@ -175,4 +208,21 @@ const Info = styled.p`
   font-size: 16px;
   width: 9rem;
   line-height: 1.5;
+`;
+
+const EditButton = styled.button`
+  width: 30px;
+  padding-left: 4px;
+  margin-top: 35px;
+`;
+
+const SubmitBtn = styled.input`
+  background: #FFEF9C;
+  font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
+  border: 2px solid #2A2E2B;
+  border-radius: 7px;
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  margin-bottom: 5px;
 `;
