@@ -76,7 +76,7 @@ const MealDescription = styled.div`
 
 const Select = styled.div`
   cursor: pointer;
-  background-color: ${props => props.isSelected ? '#BAFFAE' : 'fff'};
+  background-color: ${props => props.isSelected ? '#FFEF9C' : '#FFFFFF'};
   display: flex;
   justify-content: center;
   text-align: center;
