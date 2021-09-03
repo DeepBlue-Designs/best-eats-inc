@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import Context from '../Context.jsx'
 import axios from 'axios';
 import Modal from 'react-modal';
@@ -10,24 +10,66 @@ const config = genConfig("AvatarConfig?");
 Modal.setAppElement("#app");
 
 const UserInfo = () => {
-  // const [user, setUser] = useState(userData);
-  const [modalIsOpen, setIsOpen] = useState(false);
   const { userData, setUserData } = useContext(Context);
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [username, setUsername] = useState(null);
+  const [currEmail, setEmail] = useState(null);
+  const [currAddress, setAddress] = useState(null);
+  const [healthStat, setHealthStat] = useState(null);
 
+  //TODO: update user info routes
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsOpen(false);
 
-    axios.put(`user/${userData.id}/update`, userData)
-      .then((res) => console.log('successful user update'))
+    if (username) {
+      console.log(username)
+      axios.put(`user/${userData._id}/username/edit`, {"userName": username})
+        .then((res) => console.log('successful user update', setUserData(res.data)))
+        .catch((err) => console.log('user update failed', err))
+    }
+    if (currEmail) {
+      axios.put(`user/${userData._id}/email/edit`, {"email": currEmail})
+      .then((res) => console.log('successful user update', setUserData(res.data)))
       .catch((err) => console.log('user update failed', err))
+    }
+    if (currAddress) {
+      axios.put(`user/${userData._id}/address/edit`, {"address": currAddress})
+      .then((res) => console.log('successful user update', setUserData(res.data)))
+      .catch((err) => console.log('user update failed', err))
+    }
+    if (healthStat) {
+      console.log('axios', healthStat)
+      axios.put(`user/${userData._id}/healthMetrics/edit`,
+      { "healthMetrics": {
+        "height": healthStat.height ? healthStat.height : userData.healthMetrics.height,
+        "weight": healthStat.weight ? healthStat.weight : userData.healthMetrics.weight
+        }
+      }
+      )
+      .then((res) => console.log('successful user update', setUserData(res.data)))
+      .catch((err) => console.log('user update failed', err))
+    }
+
+
   }
 
   const handleChange = (event) => {
-    setUserData({
-      ...userData,
-      [event.target.name]: event.target.value
-    })
+    let value = event.target.value;
+    let name = event.target.name;
+
+    if (name === 'userName') {
+      setUsername(value)
+    } else if (name === 'email') {
+      setEmail(value)
+    } else if (name === 'address') {
+      setAddress(value)
+    } else if (name === 'weight') {
+      setHealthStat({...healthStat, weight: value})
+    } else if (name === 'height') {
+      setHealthStat({...healthStat, height: value})
+    }
+
   }
 
   return (
@@ -42,7 +84,11 @@ const UserInfo = () => {
               Username: {userData.userName} <br /><br />
               Email: {userData.email} <br /><br />
               Shipping Address: {userData.address} <br /><br />
-              Health Metrics: {userData.healthMetrics ? userData.healthMetrics : null}
+              Health Metrics: <br />
+              Height:
+              {userData.healthMetrics ? userData.healthMetrics.height : 0}
+              Weight:
+              {userData.healthMetrics ? userData.healthMetrics.weight : 0}lbs
             </Info>
           </div>
           <div>
@@ -54,7 +100,11 @@ const UserInfo = () => {
                   <input type="text" name="userName" placeholder="User Name" onChange={handleChange}  />
                   <input type="text" name="email" placeholder="Email" onChange={handleChange} />
                   <input type="text" name="address" placeholder="Shipping address" onChange={handleChange} />
-                  <input type="text" name="healthMetrics" placeholder="Health Metrics" onChange={handleChange} value={userData.healthMetrics ? userData.healthMetrics : ''}/>
+                  <label>
+                    Health Metrics:
+                      <input type="number" name="weight" placeholder="Weight" onChange={handleChange} />
+                      <input type="text" name="height" placeholder="5'10" onChange={handleChange} />
+                  </label>
                   <input type="submit" value="Submit" />
                   <button onClick={() => setIsOpen(false)}>Cancel</button>
                 </form>

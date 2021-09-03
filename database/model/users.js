@@ -32,7 +32,7 @@ const UserSchema = new mongoose.Schema({
   moods: [
     {
       date: {
-        type: Number
+        type: String
       },
       feeling: {
         type: String
@@ -54,7 +54,11 @@ const UserSchema = new mongoose.Schema({
         }
       ]
     }
-  ]
+  ],
+  healthMetrics: {
+    height: String,
+    weight: Number
+  }
 });
 
 const User = mongoose.model('User', UserSchema);
