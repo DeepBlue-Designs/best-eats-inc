@@ -75,10 +75,10 @@ const UserInfo = () => {
   return (
     <UserContainer>
       <MyProfile>My Profile</MyProfile>
-      <UserAv>
-        <Avatar style={{ width: "9rem", height: "9rem" }} {...config} />
-      </UserAv>
       <InfoView>
+        <UserAv>
+          <Avatar style={{ width: "9rem", height: "9rem" }} {...config} />
+        </UserAv>
         <InfoContainer>
           <Info>
             UserName:
@@ -133,22 +133,25 @@ const UserContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 380px;
+  height: 280;
   border: 2px solid green;
 `;
 
 const MyProfile = styled.div`
-  align-self: flex-start;
+  font-size: 32px;
+  margin: 20px 0 10px 0;
 `;
 
 const UserAv = styled.div`
   display: flex;
   justify-content: center;
   align-items: flex-start;
+  margin-right: 50px;
   /* position: relative; */
   border-radius: 20%;
   width: 25%;
   margin: 2%;
+  padding-right: 30px;
 `;
 const InfoView = styled.div`
   display: flex;
@@ -168,7 +171,6 @@ const InfoContainer = styled.div`
 
 const Info = styled.p`
   margin-top: 4%;
-  margin-left: 30px;
   /* border: 1px solid yellow; */
   font-family: Tahoma;
   font-weight: 400;

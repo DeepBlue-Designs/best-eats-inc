@@ -7,26 +7,28 @@ import ManageAccount from './ManageAccount.jsx';
 
 const UserProfile = () => {
   const [manage, setManage] = useState(false);
-  const [openedColor, setOpenedColor] = useState('#FFEF9C');
+  const [healthTabColor, sethealthTabColor] = useState('#FFEF9C');
+  const [manageTabColor, setManageTabColor] = useState('#FFF');
 
   const currentView = (event) => {
     const name = event.target.name;
     if (name === 'manage') {
       setManage(true);
-      setOpenedColor('#FFF');
+      sethealthTabColor('#FFF');
+      setManageTabColor('#FFEF9C');
     } else {
       setManage(false);
-      setOpenedColor('#FFEF9C');
+      sethealthTabColor('#FFEF9C');
+      setManageTabColor('#FFF');
     }
   }
 
   return (
     <>
-      User Profile Page
       <UserInfo />
       <ButtonContainer>
-        <Tabs onClick={currentView} name="lifestyle">Health and Lifestyle</Tabs>
-        <Tabs onClick={currentView} name="manage">Manage Account</Tabs>
+        <Tabs onClick={currentView} style={{backgroundColor: healthTabColor}} name="lifestyle">Health and Lifestyle</Tabs>
+        <Tabs onClick={currentView} style={{backgroundColor: manageTabColor}}name="manage">Manage Account</Tabs>
       </ButtonContainer>
       {manage ? <ManageAccount /> : <Lifestyle />}
     </>
@@ -37,7 +39,7 @@ export default UserProfile;
 
 const ButtonContainer = styled.div`
   display: flex;
-  margin: 3.5%;
+  margin: 1.5%;
   position: relative;
   justify-content: center;
 `;
@@ -45,7 +47,9 @@ const ButtonContainer = styled.div`
 const Tabs = styled.button`
   width: 500px;
   height: 100px;
-  background-color: #FFEF9C;
+  font-size: 20px;
+  font-weight: 300;
+  background-color: #FFF;
   border: 3px solid #FFF;
   cursor: pointer;
 `;
