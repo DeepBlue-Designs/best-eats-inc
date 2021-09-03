@@ -19,7 +19,7 @@ const MoodTracker = () => {
       setOpen(false);
     } else {
       myStorage.setItem('today', new Date(Date.now()).toDateString());
-      setMood({ date: Date.now(), feeling: emojiObject.emoji })
+      setMood({ date: new Date(Date.now()).toDateString(), feeling: emojiObject.emoji })
       setOpen(false);
     }
     event.preventDefault();
@@ -43,11 +43,7 @@ const MoodTracker = () => {
           How are you feeling today? <Emoji symbol="🥳"/>
         </Text>
         {isOpen ? <Picker onEmojiClick={handleSubmit} preload={true} groupVisibility={{flags: false, travel_places: false, objects: false, symbols: false}} /> :
-          <form>
-            <select onClick={() => setOpen(true)}>
-              <option>Select A Mood!</option>
-            </select>
-          </form>}
+          <button onClick={() => setOpen(true)}>Select A Mood</button>}
       </DropDownContainer>
       <CalendarContainer>
       <Calendar mood={pastMoods}/>
@@ -63,23 +59,29 @@ const MoodContainer = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  border: 1px solid purple;
+  margin-bottom: 2%;
+  border-radius: 5px;
   height: 500px; `
 
 const DropDownContainer = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 5%;
+  margin: 3% 5% 5% 5%;
   width: 70%;
-  height: 20%;
-  border: 1px solid blue; `
+  height: 10%;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.077), 0 6px 20px 0 rgba(0, 0, 0, 0.077);
+  background: #B5FAFF;
+   `
 
 const Text = styled.span`
   font-family: Tahoma;
 `
+
 const CalendarContainer = styled.div`
-  border: 1px solid hotpink;
-  height: 200px;
-  width: 100%;
+  height: fit-content;
+  max-width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
 `
