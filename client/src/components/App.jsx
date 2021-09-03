@@ -10,7 +10,7 @@ const App = () => {
   return (
   <div>
     {/* GLOBAL STYLE COMMENTED OUT FOR SANITY */}
-    {/* <GlobalStyle /> */}
+    <GlobalStyle />
     <Context.Provider value={{userData, setUserData}}>
       <Header />
     </Context.Provider>
