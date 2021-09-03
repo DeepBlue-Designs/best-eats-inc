@@ -34,14 +34,20 @@ const MealList = ({ meals, selectedMealPlan, setSelectedMealPlan }) => {
   return (
     <section>
     <FilterDiv>
-      <FilterButton name="All Meals" onClick={resetMeals}>All Meals</FilterButton>
+      <FilterButton
+        name="All Meals"
+        onClick={resetMeals}
+        clicked={btnClicked === 'All Meals'}
+      >
+        All Meals
+      </FilterButton>
       {DIETS.map((diet) => (
         <FilterButton
           key={diet}
           name={diet}
           type="button"
           onClick={handleFilterClick}
-          clicked={btnClicked === diet || btnClicked === 'All Meals'}
+          clicked={btnClicked === diet}
         >
           {diet}
         </FilterButton>)
@@ -61,9 +67,9 @@ const MealList = ({ meals, selectedMealPlan, setSelectedMealPlan }) => {
           />
         ))}
       </MealsContainer>
-      <div>
+      <ShowMore>
         <button type="button" onClick={handleAddMoreClick}>Show More Meals</button>
-      </div>
+      </ShowMore>
     </section>
   );
 };
@@ -81,21 +87,25 @@ const FilterButton = styled.button`
   border-radius: 30px;
   padding: 8px;
   margin: 10px;
-  background-color: #FFEF9C;
-  ${'' /* border: 1px solid #D1CCB2; */}
   border: none;
+  transition: background-color .3s;
+  background-color: ${props => props.clicked ? '#FFEF9C' : '#B5FAFF'};
   &:hover {
-    background-color: #99ff87;
+    background-color: #FFE97A;
     cursor: pointer;
     transition: background-color .3s;
   }
-  transition: background-color .3s;
-  background-color: ${props => props.clicked ? '#BAFFAE' : '#FFEF9C'};
 `;
 
 const FilterDiv = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+const ShowMore = styled.div`
+  display:flex;
+  justify-content: center;
+  margin: 20px 0;
 `;
 
 export default MealList;
