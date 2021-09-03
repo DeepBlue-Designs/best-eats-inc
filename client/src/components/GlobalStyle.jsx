@@ -3,24 +3,29 @@ import { createGlobalStyle } from 'styled-components'
 //PLEASE CHANGE :D
 const GlobalStyle = createGlobalStyle`
   body {
-    background: hotpink;
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-    color: cyan;
+    background: #BAFFAE;
+    font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
+    color: #2A2E2B;
   }
 
   button {
-    background: limegreen;
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-    &:hover {
-      background: #ecf900;
-      color: black;
-    }
+    background: #FFEF9C;
+    font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
+    border: 2px solid #2A2E2B;
+    border-radius: 7px;
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
   }
 
   a {
-    color: yellow;
+    background: #FFEF9C;
+    font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
+    color: #2A2E2B;
+    text-decoration: none;
+    cursor: pointer;
     &:hover {
-      color: cyan;
+      border-bottom: 3px solid #2A2E2B;
     }
   }
 `
