@@ -57,8 +57,8 @@ const DisplaySelections = ({ selectedMealPlan, setSelectedMealPlan }) => {
       ? (
         <div>
           <div>
-            <p>Your Current Plan Selection: {selectedMealPlan.plan}</p>
-            <p>Your Selected Number of Meals Per Week: {selectedMealPlan.mealsPerWeek}</p>
+            <Paragraph>Your Current Plan Selection: {selectedMealPlan.plan.toUpperCase()}</Paragraph>
+            <Paragraph>Your Selected Number of Meals Per Week: {selectedMealPlan.mealsPerWeek}</Paragraph>
           </div>
           <StyledDiv>
           {mealsToDisplay.map((meal) => (
@@ -94,9 +94,10 @@ const StyledDiv = styled.div`
 `;
 
 const Section = styled.section`
-  border-bottom: 1px solid #E4E4E4;
-  padding-bottom: 20px;
-  background-color: #FFFFFF;
+  padding: 0 0 20px 20px;
+  background-color: #FFF;
+  box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px 0px;
+  border-radius: 5px;
 `;
 
 const FlexDiv = styled.div`
@@ -104,6 +105,7 @@ const FlexDiv = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
 const ActionDiv = styled.div`
   background-color: #B5FAFF;
   width: 40%;
@@ -114,6 +116,10 @@ const ActionDiv = styled.div`
 const ActionText = styled.p`
   padding: 10px;
   text-align: center;
+`;
+
+const Paragraph = styled.p`
+  padding: .5em;
 `;
 
 export default DisplaySelections;
