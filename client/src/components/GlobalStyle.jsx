@@ -1,11 +1,12 @@
 import { createGlobalStyle } from 'styled-components'
 
-//PLEASE CHANGE :D
 const GlobalStyle = createGlobalStyle`
   body {
     background: #BAFFAE;
     font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
     color: #2A2E2B;
+    margin: 0;
+    padding: 0;
   }
 
   button {
