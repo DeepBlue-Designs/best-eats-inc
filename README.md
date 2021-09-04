@@ -60,7 +60,7 @@ Start webpack
 Start json-server
 
 ```bash
-  json-server --watch db.json --port 4000
+  npm run start-json
 ```
 Now the app is ready at http://localhost:3000/
 
