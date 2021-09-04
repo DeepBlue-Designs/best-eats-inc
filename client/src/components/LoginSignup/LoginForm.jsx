@@ -13,7 +13,6 @@ const LoginForm = () => {
   let history = useHistory();
 
   const handleSubmit = () => {
-    console.log("Do I submit?");
     axios
       .post("/user/login", {
         userName: userName,
