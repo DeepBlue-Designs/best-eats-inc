@@ -12,7 +12,7 @@ import UserProfile from '../UserProfile/UserProfile.jsx';
 import Checkout from '../Checkout/Checkout.jsx';
 import styled from 'styled-components';
 
-const HeaderContainer = styled.div`
+const HeaderContainer = styled.nav`
 background: #FFEF9C;
 width: 100vw;
 height: 70px;
@@ -38,7 +38,7 @@ const Header = () => {
     <Router>
         <HeaderContainer>
         <Link to="/">
-        <img src="https://i.imgur.com/7jRksZX.png" title="source: imgur.com" style={{"width": "60px", "border-radius": "5px", "margin-top": "5px"}}/>
+        <img src="https://i.imgur.com/7jRksZX.png" title="source: imgur.com" style={{"width": "60px", "borderRadius": "5px", "marginTop": "5px"}}/>
         </Link>
         <Link to="/shop">
           Menu & Pricing
