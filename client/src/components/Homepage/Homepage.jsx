@@ -32,7 +32,14 @@ const GetStartedButton = styled.button`
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* height: 30px; */
+  height: 50px;
+  font-size: 1.25em;
+  background-color: #FFEF9C;
+  &:hover {
+    background-color: #BAFFAE;
+    transition: background-color .3s;
+  }
+  transition: background-color .3s;
 `;
 
 const TileContainer = styled.div`
@@ -88,11 +95,12 @@ const responsive = {
 const Homepage = () => {
   return (
     <div>
-      {/* <div>Homepage {test}</div> */}
       <MainSplashContainer>
         <MainSplash src='https://puregreensaz.com/wp-content/uploads/2020/06/dan-meyers-IQVFVH0ajag-unsplash-1080x675.jpg'/>
         <Slogan>A one stop shop for the best healthy food, and lifestyle advice, delivered right to your door!</Slogan>
-        <GetStartedButton>Get Started</GetStartedButton>
+        <Link to='/signup'>
+          <GetStartedButton>Get Started</GetStartedButton>
+        </Link>
       </MainSplashContainer>
       <TileContainer>
         <InfoTile>
@@ -101,12 +109,6 @@ const Homepage = () => {
           <h1>LOCALLY SOURCED INGREDIENTS</h1>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
         </TileText>
         </InfoTile>
-          {/* <Link to={{
-            pathname:'/checkout',
-            state: {
-              nhu: 'smart'
-            }
-          }} >test link back to checkout</Link> */}
       </TileContainer>
 
       <TileContainer>
