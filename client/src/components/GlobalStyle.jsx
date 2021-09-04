@@ -9,6 +9,16 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
+  nav a {
+    font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
+    color: #2A2E2B;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      border-bottom: 3px solid #2A2E2B;
+    }
+  }
+
   button {
     font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
     border: 0px solid #2A2E2B;
@@ -18,16 +28,6 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
     &:hover {
       background: #FFEF9C;
-    }
-  }
-
-  a {
-    font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
-    color: #2A2E2B;
-    text-decoration: none;
-    cursor: pointer;
-    &:hover {
-      border-bottom: 3px solid #2A2E2B;
     }
   }
 `
