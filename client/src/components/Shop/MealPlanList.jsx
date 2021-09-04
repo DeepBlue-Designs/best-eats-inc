@@ -5,7 +5,7 @@ import SelectMealPlanCard from './SelectMealPlanCard.jsx';
 const PLANS = ['solo', 'duo', 'family'];
 
 const MealPlanList = ({ selectedMealPlan, setSelectedMealPlan }) => (
-  <MealPlanListContainer>
+  <section>
     <h2>Choose a Plan</h2>
     <PlanContainer>
       {PLANS.map((plan) => (
@@ -18,12 +18,8 @@ const MealPlanList = ({ selectedMealPlan, setSelectedMealPlan }) => (
         />
       ))}
     </PlanContainer>
-  </MealPlanListContainer>
+  </section>
 );
-
-const MealPlanListContainer = styled.section`
-  border-bottom: 1px solid #E4E4E4;
-`;
 
 const PlanContainer = styled.div`
   display: flex;

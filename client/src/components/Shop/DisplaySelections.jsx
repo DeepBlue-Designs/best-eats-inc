@@ -91,6 +91,7 @@ const DisplaySelections = ({ selectedMealPlan, setSelectedMealPlan }) => {
 const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
+  flex-flow: wrap;
 `;
 
 const Section = styled.section`
