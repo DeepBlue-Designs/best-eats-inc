@@ -5,25 +5,26 @@ import styled from 'styled-components';
 import Carousel from 'react-multi-carousel';
 
 const MainSplash = styled.img`
-  height: 90vh;
-  width: 100vw;
+  height: 80vh;
+  width: 90vw;
   object-fit: cover;
   border-radius: 15px;
+  margin 20px;
 `
 
 const MainSplashContainer = styled.div`
-  position: relative;
   text-align: center;
   color: white;
 `;
 
 const Slogan = styled.div`
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 50px;
   color: black;
+  font-family: Shadows Into Light Two;
 `;
 
 const GetStartedButton = styled.button`
@@ -31,9 +32,14 @@ const GetStartedButton = styled.button`
   top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: white;
-  border: 5px solid black;
-  height: 30px;
+  height: 50px;
+  font-size: 1.25em;
+  background-color: #FFEF9C;
+  &:hover {
+    background-color: #BAFFAE;
+    transition: background-color .3s;
+  }
+  transition: background-color .3s;
 `;
 
 const TileContainer = styled.div`
@@ -47,7 +53,6 @@ const InfoTile = styled.div`
   justify-content: center;
 `
 const TileText = styled.div`
-  font-family: Courier New;
   height: 30vh;
   width: 30vw;
   font-size: 20px;
@@ -55,15 +60,18 @@ const TileText = styled.div`
 `
 
 const TileImg = styled.img`
-  height: 30vh;
-  width: 30vw;
+  height: 400px;
+  width: 400px;
   margin: 3vw;
   border-radius: 15px;
   object-fit: cover;
+  border: 0px solid #2A2E2B;
+  box-shadow: rgb(0 0 0 / 25%) 0px 2px 6px 0px;
 `
 
 const CarouselContainer = styled.div`
-
+  width: 90vw;
+  margin: auto;
 `
 
 const responsive = {
@@ -87,48 +95,41 @@ const responsive = {
 const Homepage = () => {
   return (
     <div>
-      {/* <div>Homepage {test}</div> */}
       <MainSplashContainer>
         <MainSplash src='https://puregreensaz.com/wp-content/uploads/2020/06/dan-meyers-IQVFVH0ajag-unsplash-1080x675.jpg'/>
         <Slogan>A one stop shop for the best healthy food, and lifestyle advice, delivered right to your door!</Slogan>
-        <GetStartedButton>Get Started</GetStartedButton>
+        <Link to='/signup'>
+          <GetStartedButton>Get Started</GetStartedButton>
+        </Link>
       </MainSplashContainer>
       <TileContainer>
         <InfoTile>
-        <TileImg src='https://www.ecocaters.com/wp-content/uploads/2019/05/FreshLocalProductsFT.jpg' />
+        <TileImg src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSf8nG1sznO88_JtSIN3x1KFueJOqscjUFeYbd-S-F-skj1bZP4_1PwRNiQF4ts5MTZ8GI&usqp=CAU' />
         <TileText>
-          <h1>LOCALLY SOURCED INGREDIENTS</h1>Hello testing testing hihi ok im writing a long thing cuz i need to know how this thing raps
-          and by raps i mean raps `not wraps because im launching my own hiphop label soon and need some talent to prop up so we can get the first few albums recordeded
+          <h1>LOCALLY SOURCED INGREDIENTS</h1>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
         </TileText>
         </InfoTile>
-          {/* <Link to={{
-            pathname:'/checkout',
-            state: {
-              nhu: 'smart'
-            }
-          }} >test link back to checkout</Link> */}
       </TileContainer>
 
       <TileContainer>
         <InfoTile>
         <TileText>
-          <h1>CHOOSE A MEAL PLAN BASED ON HEALTH GOALS</h1>Hello testing testing hihi ok im writing a long thing cuz i need to know how this thing raps
-          and by raps i mean raps `not wraps because im launching my own hiphop label soon and need some talent to prop up so we can get the first few albums recordeded
+          <h1>CHOOSE A MEAL PLAN BASED ON HEALTH GOALS</h1>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
         </TileText>
-        <TileImg src='https://www.ecocaters.com/wp-content/uploads/2019/05/FreshLocalProductsFT.jpg' />
+        <TileImg src='https://us.123rf.com/450wm/tele52/tele521811/tele52181100001/113575054-vector-green-salad-icon-includes-red-and-orange-tomato-lettuce-cheese-egg-red-bell-pepper-croutons-a.jpg?ver=6' />
         </InfoTile>
       </TileContainer>
 
       <TileContainer>
         <InfoTile>
-        <TileImg src='https://www.ecocaters.com/wp-content/uploads/2019/05/FreshLocalProductsFT.jpg' />
+        <TileImg src='https://previews.123rf.com/images/cosmaa/cosmaa1809/cosmaa180900191/109667864-vector-cartoon-illustration-of-checklist-clipboard-checklist-floral-decoration-object-.jpg' />
         <TileText>
-        <h1>LIFESTYLE GUIDE TO TRACK YOUR GOALS</h1>Hello testing testing hihi ok im writing a long thing cuz i need to know how this thing raps
-          and by raps i mean raps `not wraps because im launching my own hiphop label soon and need some talent to prop up so we can get the first few albums recordeded
+        <h1>LIFESTYLE GUIDE TO TRACK YOUR GOALS</h1>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
         </TileText>
         </InfoTile>
       </TileContainer>
 
+      <CarouselContainer>
       <Carousel
         swipeable={false}
         draggable={false}
@@ -147,14 +148,14 @@ const Homepage = () => {
         dotListClass="custom-dot-list-style"
         itemClass="carousel-item-padding-40-px"
       >
-        <div><TileImg src='https://www.ecocaters.com/wp-content/uploads/2019/05/FreshLocalProductsFT.jpg' /></div>
-        <div><TileImg src='https://puregreensaz.com/wp-content/uploads/2020/06/dan-meyers-IQVFVH0ajag-unsplash-1080x675.jpg' /></div>
-        <div><TileImg src='https://www.tastearkansas.com/wp-content/uploads/2019/03/Critt.-County-Farm-Family-2010-Wallace-Family-034-1024x680.jpg' /></div>
-        <div><TileImg src='https://upload.wikimedia.org/wikipedia/commons/b/bf/Woman-Farmer.jpg' /></div>
-        <div><TileImg src='https://www.ornatopia.com/wp-content/uploads/2020/10/images873-5f97103b3c1ba.jpg' /></div>
-        <div><TileImg src='https://www.nfsmi.org/wp-content/uploads/2020/12/Best-Nutrition-Certifications-for-Fitness-1024x680.jpg' /></div>
-        <div><TileImg src='https://www.nfsmi.org/wp-content/uploads/2019/07/how-to-become-a-nutritionist-1024x680.jpg' /></div>
+        <div><TileImg src='https://img.hellofresh.com/f_auto,fl_lossy,h_355,q_auto,w_355/hellofresh_website/us/cms/homepage/Recipe%20Slider/20min_720x720.jpg' /></div>
+        <div><TileImg src='https://img.hellofresh.com/f_auto,fl_lossy,h_355,q_auto,w_355/hellofresh_website/us/cms/homepage/Recipe%20Slider/Veggie_720x720.jpg' /></div>
+        <div><TileImg src='https://img.hellofresh.com/f_auto,fl_lossy,h_355,q_auto,w_355/hellofresh_website/us/cms/homepage/static_slider/W21_R12_2019_R80199A_TruffleBurgerswithSauteedMushrooms_V5_360x360.jpg' /></div>
+        <div><TileImg src='https://img.hellofresh.com/f_auto,fl_lossy,h_355,q_auto,w_355/hellofresh_website/us/cms/homepage/static_slider/W23_R12_2019_R90128A_MediterraneanMezzePlatter360x360.jpg' /></div>
+        <div><TileImg src='https://img.hellofresh.com/f_auto,fl_lossy,h_355,q_auto,w_355/hellofresh_website/us/cms/homepage/Recipe%20Slider/One%20pot%20wonder_720x720.jpg' /></div>
+        <div><TileImg src='https://img.hellofresh.com/f_auto,fl_lossy,h_355,q_auto,w_355/hellofresh_website/us/cms/homepage/Recipe%20Slider/Premium_720x720.jpg' /></div>
       </Carousel>
+      </CarouselContainer>
     </div>
   );
 };

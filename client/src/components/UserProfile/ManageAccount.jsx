@@ -19,15 +19,17 @@ const ManageAccount = () => {
 
   return(
     <ManageContainer>
-      Current Meal Plan:
       <MealPlanContainer>
         <MealCard>
+        <Text>
+      Current Meal Plan:
+      </Text>
         {currentMeal && currentMeal.mealIDs.length ? <MealPlanCard plan={currentMeal.plan} mealsPerWeek={currentMeal.mealsPerWeek} /> : "Please Select a MealPlan" }
         </MealCard>
         <ButtonContainer>
           <button onClick={cancelPlan}>Cancel</button>
             <Link to="/shop">
-              <button>Modify</button>
+              <button style={{'width': '100%'}}>Modify</button>
             </Link>
         </ButtonContainer>
       </MealPlanContainer>
@@ -39,27 +41,35 @@ export default ManageAccount;
 
 const ManageContainer = styled.div`
   display: flex;
+  margin-bottom: 2%;
   flex-direction: column;
-  border: 1px solid lightblue;
+  border-radius: 5px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px 0px;
   `
 
 const MealPlanContainer = styled.div`
   display: flex;
   flex-direction: row;
-  border: 1px solid orange;
   height: 500px;
-  justify-content: space-between;
+  border-radius: 5px;
+  background-color: white !important;
+  justify-content: space-evenly;
+  align-items: center;
   max-width: 100%; `
 
 const MealCard = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 2%;
   height: 75%;
-  max-width: 30%;
-  min-width: 30%;
-  border: 1px solid blue;`
+  width: 300px;
+  background-color: rgb(186 255 174 / 24%) !important;
+  border: 5px solid #BAFFAE;
+  box-shadow: rgb(0 0 0 / 15%) 0px 2px 6px 0px;
+  border-radius: 5px;
+  `
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -68,8 +78,11 @@ const ButtonContainer = styled.div`
   align-content: center;
   margin: 2%;
   height: 75%;
-  max-width: 30%;
-  min-width: 30%;
-  border: 1px solid purple;
+  width: 300px;
 `
 
+const Text = styled.div`
+  padding: 6px 20px;
+  align-self: flex-start;
+  margin-bottom: 5%;
+`

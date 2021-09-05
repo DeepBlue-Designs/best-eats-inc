@@ -1,26 +1,33 @@
 import { createGlobalStyle } from 'styled-components'
 
-//PLEASE CHANGE :D
 const GlobalStyle = createGlobalStyle`
   body {
-    background: hotpink;
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
-    color: cyan;
+    background: #BAFFAE;
+    font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
+    color: #2A2E2B;
+    margin: 0;
+    padding: 0;
   }
 
-  button {
-    background: limegreen;
-    font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+  nav a {
+    font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
+    color: #2A2E2B;
+    text-decoration: none;
+    cursor: pointer;
     &:hover {
-      background: #ecf900;
-      color: black;
+      border-bottom: 3px solid #2A2E2B;
     }
   }
 
-  a {
-    color: yellow;
+  button {
+    font-family: 'Signika Negative', 'Signika Negative', Signika Negative;
+    border: 0px solid #2A2E2B;
+    box-shadow: rgb(0 0 0 / 25%) 0px 2px 6px 0px;
+    border-radius: 5px;
+    padding: 5px 22px;
+    cursor: pointer;
     &:hover {
-      color: cyan;
+      background: #FFEF9C;
     }
   }
 `

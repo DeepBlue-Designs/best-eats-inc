@@ -10,8 +10,17 @@ import LoginForm from '../LoginSignup/LoginForm.jsx';
 import SignupForm from '../LoginSignup/SignupForm.jsx';
 import UserProfile from '../UserProfile/UserProfile.jsx';
 import Checkout from '../Checkout/Checkout.jsx';
+import styled from 'styled-components';
 
-
+const HeaderContainer = styled.nav`
+background: #FFEF9C;
+width: 100vw;
+height: 70px;
+display: flex;
+justify-content: space-evenly;
+margin: auto;
+line-height: 70px;
+`
 
 const Header = () => {
 
@@ -26,11 +35,10 @@ const Header = () => {
   }
 
   return (
-    <div>
-      <Router>
+    <Router>
+        <HeaderContainer>
         <Link to="/">
-          Logo
-          {/* <img src="">LOGO</img> */}
+        <img src="https://i.imgur.com/7jRksZX.png" title="source: imgur.com" style={{"width": "60px", "borderRadius": "5px", "marginTop": "5px"}}/>
         </Link>
         <Link to="/shop">
           Menu & Pricing
@@ -50,6 +58,7 @@ const Header = () => {
         <Link to="/signup">
           <button>SIGN UP</button>
         </Link>
+    </HeaderContainer>
 
         <Switch>
           <Route exact path="/">
@@ -77,10 +86,8 @@ const Header = () => {
             <Checkout />
           </Route>
         </Switch>
-
         <Footer />
       </Router>
-    </div>
   );
 };
 

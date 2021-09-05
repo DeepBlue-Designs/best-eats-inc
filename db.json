@@ -1,0 +1,42 @@
+{
+  "goals": [
+    {
+      "id": 1,
+      "name": "Lose Weight",
+      "completed": false,
+      "actionItems": [
+        {
+          "name": "Cut out carbs",
+          "completed": false
+        },
+        {
+          "name": "Don't drink Soda",
+          "completed": true
+        },
+        {
+          "name": "Eat more veggies",
+          "completed": false
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Meditation",
+      "completed": true,
+      "actionItems": [
+        {
+          "name": "Try once",
+          "completed": true
+        },
+        {
+          "name": "3 times one week",
+          "completed": false
+        },
+        {
+          "name": "Attain enlightenment",
+          "completed": true
+        }
+      ]
+    }
+  ]
+}
