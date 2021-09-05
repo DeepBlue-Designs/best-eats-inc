@@ -20,9 +20,23 @@ This application facilitates meal-planning, bridges the gap between local farmer
 - 🥒 **Menu & Pricing:** displays healthy meals provided by the Spoonacular Recipe API. Allows users to choose meal plans, meals, and checkout.
 - 🥗**Meet the Farmers & Nutritionists:** provides places to find local farmers and nutritionists.
 ## Demo
+#### Landing Page
+![Landing Page](https://github.com/DeepBlue-Designs/best-eats-inc/blob/main/demo_gif/land_page.gif?raw=true)
 
-Insert gif or link to demo
+#### Signup/Login
+![Signup-Login](https://github.com/DeepBlue-Designs/best-eats-inc/blob/main/demo_gif/signup-login.gif?raw=true)
 
+#### User Profile
+![User Profile](https://github.com/DeepBlue-Designs/best-eats-inc/blob/main/demo_gif/user-profile.gif?raw=true)
+
+#### Goal Tracker
+![Goal Tracker](https://github.com/DeepBlue-Designs/best-eats-inc/blob/main/demo_gif/goal-tracker.gif?raw=true)
+
+#### Menu and Pricing
+![Menu and Pricing](https://github.com/DeepBlue-Designs/best-eats-inc/blob/main/demo_gif/menu-pricing.gif?raw=true)
+
+#### Farmers and Nutritionists
+![Farmers and Nutritionists](https://github.com/DeepBlue-Designs/best-eats-inc/blob/main/demo_gif/farmers-nutritionists.gif?raw=true)
 
 ## Run Locally
 _Check required tech is installed (see below)._
