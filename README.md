@@ -18,7 +18,7 @@ This application facilitates meal-planning, bridges the gap between local farmer
 - 🥦 **User Profile:** displays user information, such as email, username, address, and optional health metrics. Users can also manage their account, and update/view their wellness status.
 - 🥕 **Lifestyle Guide:** displays a list of editable goals and action items with ability to mark as complete.
 - 🥒 **Menu & Pricing:** displays healthy meals provided by the Spoonacular Recipe API. Allows users to choose meal plans, meals, and checkout.
-- 🥗**Meet the Farmers & Nutritionists:** provides places to find local farmers and nutritionists.
+- 🥗 **Meet the Farmers & Nutritionists:** provides places to find local farmers and nutritionists.
 ## Demo
 #### Landing Page
 ![Landing Page](https://github.com/DeepBlue-Designs/best-eats-inc/blob/main/demo_gif/land_page.gif?raw=true)
